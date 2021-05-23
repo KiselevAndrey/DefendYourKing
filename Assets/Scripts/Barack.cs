@@ -18,6 +18,7 @@ public class Barack : MonoBehaviour, IBuilding
     public void Select()
     {
         print(nameof(Select) + " " + gameObject.name);
+        SelectorOverlay.Instance.Show(this);
     }
 
     public void Deselect()
@@ -34,5 +35,10 @@ public class Barack : MonoBehaviour, IBuilding
     public void Upgrade()
     {
         throw new System.NotImplementedException();
+    }
+
+    public Vector3 GetPosition()
+    {
+        return transform.position;
     }
 }

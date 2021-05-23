@@ -4,9 +4,18 @@ using UnityEngine;
 
 public class SelectorOverlay : MonoBehaviour
 {
-    [SerializeField] List<SpriteRenderer> actions;
+    public static SelectorOverlay Instance { get; private set; }
 
-    #region Update
+    [SerializeField] private Transform cameraPlant;
+    [SerializeField] private List<SpriteRenderer> actions;
+
+    #region Awake Update
+    private void Awake()
+    {
+        Instance = this;
+        Hide();
+    }
+
     private void LateUpdate()
     {
         RotationToCamera();
@@ -14,9 +23,11 @@ public class SelectorOverlay : MonoBehaviour
     #endregion
 
     #region Show/Hide
-    public void Show()
+    public void Show(IBuilding building)
     {
+        RotationToCamera();
         gameObject.SetActive(true);
+        transform.position = building.GetPosition();
     }
 
     public void Hide()
@@ -28,7 +39,7 @@ public class SelectorOverlay : MonoBehaviour
     #region RotationToCamera
     private void RotationToCamera()
     {
-
+        transform.rotation = cameraPlant.rotation;
     }
     #endregion
 }
