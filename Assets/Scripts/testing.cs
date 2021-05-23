@@ -14,13 +14,13 @@ public class testing : MonoBehaviour
         {
             if (hit.collider.TryGetComponent(out IUnit unit))
             {
-                if (selectable != null && selectable == unit) Deselect();
+                if (selectable != null && selectable != unit) Deselect();
 
-                //if (selectable != unit)
-                //{
+                if (selectable != unit)
+                {
                     selectable = unit;
                     unit.Select();
-                //}
+                }
             }
             else TryDeselect();
         }
