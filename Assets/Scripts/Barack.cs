@@ -1,9 +1,8 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Barack : MonoBehaviour, IBuilding
 {
+    public int Health { get => throw new System.NotImplementedException(); private set => throw new System.NotImplementedException(); }
 
     public void Build()
     {

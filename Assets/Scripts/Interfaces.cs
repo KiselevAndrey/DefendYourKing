@@ -2,6 +2,8 @@ using UnityEngine;
 
 public interface IUnit
 {
+    int Health { get; }
+
     void GetDamage(int damage);
 
     void Death();

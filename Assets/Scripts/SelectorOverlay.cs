@@ -1,4 +1,3 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -26,8 +25,9 @@ public class SelectorOverlay : MonoBehaviour
     public void Show(IBuilding building)
     {
         RotationToCamera();
-        gameObject.SetActive(true);
         transform.position = building.GetPosition();
+
+        gameObject.SetActive(true);
     }
 
     public void Hide()
