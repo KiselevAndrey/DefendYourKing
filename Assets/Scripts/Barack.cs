@@ -16,13 +16,12 @@ public class Barack : MonoBehaviour, IBuilding
 
     public void Select()
     {
-        print(nameof(Select) + " " + gameObject.name);
         SelectorOverlay.Instance.Show(this);
     }
 
     public void Deselect()
     {
-        print(nameof(Deselect) + " " + gameObject.name);
+        SelectorOverlay.Instance.Hide();
     }
 
     public void GetDamage(int damage)
