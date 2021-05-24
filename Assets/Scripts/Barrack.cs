@@ -1,8 +1,8 @@
 using UnityEngine;
 
-public class Barack : MonoBehaviour, IBuilding
+public class Barrack : MonoBehaviour, IBuilding
 {
-    public int Health { get => throw new System.NotImplementedException(); private set => throw new System.NotImplementedException(); }
+    public int Health { get; private set; }
 
     public void Build()
     {
