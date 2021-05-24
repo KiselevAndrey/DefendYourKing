@@ -2,6 +2,24 @@ using UnityEngine;
 
 public class Barrack : MonoBehaviour, IBuilding
 {
+    #region Complete
+    public void Select()
+    {
+        SelectorOverlay.Instance.Show(this);
+    }
+
+    public void Deselect()
+    {
+        SelectorOverlay.Instance.Hide();
+    }
+
+    public Vector3 GetPosition()
+    {
+        return transform.position;
+    }
+    #endregion
+
+    #region Need Complete
     public int Health { get; private set; }
 
     public void Build()
@@ -14,15 +32,6 @@ public class Barrack : MonoBehaviour, IBuilding
         throw new System.NotImplementedException();
     }
 
-    public void Select()
-    {
-        SelectorOverlay.Instance.Show(this);
-    }
-
-    public void Deselect()
-    {
-        SelectorOverlay.Instance.Hide();
-    }
 
     public void GetDamage(int damage)
     {
@@ -34,9 +43,5 @@ public class Barrack : MonoBehaviour, IBuilding
     {
         throw new System.NotImplementedException();
     }
-
-    public Vector3 GetPosition()
-    {
-        return transform.position;
-    }
+    #endregion
 }
