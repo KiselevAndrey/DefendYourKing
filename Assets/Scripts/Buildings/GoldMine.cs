@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GoldLumber : MonoBehaviour, IBuilding
+public class GoldMine : MonoBehaviour, IBuilding
 {
     #region Complete
     public void Select()
