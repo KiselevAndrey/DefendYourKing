@@ -15,11 +15,11 @@ E:/My Programming/unity/test/DefendYourKing
 -logFile
 Logs/AssetImportWorker0.log
 -srvPort
-52079
+60897
 Successfully changed project path to: E:/My Programming/unity/test/DefendYourKing
 E:/My Programming/unity/test/DefendYourKing
 Using Asset Import Pipeline V2.
-Refreshing native plugins compatible for Editor in 39.81 ms, found 0 plugins.
+Refreshing native plugins compatible for Editor in 36.05 ms, found 0 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Initialize engine version: 2020.3.5f1 (8095aa901b9b)
 [Subsystems] Discovering subsystems at path C:/Program Files/Unity/Hub/Editor/2020.3.5f1/Editor/Data/Resources/UnitySubsystems
@@ -35,519 +35,101 @@ Initialize mono
 Mono path[0] = 'C:/Program Files/Unity/Hub/Editor/2020.3.5f1/Editor/Data/Managed'
 Mono path[1] = 'C:/Program Files/Unity/Hub/Editor/2020.3.5f1/Editor/Data/MonoBleedingEdge/lib/mono/unityjit'
 Mono config path = 'C:/Program Files/Unity/Hub/Editor/2020.3.5f1/Editor/Data/MonoBleedingEdge/etc'
-Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56124
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56704
 Begin MonoManager ReloadAssembly
 Registering precompiled unity dll's ...
 Register platform support module: C:/Program Files/Unity/Hub/Editor/2020.3.5f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
-Registered in 0.002153 seconds.
+Registered in 0.002163 seconds.
 Native extension for WindowsStandalone target not found
-Refreshing native plugins compatible for Editor in 39.39 ms, found 0 plugins.
+Refreshing native plugins compatible for Editor in 35.77 ms, found 0 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Mono: successfully reloaded assembly
-- Completed reload, in  2.051 seconds
+- Completed reload, in  2.000 seconds
 Platform modules already initialized, skipping
 Registering precompiled user dll's ...
-Registered in 0.001398 seconds.
-Begin MonoManager ReloadAssembly
-Native extension for WindowsStandalone target not found
-Refreshing native plugins compatible for Editor in 0.42 ms, found 0 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Mono: successfully reloaded assembly
-- Completed reload, in  1.049 seconds
-Platform modules already initialized, skipping
-========================================================================
-Worker process is ready to serve import requests
-Launched and connected shader compiler UnityShaderCompiler.exe after 0.04 seconds
-Refreshing native plugins compatible for Editor in 0.45 ms, found 0 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 1497 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 77.4 MB.
-System memory in use after: 77.4 MB.
-
-Unloading 70 unused Assets to reduce memory usage. Loaded Objects now: 1945.
-Total: 2.903600 ms (FindLiveObjects: 0.315700 ms CreateObjectMapping: 0.159600 ms MarkObjects: 2.181500 ms  DeleteObjects: 0.245600 ms)
-
-========================================================================
-Received Import Request.
-  path: Assets/Sprites/cartoon-blue-cloudy-sky-horizontal-seamless-pattern-with-white-fluffy-clouds-texture_102902-515.jpg
-  artifactKey: Guid(c6f74564924b5af41bda8e4a0dd574ab) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Sprites/cartoon-blue-cloudy-sky-horizontal-seamless-pattern-with-white-fluffy-clouds-texture_102902-515.jpg using Guid(c6f74564924b5af41bda8e4a0dd574ab) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '604c69442e7c102d97645cf5b5374455') in 0.059379 seconds
-  Import took 0.062740 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 61.104910 seconds.
-  path: Assets/Sprites/cartoon-blue-cloudy-sky-horizontal-seamless-pattern-with-white-fluffy-clouds-texture_102902-515.jpg
-  artifactKey: Guid(c6f74564924b5af41bda8e4a0dd574ab) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Sprites/cartoon-blue-cloudy-sky-horizontal-seamless-pattern-with-white-fluffy-clouds-texture_102902-515.jpg using Guid(c6f74564924b5af41bda8e4a0dd574ab) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '58912f7d52165cf4944ffcf26ce347bf') in 0.072174 seconds
-  Import took 0.076399 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 42.608228 seconds.
-  path: Assets/Sprites/cartoon-blue-cloudy-sky-horizontal-seamless-pattern-with-white-fluffy-clouds-texture_102902-515.jpg
-  artifactKey: Guid(c6f74564924b5af41bda8e4a0dd574ab) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Sprites/cartoon-blue-cloudy-sky-horizontal-seamless-pattern-with-white-fluffy-clouds-texture_102902-515.jpg using Guid(c6f74564924b5af41bda8e4a0dd574ab) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ef1a72dcc74db13af2d63677bf871bd6') in 0.064030 seconds
-  Import took 0.067772 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 8.772138 seconds.
-  path: Assets/Sprites/cartoon-blue-cloudy-sky-horizontal-seamless-pattern-with-white-fluffy-clouds-texture_102902-515.jpg
-  artifactKey: Guid(c6f74564924b5af41bda8e4a0dd574ab) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Sprites/cartoon-blue-cloudy-sky-horizontal-seamless-pattern-with-white-fluffy-clouds-texture_102902-515.jpg using Guid(c6f74564924b5af41bda8e4a0dd574ab) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '12dcdef57f237efa4ebae8a56b7e43f0') in 0.016964 seconds
-  Import took 0.020370 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.012258 seconds.
-  path: Assets/Sprites/cartoon-blue-cloudy-sky-horizontal-seamless-pattern-with-white-fluffy-clouds-texture_102902-515.jpg
-  artifactKey: Guid(c6f74564924b5af41bda8e4a0dd574ab) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Sprites/cartoon-blue-cloudy-sky-horizontal-seamless-pattern-with-white-fluffy-clouds-texture_102902-515.jpg using Guid(c6f74564924b5af41bda8e4a0dd574ab) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '12dcdef57f237efa4ebae8a56b7e43f0') in 0.026860 seconds
-  Import took 0.030404 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 24.793737 seconds.
-  path: Assets/Sprites/cartoon-blue-cloudy-sky-horizontal-seamless-pattern-with-white-fluffy-clouds-texture_102902-515.jpg
-  artifactKey: Guid(c6f74564924b5af41bda8e4a0dd574ab) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Sprites/cartoon-blue-cloudy-sky-horizontal-seamless-pattern-with-white-fluffy-clouds-texture_102902-515.jpg using Guid(c6f74564924b5af41bda8e4a0dd574ab) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'fb0d25e5da9bc0f77bbeec4a76a2ed55') in 0.148846 seconds
-  Import took 0.152387 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.059803 seconds.
-  path: Assets/Sprites/cartoon-blue-cloudy-sky-horizontal-seamless-pattern-with-white-fluffy-clouds-texture_102902-515.jpg
-  artifactKey: Guid(c6f74564924b5af41bda8e4a0dd574ab) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Sprites/cartoon-blue-cloudy-sky-horizontal-seamless-pattern-with-white-fluffy-clouds-texture_102902-515.jpg using Guid(c6f74564924b5af41bda8e4a0dd574ab) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'fb0d25e5da9bc0f77bbeec4a76a2ed55') in 0.047829 seconds
-  Import took 0.051884 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 21.959160 seconds.
-  path: Assets/Sprites/cartoon-blue-cloudy-sky-horizontal-seamless-pattern-with-white-fluffy-clouds-texture_102902-515.jpg
-  artifactKey: Guid(c6f74564924b5af41bda8e4a0dd574ab) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Sprites/cartoon-blue-cloudy-sky-horizontal-seamless-pattern-with-white-fluffy-clouds-texture_102902-515.jpg using Guid(c6f74564924b5af41bda8e4a0dd574ab) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '0485494cb5253c8dceb3168562272062') in 0.018272 seconds
-  Import took 0.021854 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 99.746896 seconds.
-  path: Assets/Sprites/cartoon-blue-cloudy-sky-horizontal-seamless-pattern-with-white-fluffy-clouds-texture_102902-515.jpg
-  artifactKey: Guid(c6f74564924b5af41bda8e4a0dd574ab) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Sprites/cartoon-blue-cloudy-sky-horizontal-seamless-pattern-with-white-fluffy-clouds-texture_102902-515.jpg using Guid(c6f74564924b5af41bda8e4a0dd574ab) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '76bb0cc5508a181127126dd6bcbe0bf5') in 0.019479 seconds
-  Import took 0.022948 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000493 seconds.
-  path: Assets/Sprites/cartoon-blue-cloudy-sky-horizontal-seamless-pattern-with-white-fluffy-clouds-texture_102902-515.jpg
-  artifactKey: Guid(c6f74564924b5af41bda8e4a0dd574ab) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Sprites/cartoon-blue-cloudy-sky-horizontal-seamless-pattern-with-white-fluffy-clouds-texture_102902-515.jpg using Guid(c6f74564924b5af41bda8e4a0dd574ab) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '76bb0cc5508a181127126dd6bcbe0bf5') in 0.017778 seconds
-  Import took 0.021038 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 28.410520 seconds.
-  path: Assets/Sprites/cartoon-blue-cloudy-sky-horizontal-seamless-pattern-with-white-fluffy-clouds-texture_102902-515.jpg
-  artifactKey: Guid(c6f74564924b5af41bda8e4a0dd574ab) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Sprites/cartoon-blue-cloudy-sky-horizontal-seamless-pattern-with-white-fluffy-clouds-texture_102902-515.jpg using Guid(c6f74564924b5af41bda8e4a0dd574ab) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '07522a0beb559daa089ca473a6befa4a') in 0.019808 seconds
-  Import took 0.023854 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.017537 seconds.
-  path: Assets/Sprites/cartoon-blue-cloudy-sky-horizontal-seamless-pattern-with-white-fluffy-clouds-texture_102902-515.jpg
-  artifactKey: Guid(c6f74564924b5af41bda8e4a0dd574ab) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Sprites/cartoon-blue-cloudy-sky-horizontal-seamless-pattern-with-white-fluffy-clouds-texture_102902-515.jpg using Guid(c6f74564924b5af41bda8e4a0dd574ab) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '07522a0beb559daa089ca473a6befa4a') in 0.018274 seconds
-  Import took 0.023259 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 211.193235 seconds.
-  path: Assets/Sprites/Clouds.mat
-  artifactKey: Guid(bfa51236b0bb36f4187db18b71b98e1d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Sprites/Clouds.mat using Guid(bfa51236b0bb36f4187db18b71b98e1d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '61868dea625bdc2587dc0c2096539050') in 0.086175 seconds
-  Import took 0.092536 seconds .
-
-========================================================================
-Received Prepare
-Registering precompiled user dll's ...
-Registered in 0.001386 seconds.
-Begin MonoManager ReloadAssembly
-Native extension for WindowsStandalone target not found
-Refreshing native plugins compatible for Editor in 0.45 ms, found 0 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Warning: Annotation not found!
-UnityEngine.StackTraceUtility:ExtractStackTrace ()
-UnityEditor.ProBuilder.EditorUtility:SetGizmoIconEnabled (System.Type,bool) (at Library/PackageCache/com.unity.probuilder@4.5.0/Editor/EditorCore/EditorUtility.cs:593)
-UnityEditor.ProBuilder.HierarchyListener:.cctor () (at Library/PackageCache/com.unity.probuilder@4.5.0/Editor/EditorCore/HierarchyListener.cs:21)
-System.Runtime.CompilerServices.RuntimeHelpers:RunClassConstructor (System.RuntimeTypeHandle)
-UnityEditor.EditorAssemblies:ProcessInitializeOnLoadAttributes (System.Type[])
-
-[Library/PackageCache/com.unity.probuilder@4.5.0/Editor/EditorCore/EditorUtility.cs line 593]
-
-Mono: successfully reloaded assembly
-- Completed reload, in  1.062 seconds
-Platform modules already initialized, skipping
-Refreshing native plugins compatible for Editor in 0.48 ms, found 0 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 1468 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 78.3 MB.
-System memory in use after: 78.3 MB.
-
-Unloading 8 unused Assets to reduce memory usage. Loaded Objects now: 2001.
-Total: 2.927500 ms (FindLiveObjects: 0.223300 ms CreateObjectMapping: 0.122500 ms MarkObjects: 2.421800 ms  DeleteObjects: 0.158900 ms)
-
-========================================================================
-Received Import Request.
-  Time since last request: 36.988507 seconds.
-  path: Assets/FarlandSkies/Demo
-  artifactKey: Guid(cc334bd236c9bf24ba99adf4a2ef3a9d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/FarlandSkies/Demo using Guid(cc334bd236c9bf24ba99adf4a2ef3a9d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ed90487a9a5c845929da5b84a4724f9f') in 0.011690 seconds
-  Import took 0.015120 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 3.796731 seconds.
-  path: Assets/FarlandSkies/Skyboxes/CloudyCrown_01_Midday
-  artifactKey: Guid(52662b578ff18034aa89fddf59405d22) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/FarlandSkies/Skyboxes/CloudyCrown_01_Midday using Guid(52662b578ff18034aa89fddf59405d22) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '3e64bcb42217d55dbbc6bfc2bb5e9184') in 0.007996 seconds
-  Import took 0.011721 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.183983 seconds.
-  path: Assets/FarlandSkies/Skyboxes/CloudyCrown_01_Midday/CloudyCrown_Midday.mat
-  artifactKey: Guid(617d9be015db68348a623b01ea51a8c5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/FarlandSkies/Skyboxes/CloudyCrown_01_Midday/CloudyCrown_Midday.mat using Guid(617d9be015db68348a623b01ea51a8c5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd0239b38a1149ddd3df378f1895ee6dc') in 0.111892 seconds
-  Import took 0.115873 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 9.835423 seconds.
-  path: Assets/FarlandSkies/Skyboxes/CloudyCrown_01_Midday/Textures
-  artifactKey: Guid(5dccd6d0d6c40b8419ec14daa812471a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/FarlandSkies/Skyboxes/CloudyCrown_01_Midday/Textures using Guid(5dccd6d0d6c40b8419ec14daa812471a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '777f188d89d0e39fbc130517205c132d') in 0.008528 seconds
-  Import took 0.033936 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.081258 seconds.
-  path: Assets/FarlandSkies/Skyboxes/CloudyCrown_01_Midday/Textures/CloudyCrown_Midday_Back.png
-  artifactKey: Guid(fd76a3d85fa584e42834036916a79b6b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/FarlandSkies/Skyboxes/CloudyCrown_01_Midday/Textures/CloudyCrown_Midday_Back.png using Guid(fd76a3d85fa584e42834036916a79b6b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '9ebc23e9a113ecf77e2cbc3e2b69f117') in 0.055056 seconds
-  Import took 0.059029 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000334 seconds.
-  path: Assets/FarlandSkies/Skyboxes/CloudyCrown_01_Midday/Textures/CloudyCrown_Midday_Down.png
-  artifactKey: Guid(b064041c87bd8fb4ba2c21aa4863127e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/FarlandSkies/Skyboxes/CloudyCrown_01_Midday/Textures/CloudyCrown_Midday_Down.png using Guid(b064041c87bd8fb4ba2c21aa4863127e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '61a05d732e72c4a862a71012141b6bd8') in 0.017061 seconds
-  Import took 0.020584 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000360 seconds.
-  path: Assets/FarlandSkies/Skyboxes/CloudyCrown_01_Midday/Textures/CloudyCrown_Midday_Left.png
-  artifactKey: Guid(fd5f7c807ca1ea643b0ae501ff889a70) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/FarlandSkies/Skyboxes/CloudyCrown_01_Midday/Textures/CloudyCrown_Midday_Left.png using Guid(fd5f7c807ca1ea643b0ae501ff889a70) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '618421895fed945b59165821ea3de558') in 0.019948 seconds
-  Import took 0.024185 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000254 seconds.
-  path: Assets/FarlandSkies/Skyboxes/CloudyCrown_01_Midday/Textures/CloudyCrown_Midday_Up.png
-  artifactKey: Guid(4e02df907356e0848a5d76021b80192a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/FarlandSkies/Skyboxes/CloudyCrown_01_Midday/Textures/CloudyCrown_Midday_Up.png using Guid(4e02df907356e0848a5d76021b80192a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a7abf555013d434c4bbf940cc6f6807f') in 0.017856 seconds
-  Import took 0.022946 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000311 seconds.
-  path: Assets/FarlandSkies/Skyboxes/CloudyCrown_01_Midday/Textures/CloudyCrown_Midday_Front.png
-  artifactKey: Guid(dffdb4378818bc5469033648c57bd0b1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/FarlandSkies/Skyboxes/CloudyCrown_01_Midday/Textures/CloudyCrown_Midday_Front.png using Guid(dffdb4378818bc5469033648c57bd0b1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd6ebdfc8513da3f591e71336a80981cd') in 0.014350 seconds
-  Import took 0.018320 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000279 seconds.
-  path: Assets/FarlandSkies/Skyboxes/CloudyCrown_01_Midday/Textures/CloudyCrown_Midday_Left.png
-  artifactKey: Guid(fd5f7c807ca1ea643b0ae501ff889a70) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/FarlandSkies/Skyboxes/CloudyCrown_01_Midday/Textures/CloudyCrown_Midday_Left.png using Guid(fd5f7c807ca1ea643b0ae501ff889a70) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '618421895fed945b59165821ea3de558') in 0.007425 seconds
-  Import took 0.011723 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000340 seconds.
-  path: Assets/FarlandSkies/Skyboxes/CloudyCrown_01_Midday/Textures/CloudyCrown_Midday_Right.png
-  artifactKey: Guid(14877617607f5fb47af48fcd766426ad) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/FarlandSkies/Skyboxes/CloudyCrown_01_Midday/Textures/CloudyCrown_Midday_Right.png using Guid(14877617607f5fb47af48fcd766426ad) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '9be86b203924d26648b5d62a136cebeb') in 0.017894 seconds
-  Import took 0.021713 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 154.872087 seconds.
-  path: Assets/FarlandSkies/Skyboxes/CloudyCrown_01_Midday/Textures/CloudyCrown_Midday_Back.png
-  artifactKey: Guid(fd76a3d85fa584e42834036916a79b6b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/FarlandSkies/Skyboxes/CloudyCrown_01_Midday/Textures/CloudyCrown_Midday_Back.png using Guid(fd76a3d85fa584e42834036916a79b6b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1dcaccd9bf619910337ccab11051a654') in 0.029786 seconds
-  Import took 0.033722 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.083684 seconds.
-  path: Assets/FarlandSkies/Skyboxes/CloudyCrown_01_Midday/Textures/CloudyCrown_Midday_Back.png
-  artifactKey: Guid(fd76a3d85fa584e42834036916a79b6b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/FarlandSkies/Skyboxes/CloudyCrown_01_Midday/Textures/CloudyCrown_Midday_Back.png using Guid(fd76a3d85fa584e42834036916a79b6b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1dcaccd9bf619910337ccab11051a654') in 0.008171 seconds
-  Import took 0.012053 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 60.603093 seconds.
-  path: Assets/FarlandSkies/Skyboxes/CloudyCrown_01_Midday/Textures/CloudyCrown_Midday_Back.png
-  artifactKey: Guid(fd76a3d85fa584e42834036916a79b6b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/FarlandSkies/Skyboxes/CloudyCrown_01_Midday/Textures/CloudyCrown_Midday_Back.png using Guid(fd76a3d85fa584e42834036916a79b6b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '5f708bc3cd67e45acbcd56b96ca8e295') in 0.030388 seconds
-  Import took 0.033806 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.086715 seconds.
-  path: Assets/FarlandSkies/Skyboxes/CloudyCrown_01_Midday/Textures/CloudyCrown_Midday_Back.png
-  artifactKey: Guid(fd76a3d85fa584e42834036916a79b6b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/FarlandSkies/Skyboxes/CloudyCrown_01_Midday/Textures/CloudyCrown_Midday_Back.png using Guid(fd76a3d85fa584e42834036916a79b6b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '5f708bc3cd67e45acbcd56b96ca8e295') in 0.009466 seconds
-  Import took 0.012936 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000190 seconds.
-  path: Assets/FarlandSkies/Skyboxes/CloudyCrown_01_Midday/Textures/CloudyCrown_Midday_Front.png
-  artifactKey: Guid(dffdb4378818bc5469033648c57bd0b1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/FarlandSkies/Skyboxes/CloudyCrown_01_Midday/Textures/CloudyCrown_Midday_Front.png using Guid(dffdb4378818bc5469033648c57bd0b1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '82756766eebca92be9a572e571b876fd') in 0.018584 seconds
-  Import took 0.021830 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.007961 seconds.
-  path: Assets/FarlandSkies/Skyboxes/CloudyCrown_01_Midday/Textures/CloudyCrown_Midday_Front.png
-  artifactKey: Guid(dffdb4378818bc5469033648c57bd0b1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/FarlandSkies/Skyboxes/CloudyCrown_01_Midday/Textures/CloudyCrown_Midday_Front.png using Guid(dffdb4378818bc5469033648c57bd0b1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '82756766eebca92be9a572e571b876fd') in 0.010900 seconds
-  Import took 0.016464 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 18.647081 seconds.
-  path: Assets/FarlandSkies/Skyboxes/CloudyCrown_01_Midday/Textures/CloudyCrown_Midday_Left.png
-  artifactKey: Guid(fd5f7c807ca1ea643b0ae501ff889a70) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/FarlandSkies/Skyboxes/CloudyCrown_01_Midday/Textures/CloudyCrown_Midday_Left.png using Guid(fd5f7c807ca1ea643b0ae501ff889a70) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '5f5dab9ba0061e2517c472f132a871df') in 0.028579 seconds
-  Import took 0.032783 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 21.107914 seconds.
-  path: Assets/FarlandSkies/Skyboxes/CloudyCrown_01_Midday/Textures/CloudyCrown_Midday_Right.png
-  artifactKey: Guid(14877617607f5fb47af48fcd766426ad) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/FarlandSkies/Skyboxes/CloudyCrown_01_Midday/Textures/CloudyCrown_Midday_Right.png using Guid(14877617607f5fb47af48fcd766426ad) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '8d58e3c0ad6283b9f79ae70161bb656d') in 0.014127 seconds
-  Import took 0.018245 seconds .
-
-========================================================================
-Received Prepare
-Registering precompiled user dll's ...
-Registered in 0.001688 seconds.
-Begin MonoManager ReloadAssembly
-Native extension for WindowsStandalone target not found
-Refreshing native plugins compatible for Editor in 0.53 ms, found 0 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Warning: Annotation not found!
-UnityEngine.StackTraceUtility:ExtractStackTrace ()
-UnityEditor.ProBuilder.EditorUtility:SetGizmoIconEnabled (System.Type,bool) (at Library/PackageCache/com.unity.probuilder@4.5.0/Editor/EditorCore/EditorUtility.cs:593)
-UnityEditor.ProBuilder.HierarchyListener:.cctor () (at Library/PackageCache/com.unity.probuilder@4.5.0/Editor/EditorCore/HierarchyListener.cs:21)
-System.Runtime.CompilerServices.RuntimeHelpers:RunClassConstructor (System.RuntimeTypeHandle)
-UnityEditor.EditorAssemblies:ProcessInitializeOnLoadAttributes (System.Type[])
-
-[Library/PackageCache/com.unity.probuilder@4.5.0/Editor/EditorCore/EditorUtility.cs line 593]
-
-Mono: successfully reloaded assembly
-- Completed reload, in  1.397 seconds
-Platform modules already initialized, skipping
-Refreshing native plugins compatible for Editor in 0.54 ms, found 0 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 1468 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 78.4 MB.
-System memory in use after: 78.4 MB.
-
-Unloading 8 unused Assets to reduce memory usage. Loaded Objects now: 2005.
-Total: 4.523900 ms (FindLiveObjects: 0.281800 ms CreateObjectMapping: 0.165600 ms MarkObjects: 3.893400 ms  DeleteObjects: 0.180700 ms)
-
-========================================================================
-Received Import Request.
-  Time since last request: 283.535391 seconds.
-  path: Assets/FarlandSkies/Skyboxes/CloudyCrown_02_Evening/CloudyCrown_Evening.mat
-  artifactKey: Guid(77715b8b6b248994891d3ccad1ad330b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/FarlandSkies/Skyboxes/CloudyCrown_02_Evening/CloudyCrown_Evening.mat using Guid(77715b8b6b248994891d3ccad1ad330b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '2624127b093f4a63e993ea46f5aa8406') in 0.080131 seconds
-  Import took 0.084778 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 16.934199 seconds.
-  path: Assets/FarlandSkies/Skyboxes/CloudyCrown_03_Midnight/CloudyCrown_Midnight.mat
-  artifactKey: Guid(ceb0a3ed2cb53a94fa21843cc958c52b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/FarlandSkies/Skyboxes/CloudyCrown_03_Midnight/CloudyCrown_Midnight.mat using Guid(ceb0a3ed2cb53a94fa21843cc958c52b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd2a97765afb89a0a4ee978138f682bac') in 0.027219 seconds
-  Import took 0.031455 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 1.605508 seconds.
-  path: Assets/FarlandSkies/Skyboxes/CloudyCrown_04_Sunset/CloudyCrown_Sunset.mat
-  artifactKey: Guid(169a1b8f06c17c84e8de491f2bfef986) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/FarlandSkies/Skyboxes/CloudyCrown_04_Sunset/CloudyCrown_Sunset.mat using Guid(169a1b8f06c17c84e8de491f2bfef986) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '42db5799134db647463ba87cc28636d9') in 0.021509 seconds
-  Import took 0.025214 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 1.130401 seconds.
-  path: Assets/FarlandSkies/Skyboxes/CloudyCrown_05_Daybreak/CloudyCrown_Daybreak.mat
-  artifactKey: Guid(3930fc89a28b29746bde6a2389a513e0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/FarlandSkies/Skyboxes/CloudyCrown_05_Daybreak/CloudyCrown_Daybreak.mat using Guid(3930fc89a28b29746bde6a2389a513e0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '8c71788c0e65435cba3d8db17ab15de4') in 0.022128 seconds
-  Import took 0.025853 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 372.831366 seconds.
-  path: Assets/FarlandSkies/Skyboxes/CloudyCrown_02_Evening/Textures
-  artifactKey: Guid(dcd58eaf0ccb0b34989c91dea6c629d0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/FarlandSkies/Skyboxes/CloudyCrown_02_Evening/Textures using Guid(dcd58eaf0ccb0b34989c91dea6c629d0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '999f44f43da99ab285d15f1c6dc87b20') in 0.002139 seconds
-  Import took 0.006819 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.067676 seconds.
-  path: Assets/FarlandSkies/Skyboxes/CloudyCrown_02_Evening/Textures/CloudyCrown_Evening_Back.png
-  artifactKey: Guid(87bee338d047997489ce40bc10f18466) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/FarlandSkies/Skyboxes/CloudyCrown_02_Evening/Textures/CloudyCrown_Evening_Back.png using Guid(87bee338d047997489ce40bc10f18466) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '21efde21b37565857e5fcb9fe22cf09f') in 0.018006 seconds
-  Import took 0.021541 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000228 seconds.
-  path: Assets/FarlandSkies/Skyboxes/CloudyCrown_02_Evening/Textures/CloudyCrown_Evening_Right.png
-  artifactKey: Guid(f33d9e3a86071394c83b568257570dd5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/FarlandSkies/Skyboxes/CloudyCrown_02_Evening/Textures/CloudyCrown_Evening_Right.png using Guid(f33d9e3a86071394c83b568257570dd5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ecec3b84c9a025c2d74e1f15891f1ca8') in 0.013425 seconds
-  Import took 0.016465 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000253 seconds.
-  path: Assets/FarlandSkies/Skyboxes/CloudyCrown_02_Evening/Textures/CloudyCrown_Evening_Front.png
-  artifactKey: Guid(1333dafd22b43974091d9c55f2169cde) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/FarlandSkies/Skyboxes/CloudyCrown_02_Evening/Textures/CloudyCrown_Evening_Front.png using Guid(1333dafd22b43974091d9c55f2169cde) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '65b20d4ab86a97d64ca16975c0479cea') in 0.013580 seconds
-  Import took 0.016957 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000276 seconds.
-  path: Assets/FarlandSkies/Skyboxes/CloudyCrown_02_Evening/Textures/CloudyCrown_Evening_Down.png
-  artifactKey: Guid(1fe26ef1655e3424b8a9a77e4ef0523d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/FarlandSkies/Skyboxes/CloudyCrown_02_Evening/Textures/CloudyCrown_Evening_Down.png using Guid(1fe26ef1655e3424b8a9a77e4ef0523d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a465fb283337afbe75f3802001438b21') in 0.014628 seconds
-  Import took 0.018117 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000488 seconds.
-  path: Assets/FarlandSkies/Skyboxes/CloudyCrown_02_Evening/Textures/CloudyCrown_Evening_Left.png
-  artifactKey: Guid(90494e0797812be488f2fbe703461966) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/FarlandSkies/Skyboxes/CloudyCrown_02_Evening/Textures/CloudyCrown_Evening_Left.png using Guid(90494e0797812be488f2fbe703461966) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e661821798d68a7a30a5095e0fb84e76') in 0.012481 seconds
-  Import took 0.016743 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000234 seconds.
-  path: Assets/FarlandSkies/Skyboxes/CloudyCrown_02_Evening/Textures/CloudyCrown_Evening_Front.png
-  artifactKey: Guid(1333dafd22b43974091d9c55f2169cde) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/FarlandSkies/Skyboxes/CloudyCrown_02_Evening/Textures/CloudyCrown_Evening_Front.png using Guid(1333dafd22b43974091d9c55f2169cde) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '65b20d4ab86a97d64ca16975c0479cea') in 0.007512 seconds
-  Import took 0.011871 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000219 seconds.
-  path: Assets/FarlandSkies/Skyboxes/CloudyCrown_02_Evening/Textures/CloudyCrown_Evening_Up.png
-  artifactKey: Guid(3157d3aa6a8bd694e9cc4c05e3303c06) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/FarlandSkies/Skyboxes/CloudyCrown_02_Evening/Textures/CloudyCrown_Evening_Up.png using Guid(3157d3aa6a8bd694e9cc4c05e3303c06) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '2e22fff26528def20c08df56f25a5ed0') in 0.014501 seconds
-  Import took 0.018147 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000278 seconds.
-  path: Assets/FarlandSkies/Skyboxes/CloudyCrown_02_Evening/Textures/CloudyCrown_Evening_Left.png
-  artifactKey: Guid(90494e0797812be488f2fbe703461966) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/FarlandSkies/Skyboxes/CloudyCrown_02_Evening/Textures/CloudyCrown_Evening_Left.png using Guid(90494e0797812be488f2fbe703461966) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e661821798d68a7a30a5095e0fb84e76') in 0.008958 seconds
-  Import took 0.012603 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.014030 seconds.
-  path: Assets/FarlandSkies/Skyboxes/CloudyCrown_02_Evening/Textures/CloudyCrown_Evening_Up.png
-  artifactKey: Guid(3157d3aa6a8bd694e9cc4c05e3303c06) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/FarlandSkies/Skyboxes/CloudyCrown_02_Evening/Textures/CloudyCrown_Evening_Up.png using Guid(3157d3aa6a8bd694e9cc4c05e3303c06) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '2e22fff26528def20c08df56f25a5ed0') in 0.006378 seconds
-  Import took 0.010878 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 31.272609 seconds.
-  path: Assets/FarlandSkies/Skyboxes/CloudyCrown_02_Evening/Textures/CloudyCrown_Evening_Back.png
-  artifactKey: Guid(87bee338d047997489ce40bc10f18466) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/FarlandSkies/Skyboxes/CloudyCrown_02_Evening/Textures/CloudyCrown_Evening_Back.png using Guid(87bee338d047997489ce40bc10f18466) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '57fa80984bb69da220996b1f67d9c254') in 0.026360 seconds
-  Import took 0.030287 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 20.958462 seconds.
-  path: Assets/FarlandSkies/Skyboxes/CloudyCrown_02_Evening/Textures/CloudyCrown_Evening_Front.png
-  artifactKey: Guid(1333dafd22b43974091d9c55f2169cde) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/FarlandSkies/Skyboxes/CloudyCrown_02_Evening/Textures/CloudyCrown_Evening_Front.png using Guid(1333dafd22b43974091d9c55f2169cde) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c1413cb7582ca889f2409f116be0f7a2') in 0.025677 seconds
-  Import took 0.029584 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 40.006657 seconds.
-  path: Assets/FarlandSkies/Skyboxes/CloudyCrown_02_Evening/Textures/CloudyCrown_Evening_Left.png
-  artifactKey: Guid(90494e0797812be488f2fbe703461966) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/FarlandSkies/Skyboxes/CloudyCrown_02_Evening/Textures/CloudyCrown_Evening_Left.png using Guid(90494e0797812be488f2fbe703461966) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e17867262ca0ccf7c462e79264d9b681') in 0.060952 seconds
-  Import took 0.064646 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000254 seconds.
-  path: Assets/FarlandSkies/Skyboxes/CloudyCrown_02_Evening/Textures/CloudyCrown_Evening_Right.png
-  artifactKey: Guid(f33d9e3a86071394c83b568257570dd5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/FarlandSkies/Skyboxes/CloudyCrown_02_Evening/Textures/CloudyCrown_Evening_Right.png using Guid(f33d9e3a86071394c83b568257570dd5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '775cde329d4670bd099369248f429a6f') in 0.029900 seconds
-  Import took 0.033181 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 160.611599 seconds.
-  path: Assets/FarlandSkies/Skyboxes/CloudyCrown_01_Midday/CloudyCrown_Midday.mat
-  artifactKey: Guid(617d9be015db68348a623b01ea51a8c5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/FarlandSkies/Skyboxes/CloudyCrown_01_Midday/CloudyCrown_Midday.mat using Guid(617d9be015db68348a623b01ea51a8c5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '5acd91dd9dffa310b48e8e1af267a73a') in 0.024827 seconds
-  Import took 0.028700 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 667.131826 seconds.
-  path: Assets/FarlandSkies/Skyboxes/CloudyCrown_03_Midnight/CloudyCrown_Midnight.mat
-  artifactKey: Guid(ceb0a3ed2cb53a94fa21843cc958c52b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/FarlandSkies/Skyboxes/CloudyCrown_03_Midnight/CloudyCrown_Midnight.mat using Guid(ceb0a3ed2cb53a94fa21843cc958c52b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd6a23865f05966055f312ec27f9ed073') in 0.037713 seconds
-  Import took 0.042087 seconds .
-
-========================================================================
-Received Prepare
-Registering precompiled user dll's ...
-Registered in 0.001429 seconds.
+Registered in 0.001237 seconds.
 Begin MonoManager ReloadAssembly
 Native extension for WindowsStandalone target not found
 Refreshing native plugins compatible for Editor in 0.40 ms, found 0 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  1.058 seconds
+Platform modules already initialized, skipping
+========================================================================
+Worker process is ready to serve import requests
+Launched and connected shader compiler UnityShaderCompiler.exe after 0.04 seconds
+Refreshing native plugins compatible for Editor in 0.43 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 1497 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 77.8 MB.
+System memory in use after: 77.8 MB.
+
+Unloading 70 unused Assets to reduce memory usage. Loaded Objects now: 1947.
+Total: 3.449000 ms (FindLiveObjects: 0.238100 ms CreateObjectMapping: 0.146400 ms MarkObjects: 2.831100 ms  DeleteObjects: 0.232300 ms)
+
+========================================================================
+Received Import Request.
+  path: Assets/Prefabs/Race/Human/Gold_Lumber.prefab
+  artifactKey: Guid(b8c41bb2e7ef4fd4ea31301f2eb60f52) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Race/Human/Gold_Lumber.prefab using Guid(b8c41bb2e7ef4fd4ea31301f2eb60f52) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ac1b336a27556824a44e77be037edfcd') in 0.145101 seconds
+  Import took 0.163296 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000279 seconds.
+  path: Assets/Prefabs/Race/Human/Barrack Middle.prefab
+  artifactKey: Guid(d36f18a5182a879439ca0331ba0f508c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Race/Human/Barrack Middle.prefab using Guid(d36f18a5182a879439ca0331ba0f508c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd4beea06d072cf050c4f8e39a2733ddd') in 0.045774 seconds
+  Import took 0.058094 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000242 seconds.
+  path: Assets/Prefabs/Race/Human/Forge.prefab
+  artifactKey: Guid(54453a9eb9c0b9a42ad9f49eecc66175) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Race/Human/Forge.prefab using Guid(54453a9eb9c0b9a42ad9f49eecc66175) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '79e8187509bb66209d4dca7c45bcdfc1') in 0.021072 seconds
+  Import took 0.036208 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 10.708679 seconds.
+  path: Assets/Additions/FarlandSkies/Skyboxes
+  artifactKey: Guid(c130f5e5b12752b41a3ca95f11a49efd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Additions/FarlandSkies/Skyboxes using Guid(c130f5e5b12752b41a3ca95f11a49efd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ec4178839f1bcabd4b70b21f1dc1b9aa') in 0.007404 seconds
+  Import took 0.011043 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 168.538377 seconds.
+  path: Assets/Additions/Kenney Assets/KayKit Dungeon/floorDecoration_tilesLarge.fbx
+  artifactKey: Guid(ea8608e83917cbc44ae666deda5512ad) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Additions/Kenney Assets/KayKit Dungeon/floorDecoration_tilesLarge.fbx using Guid(ea8608e83917cbc44ae666deda5512ad) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'fda7efe8149a7d3aec8da00428aef5bd') in 0.113067 seconds
+  Import took 0.116980 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 38.065959 seconds.
+  path: Assets/Additions/Kenney Assets/KayKit Dungeon/floorDecoration_tilesLarge.fbx
+  artifactKey: Guid(ea8608e83917cbc44ae666deda5512ad) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Additions/Kenney Assets/KayKit Dungeon/floorDecoration_tilesLarge.fbx using Guid(ea8608e83917cbc44ae666deda5512ad) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ba24549a853d19c0180cd1687f666aa6') in 0.023290 seconds
+  Import took 0.027250 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.014179 seconds.
+  path: Assets/Additions/Kenney Assets/KayKit Dungeon/floorDecoration_tilesLarge.fbx
+  artifactKey: Guid(ea8608e83917cbc44ae666deda5512ad) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Additions/Kenney Assets/KayKit Dungeon/floorDecoration_tilesLarge.fbx using Guid(ea8608e83917cbc44ae666deda5512ad) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ba24549a853d19c0180cd1687f666aa6') in 0.040593 seconds
+  Import took 0.044119 seconds .
+
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.001451 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 0.49 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
 Warning: Annotation not found!
 UnityEngine.StackTraceUtility:ExtractStackTrace ()
 UnityEditor.ProBuilder.EditorUtility:SetGizmoIconEnabled (System.Type,bool) (at Library/PackageCache/com.unity.probuilder@4.5.0/Editor/EditorCore/EditorUtility.cs:593)
@@ -558,54 +140,15 @@ UnityEditor.EditorAssemblies:ProcessInitializeOnLoadAttributes (System.Type[])
 [Library/PackageCache/com.unity.probuilder@4.5.0/Editor/EditorCore/EditorUtility.cs line 593]
 
 Mono: successfully reloaded assembly
-- Completed reload, in  0.988 seconds
+- Completed reload, in  1.843 seconds
 Platform modules already initialized, skipping
-Refreshing native plugins compatible for Editor in 0.45 ms, found 0 plugins.
+Refreshing native plugins compatible for Editor in 0.50 ms, found 0 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Unloading 1464 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 78.3 MB.
-System memory in use after: 78.4 MB.
+System memory in use before: 78.6 MB.
+System memory in use after: 78.6 MB.
 
-Unloading 12 unused Assets to reduce memory usage. Loaded Objects now: 2005.
-Total: 2.623800 ms (FindLiveObjects: 0.185000 ms CreateObjectMapping: 0.066600 ms MarkObjects: 2.245400 ms  DeleteObjects: 0.125800 ms)
+Unloading 8 unused Assets to reduce memory usage. Loaded Objects now: 1993.
+Total: 6.546400 ms (FindLiveObjects: 0.297300 ms CreateObjectMapping: 0.227000 ms MarkObjects: 5.796200 ms  DeleteObjects: 0.221000 ms)
 
-========================================================================
-Received Import Request.
-  Time since last request: 32.296048 seconds.
-  path: Assets/Additions/Ground textures pack/Grass & dead leafs 01
-  artifactKey: Guid(ae33c49741ddd484194a97a6f3473fb0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Additions/Ground textures pack/Grass & dead leafs 01 using Guid(ae33c49741ddd484194a97a6f3473fb0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '2d4fa551ccc2040c3de80137e4658f14') in 0.008946 seconds
-  Import took 0.012198 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.005301 seconds.
-  path: Assets/Additions/Ground textures pack/Grass & dead leafs 01
-  artifactKey: Guid(ae33c49741ddd484194a97a6f3473fb0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Additions/Ground textures pack/Grass & dead leafs 01 using Guid(ae33c49741ddd484194a97a6f3473fb0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '2d4fa551ccc2040c3de80137e4658f14') in 0.001741 seconds
-  Import took 0.005010 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 94.978599 seconds.
-  path: Assets/Kenney Assets
-  artifactKey: Guid(9d57e8d2c6458c740b5dd04113959852) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Kenney Assets using Guid(9d57e8d2c6458c740b5dd04113959852) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'db9b319e52a9d742ee6591b4bfc8ba2c') in 0.016475 seconds
-  Import took 0.020064 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 238.388679 seconds.
-  path: Assets/Prefabs/Kenney/New Lighting Settings.lighting
-  artifactKey: Guid(c9e0599eaf8d1d441a64ff76049b88f5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Prefabs/Kenney/New Lighting Settings.lighting using Guid(c9e0599eaf8d1d441a64ff76049b88f5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'effadd1a9ff9b4b066a12c0ac247bb02') in 0.012174 seconds
-  Import took 0.015746 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.012250 seconds.
-  path: Assets/Prefabs/Kenney/New Lighting Settings.lighting
-  artifactKey: Guid(c9e0599eaf8d1d441a64ff76049b88f5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Prefabs/Kenney/New Lighting Settings.lighting using Guid(c9e0599eaf8d1d441a64ff76049b88f5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'effadd1a9ff9b4b066a12c0ac247bb02') in 0.002041 seconds
-  Import took 0.005294 seconds .
-
+AssetImportWorkerClient::OnTransportError - code=2 error=End of file
