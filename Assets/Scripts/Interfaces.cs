@@ -29,7 +29,7 @@ public interface IBuilding : IUnit
     Vector3 GetPosition();
 }
 
-public interface IMob: IUnit, IAttack
+public interface IMob: IUnit
 {
     void Move();
 }
