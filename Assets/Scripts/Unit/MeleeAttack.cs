@@ -9,6 +9,6 @@ public class MeleeAttack : MonoBehaviour, IAttack
 
     public void FindTarget()
     {
-        throw new System.NotImplementedException();
+        
     }
 }

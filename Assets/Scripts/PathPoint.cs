@@ -16,4 +16,5 @@ public class PathPoint : MonoBehaviour
         else return prevPathPoint;
     }
 
+    public Vector3 GetPosition() => transform.position;
 }

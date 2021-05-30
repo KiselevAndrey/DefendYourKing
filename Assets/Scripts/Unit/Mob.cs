@@ -5,7 +5,7 @@ public class Mob : MonoBehaviour, IUnit
     enum Stages { FollowThePath, FollowToAttack, Attack }
 
     [Header("Parametrs")]
-    [SerializeField] private Transform nextPathPoint;
+    [SerializeField] private PathPoint nextPathPoint;
     [SerializeField] private float bodyRadius;
 
     [Header("References")]
@@ -13,6 +13,7 @@ public class Mob : MonoBehaviour, IUnit
     public IAttack attack;
 
     private Stages _currentStage;
+    private Player _player;
 
     #region Awake Start Update
     private void Awake()
@@ -37,10 +38,15 @@ public class Mob : MonoBehaviour, IUnit
         switch (_currentStage)
         {
             case Stages.FollowThePath:
-                if (nextPathPoint && Vector3.Distance(transform.position, nextPathPoint.position) > BodyRadius)
+                if (nextPathPoint)
                 {
-                    move.MoveToTarget(nextPathPoint.position);
+                    if (Vector3.Distance(transform.position, nextPathPoint.GetPosition()) > BodyRadius)
+                        move.MoveToTarget(nextPathPoint.GetPosition());
+                    else
+                        nextPathPoint = nextPathPoint.GetNextPlayerPathPoint(Player);
                 }
+
+                attack.FindTarget();
                 break;
 
             case Stages.FollowToAttack:
@@ -53,7 +59,8 @@ public class Mob : MonoBehaviour, IUnit
 
     #region Property
     public float BodyRadius => bodyRadius;
-    public Player Player { get => throw new System.NotImplementedException(); set => throw new System.NotImplementedException(); }
+
+    public Player Player { get => _player; set => _player = value; }
     #endregion
 
     #region Need complete
