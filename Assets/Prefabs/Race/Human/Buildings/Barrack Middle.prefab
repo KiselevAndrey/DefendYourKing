@@ -56877,10 +56877,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dcfff3441f5f2c1498fc61ef91348b16, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawnCooldownTime: 10
+  spawnCooldownTime: 5
   spawnPrefabs:
   - {fileID: 8925257278360867271, guid: 1ab2bfae7d0c1fd4db37d66a2e32c934, type: 3}
-  spawnCount: 03000000
+  spawnCount: 01000000
 --- !u!65 &6761361626881945296
 BoxCollider:
   m_ObjectHideFlags: 0

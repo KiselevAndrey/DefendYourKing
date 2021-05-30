@@ -70,7 +70,7 @@ public class Barrack : MonoBehaviour, IBuilding
     #endregion
 
     #region Need Complete
-    public int Health { get; private set; }
+    public int Health { get; set; }
 
     public float BodyRadius => throw new System.NotImplementedException();
 
@@ -86,7 +86,7 @@ public class Barrack : MonoBehaviour, IBuilding
     }
 
 
-    public void GetDamage(int damage)
+    public void TakeDamage(int damage)
     {
         throw new System.NotImplementedException();
     }

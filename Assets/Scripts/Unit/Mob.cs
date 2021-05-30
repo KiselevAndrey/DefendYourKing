@@ -6,15 +6,17 @@ public class Mob : MonoBehaviour, IMob
 
     [Header("Parameters")]
     [SerializeField] private float bodyRadius;
+    [SerializeField] private int maxHealth;
 
     [Header("References")]
     public MobMove move;
-    public IAttack attack;
-
+    private IAttack attack;
 
     private Stages _currentStage;
     private Player _player;
     private PathPoint _nextPathPoint;
+    private int _currentHealth;
+    private bool _isLife;
 
     #region Awake Update OnEnable OnDisable
     private void Awake()
@@ -30,11 +32,13 @@ public class Mob : MonoBehaviour, IMob
     private void OnEnable()
     {
         _currentStage = Stages.FollowThePath;
+        Health = maxHealth;
+        _isLife = true;
     }
 
     private void OnDisable()
     {
-        
+        attack.Target = null;
     }
     #endregion
 
@@ -56,17 +60,23 @@ public class Mob : MonoBehaviour, IMob
                 break;
 
             case Stages.FollowToAttack:
-                float maxDistance = Mathf.Max(BodyRadius, attack.Target.BodyRadius, attack.Range);
-                if (Vector3.Distance(GetPosition(), attack.Target.GetPosition()) > maxDistance)
-                    move.MoveToTarget(attack.Target.GetPosition());
-                else
+                if (attack.Target.Health > 0)
                 {
-                    move.RotateToTarget(attack.Target.GetPosition());
-                    ChangeStage(Stages.Attack);
+                    float maxDistance = Mathf.Max(BodyRadius, attack.Target.BodyRadius, attack.Range);
+                    if (Vector3.Distance(GetPosition(), attack.Target.GetPosition()) > maxDistance)
+                        move.MoveToTarget(attack.Target.GetPosition());
+                    else
+                    {
+                        move.RotateToTarget(attack.Target.GetPosition());
+                        ChangeStage(Stages.Attack);
+                    }
                 }
+                else
+                    ChangeStage(Stages.FollowThePath);
                 break;
 
             case Stages.Attack:
+                attack.TryAttack();
                 break;
         }
     }
@@ -77,33 +87,40 @@ public class Mob : MonoBehaviour, IMob
     }
     #endregion
 
-    #region Property
+    #region Properties
     public float BodyRadius => bodyRadius;
 
     public Player Player { get => _player; set => _player = value; }
 
     public PathPoint PathPoint { get => _nextPathPoint; set => _nextPathPoint = value; }
+
+    public int Health { get => _currentHealth; set => _currentHealth = Mathf.Min(maxHealth, value); }
     #endregion
 
     #region Get
     public Vector3 GetPosition() => transform.position;
     #endregion
 
-    #region Need complete
-    public int Health => throw new System.NotImplementedException();
+    #region Health
+    public void TakeDamage(int damage)
+    {
+        Health -= damage;
 
+        if (Health < 0) Death();
+    }
 
     public void Death()
     {
-        throw new System.NotImplementedException();
+        if (!_isLife) return;
+
+        _isLife = false;
+        Lean.Pool.LeanPool.Despawn(gameObject);
     }
+    #endregion
+
+    #region Need complete
 
     public void Deselect()
-    {
-        throw new System.NotImplementedException();
-    }
-
-    public void GetDamage(int damage)
     {
         throw new System.NotImplementedException();
     }

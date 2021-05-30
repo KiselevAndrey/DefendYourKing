@@ -1,29 +1,58 @@
-using System.Collections.Generic;
 using UnityEngine;
 
 public class MeleeAttack : MonoBehaviour, IAttack
 {
-    [Header("Parameters")]
+    [Header("Find parameters")]
     [SerializeField] private float findRadius = 5f;
     [SerializeField] private int countOfSkipCallsFindTargetFunction;
+
+    [Header("Attack parameters")]
     [SerializeField] private float attackRadius = .3f;
+    [SerializeField] private float cooldown = 1.5f;
+    [SerializeField] private int damage;
 
     [Header("References")]
     [SerializeField] private Mob mob;
 
     private IUnit _target;
     private int _countOfCallsFindTargetFunction;
+    private bool _canAttack = true;
 
-    #region Property
-    public IUnit Target { get => _target; private set => _target = value; }
+    #region Properties
+    public IUnit Target { get => _target; set => _target = value; }
 
     public float Range { get => attackRadius; }
+
+    public int Damage { get => damage; set => damage = value; }
     #endregion
 
-    public void Attack()
+    #region Attack
+    public void TryAttack()
     {
-        throw new System.NotImplementedException();
+        if (_canAttack)
+        {
+            Target.TakeDamage((int)Random.Range(Damage * .7f, Damage * 1.3f));
+
+            StartCoroutine(Cooldown());
+        }
+
+        if(Target.Health <= 0)
+        {
+            Target.Death();
+            Target = null;
+        }
+
+        if(Target == null)
+            mob.ChangeStage(Mob.Stages.FollowThePath);
     }
+
+    private System.Collections.IEnumerator Cooldown()
+    {
+        _canAttack = false;
+        yield return new WaitForSeconds(cooldown);
+        _canAttack = true;
+    }
+    #endregion
 
     public void FindTarget()
     {
@@ -37,7 +66,7 @@ public class MeleeAttack : MonoBehaviour, IAttack
 
             // find all colliders
             Collider[] findColliders = Physics.OverlapSphere(transform.position, findRadius);
-            List<IUnit> units = new List<IUnit>();
+            System.Collections.Generic.List<IUnit> units = new System.Collections.Generic.List<IUnit>();
 
             // if collider have IUnit, add to list
             for (int i = 0; i < findColliders.Length; i++)

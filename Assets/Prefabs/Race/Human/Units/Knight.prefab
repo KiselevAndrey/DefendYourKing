@@ -500,6 +500,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bodyRadius: 0.3
+  maxHealth: 10
   move: {fileID: 8925257278360867275}
 --- !u!114 &8925257278360867273
 MonoBehaviour:
@@ -514,7 +515,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   findRadius: 5
-  countOfSkipCallsFindTargetFunction: 0
+  countOfSkipCallsFindTargetFunction: 30
+  attackRadius: 0.3
+  cooldown: 1.5
+  damage: 5
+  mob: {fileID: 8925257278360867272}
 --- !u!114 &8925257278360867275
 MonoBehaviour:
   m_ObjectHideFlags: 0

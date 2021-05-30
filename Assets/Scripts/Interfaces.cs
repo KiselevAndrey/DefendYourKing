@@ -2,13 +2,13 @@ using UnityEngine;
 
 public interface IUnit
 {
-    int Health { get; }
+    int Health { get; set; }
 
     float BodyRadius { get; }
 
     Player Player { get; set; }
 
-    void GetDamage(int damage);
+    void TakeDamage(int damage);
 
     void Death();
 
@@ -23,11 +23,13 @@ public interface IAttack
 {
     void FindTarget();
 
-    void Attack();
+    void TryAttack();
 
-    IUnit Target { get; }
+    IUnit Target { get; set; }
 
     float Range { get; }
+
+    int Damage { get; set; }
 }
 
 public interface IBuilding : IUnit
