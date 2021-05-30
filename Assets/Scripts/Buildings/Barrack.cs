@@ -2,7 +2,14 @@ using UnityEngine;
 
 public class Barrack : MonoBehaviour, IBuilding
 {
-    #region Complete
+
+    private Player _player;
+
+    #region Property
+    public Player Player { get => _player; set => _player = value; }
+    #endregion
+
+    #region Select
     public void Select()
     {
         SelectorOverlay.Instance.Show(this);
@@ -12,7 +19,9 @@ public class Barrack : MonoBehaviour, IBuilding
     {
         SelectorOverlay.Instance.Hide();
     }
+    #endregion
 
+    #region Get
     public Vector3 GetPosition()
     {
         return transform.position;
@@ -24,7 +33,6 @@ public class Barrack : MonoBehaviour, IBuilding
 
     public float BodyRadius => throw new System.NotImplementedException();
 
-    public Player Player { get => throw new System.NotImplementedException(); set => throw new System.NotImplementedException(); }
 
     public void Build()
     {
@@ -44,11 +52,6 @@ public class Barrack : MonoBehaviour, IBuilding
 
 
     public void Upgrade()
-    {
-        throw new System.NotImplementedException();
-    }
-
-    public Player GetPlayer()
     {
         throw new System.NotImplementedException();
     }
