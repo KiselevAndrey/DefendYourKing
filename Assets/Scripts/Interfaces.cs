@@ -15,6 +15,8 @@ public interface IUnit
     void Select();
 
     void Deselect();
+
+    Vector3 GetPosition();
 }
 
 public interface IAttack
@@ -29,8 +31,6 @@ public interface IBuilding : IUnit
     void Upgrade();
 
     void Build();
-
-    Vector3 GetPosition();
 }
 
 public interface IMob: IUnit

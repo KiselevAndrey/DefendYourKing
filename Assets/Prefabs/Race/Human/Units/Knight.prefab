@@ -464,8 +464,9 @@ GameObject:
   - component: {fileID: 8925257278360867272}
   - component: {fileID: 8925257278360867273}
   - component: {fileID: 8925257278360867275}
+  - component: {fileID: -6513196517763709245}
   m_Layer: 0
-  m_Name: Unit
+  m_Name: Knight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -512,6 +513,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 30d92d4c55349b0438ca289ed0751b80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  findRadius: 5
+  countOfSkipCallsFindTargetFunction: 0
 --- !u!114 &8925257278360867275
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -526,6 +529,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 1
   directionToTarget: {x: 0, y: 0, z: 0}
+--- !u!136 &-6513196517763709245
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8925257278360867271}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  m_Radius: 0.2
+  m_Height: 0.6
+  m_Direction: 1
+  m_Center: {x: 0, y: 0.3, z: 0}
 --- !u!1 &9061275256838606119
 GameObject:
   m_ObjectHideFlags: 0

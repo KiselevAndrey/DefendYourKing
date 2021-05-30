@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class Mob : MonoBehaviour, IMob
 {
-    enum Stages { FollowThePath, FollowToAttack, Attack }
+    public enum Stages { FollowThePath, FollowToAttack, Attack }
 
     [Header("Parameters")]
     [SerializeField] private float bodyRadius;
@@ -61,6 +61,21 @@ public class Mob : MonoBehaviour, IMob
                 break;
         }
     }
+
+    public void ChangeStage(Stages newStage)
+    {
+        _currentStage = newStage;
+
+        switch (newStage)
+        {
+            case Stages.FollowThePath:
+                break;
+            case Stages.FollowToAttack:
+                break;
+            case Stages.Attack:
+                break;
+        }
+    }
     #endregion
 
     #region Property
@@ -69,6 +84,10 @@ public class Mob : MonoBehaviour, IMob
     public Player Player { get => _player; set => _player = value; }
 
     public PathPoint PathPoint { get => _nextPathPoint; set => _nextPathPoint = value; }
+    #endregion
+
+    #region Get
+    public Vector3 GetPosition() => transform.position;
     #endregion
 
     #region Need complete
@@ -94,5 +113,6 @@ public class Mob : MonoBehaviour, IMob
     {
         throw new System.NotImplementedException();
     }
+
     #endregion
 }

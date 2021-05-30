@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Player : MonoBehaviour
@@ -7,8 +5,8 @@ public class Player : MonoBehaviour
     [Header("References")]
     [SerializeField] PathPoint startPathPoint;
 
-    #region Start
-    private void Start()
+    #region Awake
+    private void Awake()
     {
         foreach (IUnit child in transform.GetComponentsInChildren<IUnit>())
         {
