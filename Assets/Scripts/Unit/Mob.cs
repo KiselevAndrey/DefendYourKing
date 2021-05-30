@@ -2,17 +2,18 @@ using UnityEngine;
 
 public class Mob : MonoBehaviour, IMob
 {
-    public enum Stages { FollowThePath, FollowToAttack, Attack }
+    public enum States { FollowThePath, FollowToAttack, Attack, Stay }
 
     [Header("Parameters")]
     [SerializeField] private float bodyRadius;
     [SerializeField] private int maxHealth;
+    public States startState;
 
     [Header("References")]
     public MobMove move;
     private IAttack attack;
 
-    private Stages _currentStage;
+    private States _currentStage;
     private Player _player;
     private PathPoint _nextPathPoint;
     private int _currentHealth;
@@ -31,7 +32,7 @@ public class Mob : MonoBehaviour, IMob
 
     private void OnEnable()
     {
-        _currentStage = Stages.FollowThePath;
+        _currentStage = startState;
         Health = maxHealth;
         _isLife = true;
     }
@@ -47,7 +48,7 @@ public class Mob : MonoBehaviour, IMob
     {
         switch (_currentStage)
         {
-            case Stages.FollowThePath:
+            case States.FollowThePath:
                 if (_nextPathPoint)
                 {
                     if (Vector3.Distance(GetPosition(), _nextPathPoint.GetPosition()) > BodyRadius)
@@ -59,29 +60,33 @@ public class Mob : MonoBehaviour, IMob
                 attack.FindTarget();
                 break;
 
-            case Stages.FollowToAttack:
+            case States.FollowToAttack:
                 if (attack.Target.Health > 0)
                 {
                     float maxDistance = Mathf.Max(BodyRadius, attack.Target.BodyRadius, attack.Range);
-                    if (Vector3.Distance(GetPosition(), attack.Target.GetPosition()) > maxDistance)
+                    if (Vector3.Distance(GetPosition(), attack.Target.GetPosition()) > maxDistance && startState != States.Stay)
                         move.MoveToTarget(attack.Target.GetPosition());
                     else
                     {
                         move.RotateToTarget(attack.Target.GetPosition());
-                        ChangeStage(Stages.Attack);
+                        ChangeStage(States.Attack);
                     }
                 }
                 else
-                    ChangeStage(Stages.FollowThePath);
+                    ChangeStage(startState);
                 break;
 
-            case Stages.Attack:
+            case States.Attack:
                 attack.TryAttack();
+                break;
+
+            case States.Stay:
+                attack.FindTarget();
                 break;
         }
     }
 
-    public void ChangeStage(Stages newStage)
+    public void ChangeStage(States newStage)
     {
         _currentStage = newStage;
     }

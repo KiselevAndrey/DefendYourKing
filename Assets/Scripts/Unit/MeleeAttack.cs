@@ -43,7 +43,7 @@ public class MeleeAttack : MonoBehaviour, IAttack
         }
 
         if(Target == null)
-            mob.ChangeStage(Mob.Stages.FollowThePath);
+            mob.ChangeStage(mob.startState);
     }
 
     private System.Collections.IEnumerator Cooldown()
@@ -78,7 +78,7 @@ public class MeleeAttack : MonoBehaviour, IAttack
             }
 
             // find nearest target
-            float minDistance = findRadius;
+            float minDistance = mob.startState != Mob.States.Stay ? findRadius : attackRadius;
             for (int i = 0; i < units.Count; i++)
             {
                 float targetDistance = Vector3.Distance(mob.GetPosition(), units[i].GetPosition());
@@ -91,7 +91,7 @@ public class MeleeAttack : MonoBehaviour, IAttack
 
             if (Target != null)
             {
-                mob.ChangeStage(Mob.Stages.FollowToAttack);
+                mob.ChangeStage(Mob.States.FollowToAttack);
             }
         }
     }
