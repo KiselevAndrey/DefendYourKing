@@ -22,6 +22,8 @@ public class Barrack : MonoBehaviour, IBuilding
     #region Need Complete
     public int Health { get; private set; }
 
+    public float BodyRadius => throw new System.NotImplementedException();
+
     public void Build()
     {
         throw new System.NotImplementedException();

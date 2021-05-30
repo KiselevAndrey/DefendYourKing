@@ -3,6 +3,8 @@ using UnityEngine;
 public interface IUnit
 {
     int Health { get; }
+    float BodyRadius { get; }
+
 
     void GetDamage(int damage);
 

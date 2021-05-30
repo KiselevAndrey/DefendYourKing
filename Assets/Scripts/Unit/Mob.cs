@@ -2,19 +2,57 @@ using UnityEngine;
 
 public class Mob : MonoBehaviour, IUnit
 {
+    enum Stages { FollowThePath, FollowToAttack, Attack }
+
     [Header("Parametrs")]
     [SerializeField] private Transform nextPathPoint;
+    [SerializeField] private float bodyRadius;
 
     [Header("References")]
     public MobMove move;
-    [SerializeField] private IAttack attack;
+    public IAttack attack;
 
-    #region Update
+    private Stages _currentStage;
+
+    #region Awake Start Update
+    private void Awake()
+    {
+        attack = GetComponent<IAttack>();
+    }
+
+    private void Start()
+    {
+        _currentStage = Stages.FollowThePath;
+    }
+
     private void Update()
     {
-        move.MoveToTarget(nextPathPoint.position);
+        UpdateStage();
     }
     #endregion
+
+    #region Stages
+    private void UpdateStage()
+    {
+        switch (_currentStage)
+        {
+            case Stages.FollowThePath:
+                if (nextPathPoint && Vector3.Distance(transform.position, nextPathPoint.position) > BodyRadius)
+                {
+                    move.MoveToTarget(nextPathPoint.position);
+                }
+                break;
+
+            case Stages.FollowToAttack:
+                break;
+            case Stages.Attack:
+                break;
+        }
+    }
+    #endregion
+
+    public float BodyRadius => bodyRadius;
+
 
     #region Need complete
     public int Health => throw new System.NotImplementedException();
