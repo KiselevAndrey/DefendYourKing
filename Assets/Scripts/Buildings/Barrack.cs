@@ -24,6 +24,8 @@ public class Barrack : MonoBehaviour, IBuilding
 
     public float BodyRadius => throw new System.NotImplementedException();
 
+    public Player Player { get => throw new System.NotImplementedException(); set => throw new System.NotImplementedException(); }
+
     public void Build()
     {
         throw new System.NotImplementedException();

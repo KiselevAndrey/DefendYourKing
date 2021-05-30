@@ -6,6 +6,8 @@ public interface IUnit
 
     float BodyRadius { get; }
 
+    Player Player { get; set; }
+
     void GetDamage(int damage);
 
     void Death();
@@ -13,8 +15,6 @@ public interface IUnit
     void Select();
 
     void Deselect();
-
-    Player GetPlayer();
 }
 
 public interface IAttack
