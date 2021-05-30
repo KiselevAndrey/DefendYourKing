@@ -46,7 +46,7 @@ public class Mob : MonoBehaviour, IMob
             case Stages.FollowThePath:
                 if (_nextPathPoint)
                 {
-                    if (Vector3.Distance(transform.position, _nextPathPoint.GetPosition()) > BodyRadius)
+                    if (Vector3.Distance(GetPosition(), _nextPathPoint.GetPosition()) > BodyRadius)
                         move.MoveToTarget(_nextPathPoint.GetPosition());
                     else
                         _nextPathPoint = _nextPathPoint.GetNextPlayerPathPoint(Player);
@@ -56,7 +56,16 @@ public class Mob : MonoBehaviour, IMob
                 break;
 
             case Stages.FollowToAttack:
+                float maxDistance = Mathf.Max(BodyRadius, attack.Target.BodyRadius, attack.Range);
+                if (Vector3.Distance(GetPosition(), attack.Target.GetPosition()) > maxDistance)
+                    move.MoveToTarget(attack.Target.GetPosition());
+                else
+                {
+                    move.RotateToTarget(attack.Target.GetPosition());
+                    ChangeStage(Stages.Attack);
+                }
                 break;
+
             case Stages.Attack:
                 break;
         }
@@ -65,16 +74,6 @@ public class Mob : MonoBehaviour, IMob
     public void ChangeStage(Stages newStage)
     {
         _currentStage = newStage;
-
-        switch (newStage)
-        {
-            case Stages.FollowThePath:
-                break;
-            case Stages.FollowToAttack:
-                break;
-            case Stages.Attack:
-                break;
-        }
     }
     #endregion
 

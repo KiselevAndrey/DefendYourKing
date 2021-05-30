@@ -6,12 +6,19 @@ public class MeleeAttack : MonoBehaviour, IAttack
     [Header("Parameters")]
     [SerializeField] private float findRadius = 5f;
     [SerializeField] private int countOfSkipCallsFindTargetFunction;
+    [SerializeField] private float attackRadius = .3f;
 
     [Header("References")]
     [SerializeField] private Mob mob;
 
     private IUnit _target;
     private int _countOfCallsFindTargetFunction;
+
+    #region Property
+    public IUnit Target { get => _target; private set => _target = value; }
+
+    public float Range { get => attackRadius; }
+    #endregion
 
     public void Attack()
     {
@@ -48,12 +55,12 @@ public class MeleeAttack : MonoBehaviour, IAttack
                 float targetDistance = Vector3.Distance(mob.GetPosition(), units[i].GetPosition());
                 if (targetDistance < minDistance)
                 {
-                    _target = units[i];
+                    Target = units[i];
                     minDistance = targetDistance;
                 }
             }
 
-            if (_target != null)
+            if (Target != null)
             {
                 mob.ChangeStage(Mob.Stages.FollowToAttack);
             }

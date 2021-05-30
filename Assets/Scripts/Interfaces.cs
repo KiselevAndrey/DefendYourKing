@@ -24,6 +24,10 @@ public interface IAttack
     void FindTarget();
 
     void Attack();
+
+    IUnit Target { get; }
+
+    float Range { get; }
 }
 
 public interface IBuilding : IUnit
