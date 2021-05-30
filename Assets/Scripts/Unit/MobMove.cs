@@ -3,7 +3,7 @@ using DG.Tweening;
 
 public class MobMove : MonoBehaviour
 {
-    [Header("Parametrs")]
+    [Header("Parameters")]
     [SerializeField] private float speed;
 
     [HideInInspector] public Vector3 directionToTarget;

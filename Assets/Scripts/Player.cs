@@ -4,6 +4,10 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
+    [Header("References")]
+    [SerializeField] PathPoint startPathPoint;
+
+    #region Start
     private void Start()
     {
         foreach (IUnit child in transform.GetComponentsInChildren<IUnit>())
@@ -11,4 +15,9 @@ public class Player : MonoBehaviour
             child.Player = this;
         }
     }
+    #endregion
+
+    #region Get
+    public PathPoint GetStartPathPoint() => startPathPoint;
+    #endregion
 }

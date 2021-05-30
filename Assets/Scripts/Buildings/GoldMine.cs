@@ -4,7 +4,14 @@ using UnityEngine;
 
 public class GoldMine : MonoBehaviour, IBuilding
 {
-    #region Complete
+
+    private Player _player;
+
+    #region Property
+    public Player Player { get => _player; set => _player = value; }
+    #endregion
+
+    #region Select
     public void Select()
     {
         SelectorOverlay.Instance.Show(this);
@@ -14,7 +21,9 @@ public class GoldMine : MonoBehaviour, IBuilding
     {
         SelectorOverlay.Instance.Hide();
     }
+    #endregion
 
+    #region Get
     public Vector3 GetPosition()
     {
         return transform.position;
@@ -25,8 +34,6 @@ public class GoldMine : MonoBehaviour, IBuilding
     public int Health { get; private set; }
 
     public float BodyRadius => throw new System.NotImplementedException();
-
-    public Player Player { get => throw new System.NotImplementedException(); set => throw new System.NotImplementedException(); }
 
     public void Build()
     {

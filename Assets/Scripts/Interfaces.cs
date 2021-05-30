@@ -35,5 +35,5 @@ public interface IBuilding : IUnit
 
 public interface IMob: IUnit
 {
-    void Move();
+    PathPoint PathPoint { get; set; }
 }
