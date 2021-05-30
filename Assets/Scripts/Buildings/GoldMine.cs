@@ -47,5 +47,10 @@ public class GoldMine : MonoBehaviour, IBuilding
     {
         throw new System.NotImplementedException();
     }
+
+    public Player GetPlayer()
+    {
+        throw new System.NotImplementedException();
+    }
     #endregion
 }

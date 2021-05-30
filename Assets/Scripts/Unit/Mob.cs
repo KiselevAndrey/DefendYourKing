@@ -53,7 +53,6 @@ public class Mob : MonoBehaviour, IUnit
 
     public float BodyRadius => bodyRadius;
 
-
     #region Need complete
     public int Health => throw new System.NotImplementedException();
 
@@ -73,6 +72,11 @@ public class Mob : MonoBehaviour, IUnit
     }
 
     public void Select()
+    {
+        throw new System.NotImplementedException();
+    }
+
+    public Player GetPlayer()
     {
         throw new System.NotImplementedException();
     }

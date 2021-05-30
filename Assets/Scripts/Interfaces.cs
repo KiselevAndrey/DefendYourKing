@@ -3,8 +3,8 @@ using UnityEngine;
 public interface IUnit
 {
     int Health { get; }
-    float BodyRadius { get; }
 
+    float BodyRadius { get; }
 
     void GetDamage(int damage);
 
@@ -13,6 +13,8 @@ public interface IUnit
     void Select();
 
     void Deselect();
+
+    Player GetPlayer();
 }
 
 public interface IAttack
