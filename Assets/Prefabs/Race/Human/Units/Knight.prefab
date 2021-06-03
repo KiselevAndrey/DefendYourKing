@@ -501,7 +501,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bodyRadius: 0.3
   maxHealth: 10
-  startState: 0
   move: {fileID: 8925257278360867275}
 --- !u!114 &8925257278360867273
 MonoBehaviour:
@@ -533,7 +532,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ca7c8cf3bc317354fa4f94cacb28e313, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 5
+  speed: 1
   directionToTarget: {x: 0, y: 0, z: 0}
 --- !u!136 &-6513196517763709245
 CapsuleCollider:

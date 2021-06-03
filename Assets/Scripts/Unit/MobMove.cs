@@ -11,6 +11,7 @@ public class MobMove : MonoBehaviour
     public void MoveToTarget(Vector3 targetPosition)
     {
         RotateToTarget(targetPosition);
+
         
         transform.DOMove(transform.position + directionToTarget.normalized * speed * Time.deltaTime, Time.deltaTime);
     }
