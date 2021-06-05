@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -14,8 +12,9 @@ public class MobWithNavMesh : MonoBehaviour, IMob
     [Header("References")]
     [SerializeField] private NavMeshAgent navMeshAgent;
     [SerializeField] private MeshRenderer changedPlayerMaterial;
-    private IAttack attack;
+    [SerializeField] private UnitAnimatorsManager animatorsManager;
 
+    private IAttack _attack;
     private States _currentStage;
     private Player _player;
     private PathPoint _nextPathPoint;
@@ -26,7 +25,7 @@ public class MobWithNavMesh : MonoBehaviour, IMob
     #region Awake Update OnEnable OnDisable
     private void Awake()
     {
-        attack = GetComponent<IAttack>();
+        _attack = GetComponent<IAttack>();
         _bodyRadius = navMeshAgent.radius;
     }
 
@@ -45,7 +44,7 @@ public class MobWithNavMesh : MonoBehaviour, IMob
 
     private void OnDisable()
     {
-        attack.Target = null;
+        _attack.Target = null;
     }
     #endregion
 
@@ -65,21 +64,21 @@ public class MobWithNavMesh : MonoBehaviour, IMob
                     SetDestination(PathPoint.GetPosition());
                 }
 
-                attack.FindTarget();
+                _attack.FindTarget();
                 break;
 
             case States.FollowToAttack:
-                if (attack.Target.Health > 0)
+                if (_attack.Target.Health > 0)
                 {
-                    navMeshAgent.stoppingDistance = Mathf.Max(BodyRadius, attack.Target.BodyRadius, attack.Range);
-                    if (Vector3.Distance(GetPosition(), attack.Target.GetPosition()) > navMeshAgent.stoppingDistance && startState != States.Stay)
-                        SetDestination(attack.Target.GetPosition());
+                    navMeshAgent.stoppingDistance = Mathf.Max(BodyRadius, _attack.Target.BodyRadius, _attack.Range);
+                    if (Vector3.Distance(GetPosition(), _attack.Target.GetPosition()) > navMeshAgent.stoppingDistance && startState != States.Stay)
+                        SetDestination(_attack.Target.GetPosition());
                     else
                     {
                         //move.RotateToTarget(attack.Target.GetPosition());
                         //transform.rotation = Quaternion.LookRotation(navMeshAgent.velocity.normalized);
                         //if (!navMeshAgent.updateRotation) SetDestination(attack.Target.GetPosition());
-                        RotateTowards(attack.Target.GetPosition());
+                        RotateTowards(_attack.Target.GetPosition());
                         ChangeStage(States.Attack);
                     }
                 }
@@ -88,11 +87,11 @@ public class MobWithNavMesh : MonoBehaviour, IMob
                 break;
 
             case States.Attack:
-                attack.TryAttack();
+                _attack.TryAttack();
                 break;
 
             case States.Stay:
-                attack.FindTarget();
+                _attack.FindTarget();
                 break;
         }
     }
@@ -100,6 +99,28 @@ public class MobWithNavMesh : MonoBehaviour, IMob
     public void ChangeStage(States newStage)
     {
         _currentStage = newStage;
+
+        switch (newStage)
+        {
+            case States.FollowThePath:
+                animatorsManager.IsStartMoveAnimation(true);
+                break;
+
+            case States.FollowToAttack:
+                animatorsManager.IsStartMoveAnimation(true);
+                break;
+
+            case States.Attack:
+                animatorsManager.IsStartMoveAnimation(false);
+                break;
+
+            case States.Stay:
+                animatorsManager.IsStartMoveAnimation(false);
+                break;
+
+            default:
+                break;
+        }
     }
 
     public void ResetStage()
@@ -169,7 +190,7 @@ public class MobWithNavMesh : MonoBehaviour, IMob
     }
         #endregion
 
-        #region Need complete
+    #region Need complete
         public void Deselect()
     {
     }
