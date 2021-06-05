@@ -77,7 +77,9 @@ public class MobWithNavMesh : MonoBehaviour, IMob
                     else
                     {
                         //move.RotateToTarget(attack.Target.GetPosition());
-                        if (!navMeshAgent.updateRotation) SetDestination(attack.Target.GetPosition());
+                        //transform.rotation = Quaternion.LookRotation(navMeshAgent.velocity.normalized);
+                        //if (!navMeshAgent.updateRotation) SetDestination(attack.Target.GetPosition());
+                        RotateTowards(attack.Target.GetPosition());
                         ChangeStage(States.Attack);
                     }
                 }
@@ -113,10 +115,7 @@ public class MobWithNavMesh : MonoBehaviour, IMob
         set 
         { 
             _player = value;
-            for (int i = 0; i < changedPlayerMaterial.materials.Length; i++)
-            {
-                changedPlayerMaterial.materials[i] = value.material;
-            }
+            changedPlayerMaterial.material = value.material;
         } 
     }
 
@@ -161,10 +160,17 @@ public class MobWithNavMesh : MonoBehaviour, IMob
     {
         return startState != States.Stay;
     }
-    #endregion
 
-    #region Need complete
-    public void Deselect()
+    private void RotateTowards(Vector3 target)
+    {
+        Vector3 direction = (target - transform.position).normalized;
+        Quaternion lookRotation = Quaternion.LookRotation(direction);
+        transform.rotation = Quaternion.Slerp(transform.rotation, lookRotation, Time.deltaTime * navMeshAgent.angularSpeed);
+    }
+        #endregion
+
+        #region Need complete
+        public void Deselect()
     {
     }
 
