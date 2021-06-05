@@ -23,7 +23,9 @@ public interface IAttack
 {
     void FindTarget();
 
-    void TryAttack();
+    bool TryFindTarget();
+
+    bool TryAttack();
 
     IUnit Target { get; set; }
 

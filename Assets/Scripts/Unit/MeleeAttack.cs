@@ -4,7 +4,7 @@ public class MeleeAttack : MonoBehaviour, IAttack
 {
     [Header("Find parameters")]
     [SerializeField] private float findRadius = 5f;
-    [SerializeField] private int countOfSkipCallsFindTargetFunction;
+    [SerializeField] private int countOfSkipCallsFindTargetFunction = 30;
 
     [Header("Attack parameters")]
     [SerializeField] private float attackRadius = .3f;
@@ -34,7 +34,45 @@ public class MeleeAttack : MonoBehaviour, IAttack
     #endregion
 
     #region Attack
-    public void TryAttack()
+    public bool TryFindTarget()
+    {
+        if (_countOfCallsFindTargetFunction < countOfSkipCallsFindTargetFunction)
+        {
+            _countOfCallsFindTargetFunction++;
+            return false;
+        }
+
+        _countOfCallsFindTargetFunction = 0;
+
+        // find all colliders
+        Collider[] findColliders = Physics.OverlapSphere(transform.position, findRadius);
+        System.Collections.Generic.List<IUnit> units = new System.Collections.Generic.List<IUnit>();
+
+        // if collider have IUnit, add to list
+        for (int i = 0; i < findColliders.Length; i++)
+        {
+            if (findColliders[i].TryGetComponent(out IUnit unit) && unit.Player != mob.Player)
+            {
+                units.Add(unit);
+            }
+        }
+
+        // find nearest target
+        float minDistance = findRadius;
+        for (int i = 0; i < units.Count; i++)
+        {
+            float targetDistance = Vector3.Distance(mob.GetPosition(), units[i].GetPosition());
+            if (targetDistance < minDistance)
+            {
+                Target = units[i];
+                minDistance = targetDistance;
+            }
+        }
+
+        return Target != null;
+    }
+
+    public bool TryAttack()
     {
         if (_canAttack)
         {
@@ -51,6 +89,8 @@ public class MeleeAttack : MonoBehaviour, IAttack
 
         if (Target == null)
             mob.ResetStage();
+
+        return false;
     }
 
     private System.Collections.IEnumerator Cooldown()

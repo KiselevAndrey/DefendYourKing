@@ -49,6 +49,36 @@ public class MobWithNavMesh : MonoBehaviour, IMob
     #endregion
 
     #region Stages
+    private void UpdateStage1()
+    {
+        switch (_currentStage)
+        {
+            case States.FollowThePath:
+                if (PathPoint)
+                {
+                    SetDestination(PathPoint.GetPosition());
+                    if(Vector3.Distance(GetPosition(), PathPoint.GetPosition()) < BodyRadius * 5 && PathPoint.GetNextPlayerPathPoint(Player))
+                    {
+                        PathPoint = PathPoint.GetNextPlayerPathPoint(Player);
+                    }
+                }
+
+                if (_attack.TryFindTarget())
+                    ChangeStage(States.FollowToAttack);
+                
+                break;
+
+            case States.FollowToAttack:
+                break;
+            case States.Attack:
+                break;
+            case States.Stay:
+                break;
+            default:
+                break;
+        }
+    }
+
     private void UpdateStage()
     {
         switch (_currentStage)
@@ -112,7 +142,7 @@ public class MobWithNavMesh : MonoBehaviour, IMob
 
             case States.Attack:
                 animatorsManager.IsStartMoveAnimation(false);
-                animatorsManager.MeleeAttack();
+                animatorsManager.StartMeleeAttackAnimation();
                 break;
 
             case States.Stay:
