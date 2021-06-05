@@ -2,8 +2,11 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
+    [Header("Parameters")]
+    public Material material;
+
     [Header("References")]
-    [SerializeField] PathPoint startPathPoint;
+    [SerializeField] private PathPoint startPathPoint;
 
     #region Awake
     private void Awake()

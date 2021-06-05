@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 4431096977250415467}
   - component: {fileID: 3619107816311114374}
   - component: {fileID: 7670775707621673804}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: character_rogueArmLeft
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -94,7 +94,7 @@ GameObject:
   - component: {fileID: 8954402257419667180}
   - component: {fileID: 5866790344479693169}
   - component: {fileID: 3526554365754844491}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: character_rogueHead
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -177,7 +177,7 @@ GameObject:
   - component: {fileID: 982206086357751666}
   - component: {fileID: 982206086357751664}
   - component: {fileID: 5704448740866142751}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Gold_Lumber
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -236,7 +236,7 @@ GameObject:
   - component: {fileID: 3373245728622677439}
   - component: {fileID: 1837458251808473626}
   - component: {fileID: 4511201387139790544}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: bookcaseWide (8)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -317,7 +317,7 @@ GameObject:
   - component: {fileID: 3373245728470749229}
   - component: {fileID: 1837458251723399048}
   - component: {fileID: 4511201386717096770}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: bookcaseWide (7)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -398,7 +398,7 @@ GameObject:
   - component: {fileID: 3373245728553895171}
   - component: {fileID: 1837458251604560550}
   - component: {fileID: 4511201386667507308}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: bookcaseWide (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -479,7 +479,7 @@ GameObject:
   - component: {fileID: 3373245728346253110}
   - component: {fileID: 1837458251531266195}
   - component: {fileID: 4511201386862566489}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: bookcaseWide
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -560,7 +560,7 @@ GameObject:
   - component: {fileID: 3373245729298153176}
   - component: {fileID: 1837458250336072061}
   - component: {fileID: 4511201388620187063}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: scaffold_small_low_long
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -641,7 +641,7 @@ GameObject:
   - component: {fileID: 3373245729250977742}
   - component: {fileID: 1837458250356009067}
   - component: {fileID: 4511201388570893473}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: bookcaseWide (5)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -722,7 +722,7 @@ GameObject:
   - component: {fileID: 3373245729173708314}
   - component: {fileID: 1837458250213069247}
   - component: {fileID: 4511201388765603189}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: scaffold_medium_railing
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -803,7 +803,7 @@ GameObject:
   - component: {fileID: 3373245729170469237}
   - component: {fileID: 1837458250207870672}
   - component: {fileID: 4511201388760451610}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: scaffold_small_low_long (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -884,7 +884,7 @@ GameObject:
   - component: {fileID: 3373245729014217589}
   - component: {fileID: 1837458250118853840}
   - component: {fileID: 4511201388333695002}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: bookcaseWide (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -965,7 +965,7 @@ GameObject:
   - component: {fileID: 3373245729845217225}
   - component: {fileID: 1837458250883663980}
   - component: {fileID: 4511201388094094502}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: bookcaseWide (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1046,7 +1046,7 @@ GameObject:
   - component: {fileID: 3373245729593851874}
   - component: {fileID: 1837458250564661319}
   - component: {fileID: 4511201387707925645}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: bookcaseWide (6)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1127,7 +1127,7 @@ GameObject:
   - component: {fileID: 3373245729411976536}
   - component: {fileID: 1837458250517922557}
   - component: {fileID: 4511201387927549495}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: bookcaseWide (9)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1208,7 +1208,7 @@ GameObject:
   - component: {fileID: 3373245729461619255}
   - component: {fileID: 1837458250432693650}
   - component: {fileID: 4511201387844350296}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: bookcaseWide (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1287,7 +1287,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2979857256455197865}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Gold
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1323,7 +1323,7 @@ GameObject:
   - component: {fileID: 2979857256494779439}
   - component: {fileID: 2979857256494779424}
   - component: {fileID: 2979857256494779425}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Pine Medium (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -22579,7 +22579,7 @@ GameObject:
   - component: {fileID: 2979857256517021077}
   - component: {fileID: 2979857256517021075}
   - component: {fileID: 2979857256517021076}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: scaffold_small_low_long (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -22660,7 +22660,7 @@ GameObject:
   - component: {fileID: 2979857256596891538}
   - component: {fileID: 2979857256596891536}
   - component: {fileID: 2979857256596891537}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: bookcaseWide (8)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -22739,7 +22739,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2979857256627259221}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Lumber
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -22774,7 +22774,7 @@ GameObject:
   - component: {fileID: 2979857256638730477}
   - component: {fileID: 2979857256638730475}
   - component: {fileID: 2979857256638730476}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: bookcaseWide (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -22855,7 +22855,7 @@ GameObject:
   - component: {fileID: 2979857256663411903}
   - component: {fileID: 2979857256663411901}
   - component: {fileID: 2979857256663411902}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: scaffold_medium_railing
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -22936,7 +22936,7 @@ GameObject:
   - component: {fileID: 2979857256805579415}
   - component: {fileID: 2979857256805579413}
   - component: {fileID: 2979857256805579414}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: character_rogueArmRight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -23016,7 +23016,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2979857256834414779}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Workers
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -23049,7 +23049,7 @@ GameObject:
   - component: {fileID: 2979857257067376587}
   - component: {fileID: 2979857257067376585}
   - component: {fileID: 2979857257067376586}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: bookcaseWide (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -23130,7 +23130,7 @@ GameObject:
   - component: {fileID: 2979857257090703914}
   - component: {fileID: 2979857257090703912}
   - component: {fileID: 2979857257090703913}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: bookcaseWide (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -23212,7 +23212,7 @@ GameObject:
   - component: {fileID: 2979857257106516746}
   - component: {fileID: 2979857257106516747}
   - component: {fileID: 2979857257106516748}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Pine Large (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -26388,7 +26388,7 @@ GameObject:
   - component: {fileID: 2979857257262087382}
   - component: {fileID: 2979857257262087380}
   - component: {fileID: 2979857257262087381}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: bookcaseWide (13)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -26469,7 +26469,7 @@ GameObject:
   - component: {fileID: 2979857257264393402}
   - component: {fileID: 2979857257264393400}
   - component: {fileID: 2979857257264393401}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: character_rogueArmLeft
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -26552,7 +26552,7 @@ GameObject:
   - component: {fileID: 2979857257335390704}
   - component: {fileID: 2979857257335390718}
   - component: {fileID: 2979857257335390719}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: bookcaseWide (7)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -26634,7 +26634,7 @@ GameObject:
   - component: {fileID: 2979857257407393255}
   - component: {fileID: 2979857257407393240}
   - component: {fileID: 2979857257407393241}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Mine
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -31006,7 +31006,7 @@ GameObject:
   - component: {fileID: 2979857257417814896}
   - component: {fileID: 2979857257417814910}
   - component: {fileID: 2979857257417814911}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: bookcaseWide (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -31085,7 +31085,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2979857257434377418}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Workers
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -31118,7 +31118,7 @@ GameObject:
   - component: {fileID: 2979857257459200613}
   - component: {fileID: 2979857257459200611}
   - component: {fileID: 2979857257459200612}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: bookcaseWide (10)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -31199,7 +31199,7 @@ GameObject:
   - component: {fileID: 2979857257520025855}
   - component: {fileID: 2979857257520025853}
   - component: {fileID: 2979857257520025854}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: bookcaseWide (12)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -31278,7 +31278,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2979857257537308457}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Warehouse
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -31321,7 +31321,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2979857257571578834}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Warehouse
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -31366,7 +31366,7 @@ GameObject:
   - component: {fileID: 2979857257713600286}
   - component: {fileID: 2979857257713600284}
   - component: {fileID: 2979857257713600285}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: scaffold_small_low_long (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -31447,7 +31447,7 @@ GameObject:
   - component: {fileID: 2979857257729472848}
   - component: {fileID: 2979857257729472862}
   - component: {fileID: 2979857257729472863}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: scaffold_small_low_long
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -31528,7 +31528,7 @@ GameObject:
   - component: {fileID: 2979857257744150035}
   - component: {fileID: 2979857257744150033}
   - component: {fileID: 2979857257744150034}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: bookcaseWide (9)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -31609,7 +31609,7 @@ GameObject:
   - component: {fileID: 2979857257784764171}
   - component: {fileID: 2979857257784764169}
   - component: {fileID: 2979857257784764170}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: character_rogueHead
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -31692,7 +31692,7 @@ GameObject:
   - component: {fileID: 2979857257878732088}
   - component: {fileID: 2979857257878731974}
   - component: {fileID: 2979857257878731975}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: scaffold_small_low_long (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -31773,7 +31773,7 @@ GameObject:
   - component: {fileID: 2979857258117762225}
   - component: {fileID: 2979857258117762239}
   - component: {fileID: 2979857258117762224}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: bookcaseWide (11)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -31854,7 +31854,7 @@ GameObject:
   - component: {fileID: 2979857258132549840}
   - component: {fileID: 2979857258132549854}
   - component: {fileID: 2979857258132549855}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: bookcaseWide (5)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -31935,7 +31935,7 @@ GameObject:
   - component: {fileID: 2979857258187689939}
   - component: {fileID: 2979857258187689937}
   - component: {fileID: 2979857258187689938}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: bookcaseWide (6)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -32016,7 +32016,7 @@ GameObject:
   - component: {fileID: 2979857258265265692}
   - component: {fileID: 2979857258265265690}
   - component: {fileID: 2979857258265265691}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: bookcaseWide
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -32095,7 +32095,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2979857258375199325}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Forest
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -32129,7 +32129,7 @@ GameObject:
   - component: {fileID: 2979857258447341500}
   - component: {fileID: 2979857258447341498}
   - component: {fileID: 2979857258447341499}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: character_rogue
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -32217,7 +32217,7 @@ GameObject:
   - component: {fileID: 4556904939259082278}
   - component: {fileID: 617762202938358147}
   - component: {fileID: 3420004782245236041}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: character_rogue
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -32305,7 +32305,7 @@ GameObject:
   - component: {fileID: 5481818141249028110}
   - component: {fileID: 737028203474791727}
   - component: {fileID: 3366571653705903845}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: character_rogueArmRight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -32444,6 +32444,10 @@ PrefabInstance:
       value: log
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 9ed2cae620415884aba3bce8821b78e4, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 9ed2cae620415884aba3bce8821b78e4, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 4294967295
       objectReference: {fileID: 0}
@@ -32522,6 +32526,10 @@ PrefabInstance:
       value: lootSackA
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 94f80ac32289c3848bbb8aaf5facaf60, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 94f80ac32289c3848bbb8aaf5facaf60, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 4294967295
       objectReference: {fileID: 0}
@@ -32588,6 +32596,10 @@ PrefabInstance:
       value: mageHairC
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: eca8ddfc538adf247b7728250c27b0b5, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: eca8ddfc538adf247b7728250c27b0b5, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 4294967295
       objectReference: {fileID: 0}
@@ -32652,6 +32664,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: eca8ddfc538adf247b7728250c27b0b5, type: 3}
       propertyPath: m_Name
       value: mageHairC
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: eca8ddfc538adf247b7728250c27b0b5, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: eca8ddfc538adf247b7728250c27b0b5, type: 3}
       propertyPath: m_StaticEditorFlags

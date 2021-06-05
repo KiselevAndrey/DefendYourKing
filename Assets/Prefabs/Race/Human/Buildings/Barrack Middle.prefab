@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 1193426375284470016}
   - component: {fileID: 2819320859366702757}
   - component: {fileID: 55391384428235375}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: targetStand (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -92,7 +92,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2260266330430376916}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Tree_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -125,7 +125,7 @@ GameObject:
   - component: {fileID: 2260266330430376918}
   - component: {fileID: 2260266330431179766}
   - component: {fileID: 2260266330432276790}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Mesh1_Tree_Model
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -205,7 +205,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2260266330867027893}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Wood_Window_Round_Sill_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -238,7 +238,7 @@ GameObject:
   - component: {fileID: 2260266330867027895}
   - component: {fileID: 2260266330868322199}
   - component: {fileID: 2260266330869452119}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Mesh1_Wood_Window_Round_Sill_Model
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -318,7 +318,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2260266331181662001}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Wood_Wall_Double_Cross_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -351,7 +351,7 @@ GameObject:
   - component: {fileID: 2260266331181662003}
   - component: {fileID: 2260266331182989075}
   - component: {fileID: 2260266331183955411}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Mesh1_Wood_Wall_Double_Cross_Model
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -435,7 +435,7 @@ GameObject:
   - component: {fileID: 2260266331214000115}
   - component: {fileID: 2260266331214000116}
   - component: {fileID: 2260266331214000117}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Fence
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -56309,7 +56309,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2260266331247393173}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Wood_Wall_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -56342,7 +56342,7 @@ GameObject:
   - component: {fileID: 2260266331247393175}
   - component: {fileID: 2260266331250293175}
   - component: {fileID: 2260266331249294199}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Mesh1_Wood_Wall_Model
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -56422,7 +56422,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2260266331359688189}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Wood_Window_Round_Sill_01 (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -56455,7 +56455,7 @@ GameObject:
   - component: {fileID: 2260266331359688191}
   - component: {fileID: 2260266331356820959}
   - component: {fileID: 2260266331357919007}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Mesh1_Wood_Window_Round_Sill_Model
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -56535,7 +56535,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2260266331378179709}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: House
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -56577,7 +56577,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2260266331539035799}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Objects
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -56611,7 +56611,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2260266331611985977}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Shield_Red_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -56644,7 +56644,7 @@ GameObject:
   - component: {fileID: 2260266331611985979}
   - component: {fileID: 2260266331615377435}
   - component: {fileID: 2260266331614280411}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Mesh1_Shield_Red_Model
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -56727,7 +56727,7 @@ GameObject:
   - component: {fileID: 2260266331704586244}
   - component: {fileID: 2260266331707453476}
   - component: {fileID: 2260266331706487524}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Mesh1_Wood_Door_Round_Model
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -56807,7 +56807,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2260266331704586246}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Wood_Door_Round_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -56841,7 +56841,7 @@ GameObject:
   - component: {fileID: 2260266331839777725}
   - component: {fileID: 5387500338670490242}
   - component: {fileID: 6761361626881945296}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Barrack Middle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -56879,7 +56879,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spawnCooldownTime: 5
   spawnPrefabs:
-  - {fileID: 8925257278360867271, guid: 1ab2bfae7d0c1fd4db37d66a2e32c934, type: 3}
+  - {fileID: 8925257278360867271, guid: b1073f586a173474383b5bd16c4ef226, type: 3}
   spawnCount: 01000000
 --- !u!65 &6761361626881945296
 BoxCollider:
@@ -56903,7 +56903,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2260266331928593153}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Wood_Wall_Cross_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -56936,7 +56936,7 @@ GameObject:
   - component: {fileID: 2260266331928593155}
   - component: {fileID: 2260266331927823139}
   - component: {fileID: 2260266331926692323}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Mesh1_Wood_Wall_Cross_Model
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -57017,7 +57017,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2260266331996598881}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Roof_Straight_Green_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -57050,7 +57050,7 @@ GameObject:
   - component: {fileID: 2260266331996598883}
   - component: {fileID: 2260266331995304515}
   - component: {fileID: 2260266331994304643}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Mesh1_Roof_Straight_Green_Model
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -57134,7 +57134,7 @@ GameObject:
   - component: {fileID: 2260266332019240680}
   - component: {fileID: 2260266332022664906}
   - component: {fileID: 2260266332021664778}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Mesh1_Banner_Model
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -57215,7 +57215,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2260266332019240682}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Banner_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -57248,7 +57248,7 @@ GameObject:
   - component: {fileID: 2260266332286781001}
   - component: {fileID: 2260266332283913833}
   - component: {fileID: 2260266332285011113}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Mesh1_Roof_Straight_Green_Model
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -57330,7 +57330,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2260266332286781003}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Roof_Straight_Green_01 (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -57363,7 +57363,7 @@ GameObject:
   - component: {fileID: 2450953841008105537}
   - component: {fileID: 1561713455703381988}
   - component: {fileID: 3623327684478968622}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: bench
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -57444,7 +57444,7 @@ GameObject:
   - component: {fileID: 3503195935623211898}
   - component: {fileID: 518478770301494495}
   - component: {fileID: 2366350199870590997}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: targetStand (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -57527,7 +57527,7 @@ GameObject:
   - component: {fileID: 3797656236672413903}
   - component: {fileID: 224097704167931754}
   - component: {fileID: 2664108863065164704}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: banner
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -57610,7 +57610,7 @@ GameObject:
   - component: {fileID: 6169247143067549119}
   - component: {fileID: 7075799338750669338}
   - component: {fileID: 5032417765638375120}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: targetStand
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -57694,8 +57694,16 @@ PrefabInstance:
       value: Iron_Door_01
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: 0a1a279edc36fb3459c95bb5a2a91e76, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 0a1a279edc36fb3459c95bb5a2a91e76, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 100002, guid: 0a1a279edc36fb3459c95bb5a2a91e76, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 100002, guid: 0a1a279edc36fb3459c95bb5a2a91e76, type: 3}
       propertyPath: m_StaticEditorFlags

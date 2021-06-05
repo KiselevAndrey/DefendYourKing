@@ -12,11 +12,18 @@ public class MeleeAttack : MonoBehaviour, IAttack
     [SerializeField] private int damage;
 
     [Header("References")]
-    [SerializeField] private Mob mob;
+    [SerializeField] private IMob mob;
 
     private IUnit _target;
     private int _countOfCallsFindTargetFunction;
     private bool _canAttack = true;
+
+    #region Awake
+    private void Awake()
+    {
+        mob = GetComponent<IMob>();
+    }
+    #endregion
 
     #region Properties
     public IUnit Target { get => _target; set => _target = value; }
@@ -42,8 +49,8 @@ public class MeleeAttack : MonoBehaviour, IAttack
             Target = null;
         }
 
-        if(Target == null)
-            mob.ChangeStage(mob.startState);
+        if (Target == null)
+            mob.ResetStage();
     }
 
     private System.Collections.IEnumerator Cooldown()
@@ -73,12 +80,13 @@ public class MeleeAttack : MonoBehaviour, IAttack
             {
                 if(findColliders[i].TryGetComponent(out IUnit unit))
                 {
-                    if (unit.Player != mob.Player) units.Add(unit);
+                    if (unit.Player != mob.Player) 
+                        units.Add(unit);
                 }
             }
 
             // find nearest target
-            float minDistance = mob.startState != Mob.States.Stay ? findRadius : attackRadius;
+            float minDistance = mob.CanMove() ? findRadius : Range;
             for (int i = 0; i < units.Count; i++)
             {
                 float targetDistance = Vector3.Distance(mob.GetPosition(), units[i].GetPosition());
@@ -91,7 +99,7 @@ public class MeleeAttack : MonoBehaviour, IAttack
 
             if (Target != null)
             {
-                mob.ChangeStage(Mob.States.FollowToAttack);
+                mob.MoveToAttack();
             }
         }
     }

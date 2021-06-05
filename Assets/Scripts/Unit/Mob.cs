@@ -90,6 +90,11 @@ public class Mob : MonoBehaviour, IMob
     {
         _currentStage = newStage;
     }
+
+    public void ResetStage()
+    {
+        ChangeStage(startState);
+    }
     #endregion
 
     #region Properties
@@ -123,6 +128,18 @@ public class Mob : MonoBehaviour, IMob
     }
     #endregion
 
+    #region Move
+    public void MoveToAttack()
+    {
+        ChangeStage(States.FollowToAttack);
+    }
+
+    public bool CanMove()
+    {
+        return startState != States.Stay;
+    }
+    #endregion
+
     #region Need complete
 
     public void Deselect()
@@ -134,6 +151,7 @@ public class Mob : MonoBehaviour, IMob
     {
         throw new System.NotImplementedException();
     }
+
 
     #endregion
 }
