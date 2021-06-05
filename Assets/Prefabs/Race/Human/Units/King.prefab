@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 3076159400545482374}
   - component: {fileID: 2098516040608839971}
   - component: {fileID: 4250160486057905641}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Body
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -101,7 +101,7 @@ GameObject:
   - component: {fileID: 1960711774515733223}
   - component: {fileID: 6889703248054679482}
   - component: {fileID: 3492231394416145475}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: ArmRight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -184,7 +184,7 @@ GameObject:
   - component: {fileID: 3322294577908088979}
   - component: {fileID: 4358925324982474957}
   - component: {fileID: 35353823282306898}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: ArmLeft
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -267,7 +267,7 @@ GameObject:
   - component: {fileID: 7341093077970880599}
   - component: {fileID: 5930984347774978034}
   - component: {fileID: 8479118795860308792}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Head
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -352,7 +352,8 @@ GameObject:
   - component: {fileID: 8691019052980538050}
   - component: {fileID: 8691019052980538049}
   - component: {fileID: 8691019052980538077}
-  m_Layer: 0
+  - component: {fileID: 1203990012499275796}
+  m_Layer: 7
   m_Name: King
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -436,6 +437,28 @@ CapsuleCollider:
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0, y: 1, z: 0}
+--- !u!195 &1203990012499275796
+NavMeshAgent:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8691019052980538048}
+  m_Enabled: 1
+  m_AgentTypeID: 0
+  m_Radius: 0.5
+  m_Speed: 3.5
+  m_Acceleration: 8
+  avoidancePriority: 50
+  m_AngularSpeed: 120
+  m_StoppingDistance: 0
+  m_AutoTraverseOffMeshLink: 1
+  m_AutoBraking: 1
+  m_AutoRepath: 1
+  m_Height: 2
+  m_BaseOffset: 0
+  m_WalkableMask: 4294967295
+  m_ObstacleAvoidanceType: 4
 --- !u!1 &8691019053498109369
 GameObject:
   m_ObjectHideFlags: 0
@@ -449,7 +472,7 @@ GameObject:
   - component: {fileID: 8691019053498109365}
   - component: {fileID: 8691019053498109364}
   - component: {fileID: 8691019053498109371}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Crown
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2016,7 +2039,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8691019053537381368}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Animation
   m_TagString: Untagged
   m_Icon: {fileID: 0}

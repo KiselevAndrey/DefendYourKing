@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 974225310059375822}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Upgrades
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -45,7 +45,7 @@ GameObject:
   - component: {fileID: 974225310284732907}
   - component: {fileID: 974225310284732906}
   - component: {fileID: 974225310284732909}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Walls
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -886,7 +886,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 974225310378942257}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Objects
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -918,7 +918,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 974225311118468313}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: House
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -957,7 +957,7 @@ GameObject:
   - component: {fileID: 974225311942909850}
   - component: {fileID: 974225311942909853}
   - component: {fileID: 974225311942909852}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Pipe
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1792,7 +1792,7 @@ GameObject:
   - component: {fileID: 974225312037437811}
   - component: {fileID: 974225312037437809}
   - component: {fileID: 974225312037437808}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Forge
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1851,7 +1851,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7544239581274424304}
   - component: {fileID: 2491860074901528166}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: FloorDecoration (17)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1933,7 +1933,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1953108907450972644}
   - component: {fileID: 3567184957344439659}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: FloorDecoration (16)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2013,12 +2013,20 @@ PrefabInstance:
     m_TransformParent: {fileID: 974225311118468313}
     m_Modifications:
     - target: {fileID: 100000, guid: ddd3651d7cb1daa429fafc4589693410, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: ddd3651d7cb1daa429fafc4589693410, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 4294967295
       objectReference: {fileID: 0}
     - target: {fileID: 100002, guid: ddd3651d7cb1daa429fafc4589693410, type: 3}
       propertyPath: m_Name
       value: Roof_Point_Red_01
+      objectReference: {fileID: 0}
+    - target: {fileID: 100002, guid: ddd3651d7cb1daa429fafc4589693410, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 100002, guid: ddd3651d7cb1daa429fafc4589693410, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -2143,6 +2151,10 @@ PrefabInstance:
       value: quiver_full
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 2b1d662c7d139bb43b6107fc4bdce1e5, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 2b1d662c7d139bb43b6107fc4bdce1e5, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 4294967295
       objectReference: {fileID: 0}
@@ -2219,6 +2231,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 75fbd3d87e2c9524caabd54420593f89, type: 3}
       propertyPath: m_Name
       value: door
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 75fbd3d87e2c9524caabd54420593f89, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 75fbd3d87e2c9524caabd54420593f89, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -2299,6 +2315,10 @@ PrefabInstance:
       value: chestTop_rare
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: d4d7245e8b6423643a8a740d2de297be, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: d4d7245e8b6423643a8a740d2de297be, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 4294967295
       objectReference: {fileID: 0}
@@ -2365,6 +2385,10 @@ PrefabInstance:
       value: shield_common
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 340cf27c7bf649548a46a44e6f87e0c7, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 340cf27c7bf649548a46a44e6f87e0c7, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 4294967295
       objectReference: {fileID: 0}
@@ -2429,6 +2453,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 31f68e8ea3b83ff438207cce29e33d04, type: 3}
       propertyPath: m_Name
       value: sword_common
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 31f68e8ea3b83ff438207cce29e33d04, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 31f68e8ea3b83ff438207cce29e33d04, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -2507,6 +2535,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 7d5ee0be816cc9a428722215e29c7d2c, type: 3}
       propertyPath: m_Name
       value: chest_rare
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 7d5ee0be816cc9a428722215e29c7d2c, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 7d5ee0be816cc9a428722215e29c7d2c, type: 3}
       propertyPath: m_StaticEditorFlags

@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 1130174067682585069}
   - component: {fileID: 5406522090194795696}
   - component: {fileID: 2660521652221099849}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: ArmRight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -95,7 +95,7 @@ GameObject:
   - component: {fileID: 1054249807698477359}
   - component: {fileID: 7736518356185310017}
   - component: {fileID: 3277586493417438428}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: character_knightHelmet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -178,7 +178,7 @@ GameObject:
   - component: {fileID: 4479464276914240908}
   - component: {fileID: 686124476937105961}
   - component: {fileID: 3342073183663130339}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Body
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -267,7 +267,7 @@ GameObject:
   - component: {fileID: 4676789274770812403}
   - component: {fileID: 8893315637633535076}
   - component: {fileID: 3372407352588150}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Head
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -351,7 +351,7 @@ GameObject:
   - component: {fileID: 6262463338533526518}
   - component: {fileID: 1544466527245094993}
   - component: {fileID: 4523416779308644640}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: character_knightHelmetVisor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -433,7 +433,7 @@ GameObject:
   - component: {fileID: 7850045562457285311}
   - component: {fileID: 6584030985802411290}
   - component: {fileID: 8988017199192611280}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: dagger_common
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -514,7 +514,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8925257277271626723}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Animation
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -550,7 +550,8 @@ GameObject:
   - component: {fileID: 8925257278360867275}
   - component: {fileID: -6513196517763709245}
   - component: {fileID: 2388433918660540006}
-  m_Layer: 0
+  - component: {fileID: -8921525564485210164}
+  m_Layer: 7
   m_Name: Knight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -653,6 +654,28 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!195 &-8921525564485210164
+NavMeshAgent:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8925257278360867271}
+  m_Enabled: 1
+  m_AgentTypeID: 0
+  m_Radius: 0.2
+  m_Speed: 3.5
+  m_Acceleration: 8
+  avoidancePriority: 50
+  m_AngularSpeed: 120
+  m_StoppingDistance: 0.5
+  m_AutoTraverseOffMeshLink: 1
+  m_AutoBraking: 1
+  m_AutoRepath: 1
+  m_Height: 0.6
+  m_BaseOffset: 0
+  m_WalkableMask: 4294967295
+  m_ObstacleAvoidanceType: 2
 --- !u!1 &9061275256838606119
 GameObject:
   m_ObjectHideFlags: 0
@@ -664,7 +687,7 @@ GameObject:
   - component: {fileID: 4215895896334830489}
   - component: {fileID: 2946749260100752327}
   - component: {fileID: 1506293231150306392}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: ArmLeft
   m_TagString: Untagged
   m_Icon: {fileID: 0}
