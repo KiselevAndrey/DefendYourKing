@@ -13,6 +13,7 @@ public class MobWithNavMesh : MonoBehaviour, IMob
 
     [Header("References")]
     [SerializeField] private NavMeshAgent navMeshAgent;
+    [SerializeField] private MeshRenderer changedPlayerMaterial;
     private IAttack attack;
 
     private States _currentStage;
@@ -56,7 +57,7 @@ public class MobWithNavMesh : MonoBehaviour, IMob
             case States.FollowThePath:
                 if (PathPoint)
                 {
-                    if (Vector3.Distance(GetPosition(), PathPoint.GetPosition()) < BodyRadius * 3 && PathPoint.GetNextPlayerPathPoint(Player))
+                    if (Vector3.Distance(GetPosition(), PathPoint.GetPosition()) < BodyRadius * 5 && PathPoint.GetNextPlayerPathPoint(Player))
                     {
                         PathPoint = PathPoint.GetNextPlayerPathPoint(Player);
                         SetDestination(PathPoint.GetPosition());
@@ -108,7 +109,16 @@ public class MobWithNavMesh : MonoBehaviour, IMob
     #region Properties
     public float BodyRadius => _bodyRadius;
 
-    public Player Player { get => _player; set => _player = value; }
+    public Player Player { get => _player; 
+        set 
+        { 
+            _player = value;
+            for (int i = 0; i < changedPlayerMaterial.materials.Length; i++)
+            {
+                changedPlayerMaterial.materials[i] = value.material;
+            }
+        } 
+    }
 
     public PathPoint PathPoint { get => _nextPathPoint; set => _nextPathPoint = value; }
 
