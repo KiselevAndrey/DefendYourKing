@@ -112,6 +112,7 @@ public class MobWithNavMesh : MonoBehaviour, IMob
 
             case States.Attack:
                 animatorsManager.IsStartMoveAnimation(false);
+                animatorsManager.MeleeAttack();
                 break;
 
             case States.Stay:
