@@ -33,7 +33,7 @@ public class MeleeAttack : MonoBehaviour, IAttack
     public int Damage { get => damage; set => damage = value; }
     #endregion
 
-    #region Attack
+    #region Find Target
     public bool TryFindTarget()
     {
         if (_countOfCallsFindTargetFunction < countOfSkipCallsFindTargetFunction)
@@ -44,6 +44,11 @@ public class MeleeAttack : MonoBehaviour, IAttack
 
         _countOfCallsFindTargetFunction = 0;
 
+        return FindTarget();
+    }
+
+    public bool FindTarget()
+    {
         // find all colliders
         Collider[] findColliders = Physics.OverlapSphere(transform.position, findRadius);
         System.Collections.Generic.List<IUnit> units = new System.Collections.Generic.List<IUnit>();
@@ -71,7 +76,9 @@ public class MeleeAttack : MonoBehaviour, IAttack
 
         return Target != null;
     }
+    #endregion
 
+    #region Attack
     public bool TryAttack()
     {
         if (_canAttack)
@@ -101,46 +108,4 @@ public class MeleeAttack : MonoBehaviour, IAttack
     }
     #endregion
 
-    public void FindTarget()
-    {
-        if(_countOfCallsFindTargetFunction < countOfSkipCallsFindTargetFunction)
-        {
-            _countOfCallsFindTargetFunction++;
-        }
-        else
-        {
-            _countOfCallsFindTargetFunction = 0;
-
-            // find all colliders
-            Collider[] findColliders = Physics.OverlapSphere(transform.position, findRadius);
-            System.Collections.Generic.List<IUnit> units = new System.Collections.Generic.List<IUnit>();
-
-            // if collider have IUnit, add to list
-            for (int i = 0; i < findColliders.Length; i++)
-            {
-                if(findColliders[i].TryGetComponent(out IUnit unit))
-                {
-                    if (unit.Player != mob.Player) 
-                        units.Add(unit);
-                }
-            }
-
-            // find nearest target
-            float minDistance = mob.CanMove() ? findRadius : Range;
-            for (int i = 0; i < units.Count; i++)
-            {
-                float targetDistance = Vector3.Distance(mob.GetPosition(), units[i].GetPosition());
-                if (targetDistance < minDistance)
-                {
-                    Target = units[i];
-                    minDistance = targetDistance;
-                }
-            }
-
-            if (Target != null)
-            {
-                mob.MoveToAttack();
-            }
-        }
-    }
 }

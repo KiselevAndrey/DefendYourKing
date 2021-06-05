@@ -144,12 +144,10 @@ public class Mob : MonoBehaviour, IMob
 
     public void Deselect()
     {
-        throw new System.NotImplementedException();
     }
 
     public void Select()
     {
-        throw new System.NotImplementedException();
     }
 
 

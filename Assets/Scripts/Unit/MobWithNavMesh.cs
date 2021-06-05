@@ -69,8 +69,29 @@ public class MobWithNavMesh : MonoBehaviour, IMob
                 break;
 
             case States.FollowToAttack:
+                if (_attack.Target.Health > 0)
+                {
+                    if (Vector3.Distance(GetPosition(), _attack.Target.GetPosition()) > navMeshAgent.stoppingDistance)
+                    {
+                        SetDestination(_attack.Target.GetPosition());
+                    }
+                    else
+                    {
+                        ChangeStage(States.Attack);
+                    }
+                }
+                else
+                {
+                    if (_attack.FindTarget())
+                        ChangeStage(States.FollowToAttack);
+                    else
+                        ChangeStage(startState);
+                }
                 break;
+
             case States.Attack:
+                RotateTowards(_attack.Target.GetPosition());
+                _attack.TryAttack();
                 break;
             case States.Stay:
                 break;
@@ -134,14 +155,15 @@ public class MobWithNavMesh : MonoBehaviour, IMob
         {
             case States.FollowThePath:
                 animatorsManager.IsStartMoveAnimation(true);
+                navMeshAgent.stoppingDistance = BodyRadius;
                 break;
 
             case States.FollowToAttack:
                 animatorsManager.IsStartMoveAnimation(true);
+                navMeshAgent.stoppingDistance = Mathf.Max(BodyRadius + _attack.Target.BodyRadius, _attack.Range);
                 break;
 
             case States.Attack:
-                animatorsManager.IsStartMoveAnimation(false);
                 animatorsManager.StartMeleeAttackAnimation();
                 break;
 
@@ -201,16 +223,6 @@ public class MobWithNavMesh : MonoBehaviour, IMob
     public void SetDestination(Vector3 target)
     {
         navMeshAgent.SetDestination(target);
-    }
-
-    public void MoveToAttack()
-    {
-        ChangeStage(States.FollowToAttack);
-    }
-
-    public bool CanMove()
-    {
-        return startState != States.Stay;
     }
 
     private void RotateTowards(Vector3 target)

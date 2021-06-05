@@ -21,7 +21,7 @@ public interface IUnit
 
 public interface IAttack
 {
-    void FindTarget();
+    bool FindTarget();
 
     bool TryFindTarget();
 
@@ -46,8 +46,4 @@ public interface IMob: IUnit
     PathPoint PathPoint { get; set; }
 
     void ResetStage();
-
-    void MoveToAttack();
-
-    bool CanMove();
 }
