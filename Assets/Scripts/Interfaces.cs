@@ -42,4 +42,10 @@ public interface IBuilding : IUnit
 public interface IMob: IUnit
 {
     PathPoint PathPoint { get; set; }
+
+    void ResetStage();
+
+    void MoveToAttack();
+
+    bool CanMove();
 }
