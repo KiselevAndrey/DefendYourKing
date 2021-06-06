@@ -13,6 +13,7 @@ public class MobWithNavMesh : MonoBehaviour, IMob
     [SerializeField] protected NavMeshAgent navMeshAgent;
     [SerializeField] protected MeshRenderer changedPlayerMaterial;
     [SerializeField] protected UnitAnimatorsManager animatorsManager;
+    [SerializeField] protected HealthBar healthBar;
 
     protected IAttack _attack;
     protected Stages _currentStage;
@@ -38,7 +39,10 @@ public class MobWithNavMesh : MonoBehaviour, IMob
     {
         startStage = Stages.FollowThePath;
         ChangeStage(startStage);
+
+        healthBar.SetMaxHealt(maxHealth);
         Health = maxHealth;
+
         _isLife = true;
         navMeshAgent.avoidancePriority = Random.Range(50, 100);
     }
@@ -91,7 +95,7 @@ public class MobWithNavMesh : MonoBehaviour, IMob
                 break;
 
             case Stages.Attack:
-                if (!_attack.CheckTheTarget)
+                if (!_attack.CheckDistanceToTarget)
                 {
                     ResetStage();
                     break;
@@ -101,11 +105,6 @@ public class MobWithNavMesh : MonoBehaviour, IMob
 
                 if (_attack.TryAttack())
                     animatorsManager.StartMeleeAttackAnimation();
-                else if (startStage == Stages.Stay || !_attack.CheckDistanceToTarget)
-                {
-                    ChangeStage(startStage);
-                    break;
-                }
 
                 break;
 
@@ -125,7 +124,7 @@ public class MobWithNavMesh : MonoBehaviour, IMob
         }
     }
 
-    public void ChangeStage(Stages newStage)
+    protected void ChangeStage(Stages newStage)
     {
         _currentStage = newStage;
 
@@ -151,10 +150,25 @@ public class MobWithNavMesh : MonoBehaviour, IMob
         }
     }
 
-    public void ResetStage()
+    private void ResetStage()
     {
-        ChangeStage(startStage);
-        _attack.FindNearestTarget();
+        if (_attack.FindNearestTarget())
+        {
+            switch (startStage)
+            {                 
+                case Stages.Stay:
+                    ChangeStage(Stages.Stay);
+                    break;
+
+                case Stages.FollowThePath:
+                default:
+                    ChangeStage(Stages.FollowToAttack);
+                    break;
+            }
+        }
+        else
+            ChangeStage(startStage);
+
     }
     #endregion
 
@@ -175,7 +189,15 @@ public class MobWithNavMesh : MonoBehaviour, IMob
 
     public Vector3 Position => transform.position;
 
-    public int Health { get => _currentHealth; set => _currentHealth = Mathf.Min(maxHealth, value); }
+    public int Health 
+    { 
+        get => _currentHealth;
+        set
+        {
+            _currentHealth = Mathf.Min(maxHealth, value);
+            healthBar.SetHealth(_currentHealth);
+        }
+    }
     #endregion
 
     #region Health
