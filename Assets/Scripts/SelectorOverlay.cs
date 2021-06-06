@@ -25,7 +25,7 @@ public class SelectorOverlay : MonoBehaviour
     public void Show(IBuilding building)
     {
         RotationToCamera();
-        transform.position = building.GetPosition();
+        transform.position = building.Position;
 
         gameObject.SetActive(true);
     }

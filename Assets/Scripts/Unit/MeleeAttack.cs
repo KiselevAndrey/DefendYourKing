@@ -31,11 +31,15 @@ public class MeleeAttack : MonoBehaviour, IAttack
     public float Range { get => attackRadius; }
 
     public int Damage { get => damage; set => damage = value; }
+
+    public bool CanAttack => _canAttack;
     #endregion
 
     #region Find Target
     public bool TryFindTarget()
     {
+        if (Target != null) return true;
+
         if (_countOfCallsFindTargetFunction < countOfSkipCallsFindTargetFunction)
         {
             _countOfCallsFindTargetFunction++;
@@ -66,7 +70,7 @@ public class MeleeAttack : MonoBehaviour, IAttack
         float minDistance = findRadius;
         for (int i = 0; i < units.Count; i++)
         {
-            float targetDistance = Vector3.Distance(mob.GetPosition(), units[i].GetPosition());
+            float targetDistance = Vector3.Distance(mob.Position, units[i].Position);
             if (targetDistance < minDistance)
             {
                 Target = units[i];
@@ -81,23 +85,36 @@ public class MeleeAttack : MonoBehaviour, IAttack
     #region Attack
     public bool TryAttack()
     {
-        if (_canAttack)
+        if (CanAttack)
         {
-            Target.TakeDamage((int)Random.Range(Damage * .7f, Damage * 1.3f));
-
             StartCoroutine(Cooldown());
+            return true;
         }
 
-        if(Target.Health <= 0)
+        CheckTarget();
+
+        return false;
+    }
+
+    public void Attack()
+    {
+        Target.TakeDamage((int)Random.Range(Damage * .7f, Damage * 1.3f));
+
+        CheckTarget();
+    }
+
+    private void CheckTarget()
+    {
+        if (Target.Health <= 0)
         {
             Target.Death();
             Target = null;
         }
 
         if (Target == null)
+        {
             mob.ResetStage();
-
-        return false;
+        }
     }
 
     private System.Collections.IEnumerator Cooldown()

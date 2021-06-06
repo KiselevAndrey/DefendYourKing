@@ -49,7 +49,7 @@ public class MobWithNavMesh : MonoBehaviour, IMob
     #endregion
 
     #region Stages
-    private void UpdateStage1()
+    private void UpdateStage()
     {
         switch (_currentStage)
         {
@@ -57,7 +57,7 @@ public class MobWithNavMesh : MonoBehaviour, IMob
                 if (PathPoint)
                 {
                     SetDestination(PathPoint.GetPosition());
-                    if(Vector3.Distance(GetPosition(), PathPoint.GetPosition()) < BodyRadius * 5 && PathPoint.GetNextPlayerPathPoint(Player))
+                    if(Vector3.Distance(Position, PathPoint.GetPosition()) < BodyRadius * 5 && PathPoint.GetNextPlayerPathPoint(Player))
                     {
                         PathPoint = PathPoint.GetNextPlayerPathPoint(Player);
                     }
@@ -71,9 +71,9 @@ public class MobWithNavMesh : MonoBehaviour, IMob
             case States.FollowToAttack:
                 if (_attack.Target.Health > 0)
                 {
-                    if (Vector3.Distance(GetPosition(), _attack.Target.GetPosition()) > navMeshAgent.stoppingDistance)
+                    if (Vector3.Distance(Position, _attack.Target.Position) > navMeshAgent.stoppingDistance)
                     {
-                        SetDestination(_attack.Target.GetPosition());
+                        SetDestination(_attack.Target.Position);
                     }
                     else
                     {
@@ -90,59 +90,21 @@ public class MobWithNavMesh : MonoBehaviour, IMob
                 break;
 
             case States.Attack:
-                RotateTowards(_attack.Target.GetPosition());
-                _attack.TryAttack();
-                break;
-            case States.Stay:
-                break;
-            default:
-                break;
-        }
-    }
-
-    private void UpdateStage()
-    {
-        switch (_currentStage)
-        {
-            case States.FollowThePath:
-                if (PathPoint)
-                {
-                    if (Vector3.Distance(GetPosition(), PathPoint.GetPosition()) < BodyRadius * 5 && PathPoint.GetNextPlayerPathPoint(Player))
-                    {
-                        PathPoint = PathPoint.GetNextPlayerPathPoint(Player);
-                        SetDestination(PathPoint.GetPosition());
-                    }
-                    SetDestination(PathPoint.GetPosition());
-                }
-
-                _attack.FindTarget();
-                break;
-
-            case States.FollowToAttack:
-                if (_attack.Target.Health > 0)
-                {
-                    navMeshAgent.stoppingDistance = Mathf.Max(BodyRadius, _attack.Target.BodyRadius, _attack.Range);
-                    if (Vector3.Distance(GetPosition(), _attack.Target.GetPosition()) > navMeshAgent.stoppingDistance && startState != States.Stay)
-                        SetDestination(_attack.Target.GetPosition());
-                    else
-                    {
-                        //move.RotateToTarget(attack.Target.GetPosition());
-                        //transform.rotation = Quaternion.LookRotation(navMeshAgent.velocity.normalized);
-                        //if (!navMeshAgent.updateRotation) SetDestination(attack.Target.GetPosition());
-                        RotateTowards(_attack.Target.GetPosition());
-                        ChangeStage(States.Attack);
-                    }
-                }
+                RotateTowards(_attack.Target.Position);
+                if (_attack.TryAttack())
+                    animatorsManager.StartMeleeAttackAnimation();
                 else
-                    ChangeStage(startState);
-                break;
-
-            case States.Attack:
-                _attack.TryAttack();
+                    ResetStage();
                 break;
 
             case States.Stay:
-                _attack.FindTarget();
+                if (_attack.TryFindTarget())
+                {
+                    if (_attack.CanAttack && Vector3.Distance(Position, _attack.Target.Position) > navMeshAgent.stoppingDistance)
+                        ChangeStage(States.Attack);
+                    else
+                        RotateTowards(_attack.Target.Position);
+                }
                 break;
         }
     }
@@ -164,7 +126,7 @@ public class MobWithNavMesh : MonoBehaviour, IMob
                 break;
 
             case States.Attack:
-                animatorsManager.StartMeleeAttackAnimation();
+                animatorsManager.IsStartMoveAnimation(false);
                 break;
 
             case States.Stay:
@@ -179,6 +141,7 @@ public class MobWithNavMesh : MonoBehaviour, IMob
     public void ResetStage()
     {
         ChangeStage(startState);
+        _attack.FindTarget();
     }
     #endregion
 
@@ -195,11 +158,9 @@ public class MobWithNavMesh : MonoBehaviour, IMob
 
     public PathPoint PathPoint { get => _nextPathPoint; set => _nextPathPoint = value; }
 
-    public int Health { get => _currentHealth; set => _currentHealth = Mathf.Min(maxHealth, value); }
-    #endregion
+    public Vector3 Position => transform.position;
 
-    #region Get
-    public Vector3 GetPosition() => transform.position;
+    public int Health { get => _currentHealth; set => _currentHealth = Mathf.Min(maxHealth, value); }
     #endregion
 
     #region Health
@@ -227,9 +188,13 @@ public class MobWithNavMesh : MonoBehaviour, IMob
 
     private void RotateTowards(Vector3 target)
     {
-        Vector3 direction = (target - transform.position).normalized;
-        Quaternion lookRotation = Quaternion.LookRotation(direction);
-        transform.rotation = Quaternion.Slerp(transform.rotation, lookRotation, Time.deltaTime * navMeshAgent.angularSpeed);
+        Vector3 direction = target - Position;
+        if (direction != Vector3.zero)
+        {
+            transform.forward = direction;
+        }
+        //Quaternion lookRotation = Quaternion.LookRotation(direction);
+        //transform.rotation = Quaternion.Slerp(transform.rotation, lookRotation, Time.deltaTime * navMeshAgent.angularSpeed);
     }
         #endregion
 

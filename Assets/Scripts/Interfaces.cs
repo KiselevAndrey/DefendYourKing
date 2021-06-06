@@ -16,7 +16,7 @@ public interface IUnit
 
     void Deselect();
 
-    Vector3 GetPosition();
+    Vector3 Position { get; }
 }
 
 public interface IAttack
@@ -26,6 +26,10 @@ public interface IAttack
     bool TryFindTarget();
 
     bool TryAttack();
+
+    void Attack();
+
+    bool CanAttack { get; }
 
     IUnit Target { get; set; }
 

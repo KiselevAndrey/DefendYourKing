@@ -23,6 +23,7 @@ public class Barrack : MonoBehaviour, IBuilding
 
     #region Property
     public Player Player { get => _player; set => _player = value; }
+    public Vector3 Position => transform.position;
     #endregion
 
     #region Select
@@ -34,13 +35,6 @@ public class Barrack : MonoBehaviour, IBuilding
     public void Deselect()
     {
         SelectorOverlay.Instance.Hide();
-    }
-    #endregion
-
-    #region Get
-    public Vector3 GetPosition()
-    {
-        return transform.position;
     }
     #endregion
 
