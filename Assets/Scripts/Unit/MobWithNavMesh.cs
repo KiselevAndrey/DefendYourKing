@@ -6,35 +6,35 @@ public class MobWithNavMesh : MonoBehaviour, IMob
     public enum Stages { FollowThePath, FollowToAttack, Attack, Stay }
 
     [Header("Parameters")]
-    [SerializeField] private int maxHealth;
-    public Stages startStage;
+    [SerializeField] protected int maxHealth;
+    [SerializeField] protected Stages startStage;
 
     [Header("References")]
-    [SerializeField] private NavMeshAgent navMeshAgent;
-    [SerializeField] private MeshRenderer changedPlayerMaterial;
-    [SerializeField] private UnitAnimatorsManager animatorsManager;
+    [SerializeField] protected NavMeshAgent navMeshAgent;
+    [SerializeField] protected MeshRenderer changedPlayerMaterial;
+    [SerializeField] protected UnitAnimatorsManager animatorsManager;
 
-    private IAttack _attack;
-    private Stages _currentStage;
-    private Player _player;
-    private PathPoint _nextPathPoint;
-    private int _currentHealth;
-    private bool _isLife;
-    private float _bodyRadius;
+    protected IAttack _attack;
+    protected Stages _currentStage;
+    protected Player _player;
+    protected PathPoint _nextPathPoint;
+    protected int _currentHealth;
+    protected bool _isLife;
+    protected float _bodyRadius;
 
     #region Awake Update OnEnable OnDisable
-    private void Awake()
+    protected void Awake()
     {
         _attack = GetComponent<IAttack>();
         _bodyRadius = navMeshAgent.radius;
     }
 
-    private void Update()
+    protected void Update()
     {
         UpdateStage();
     }
 
-    private void OnEnable()
+    protected void OnEnable()
     {
         startStage = Stages.FollowThePath;
         ChangeStage(startStage);
@@ -43,14 +43,14 @@ public class MobWithNavMesh : MonoBehaviour, IMob
         navMeshAgent.avoidancePriority = Random.Range(50, 100);
     }
 
-    private void OnDisable()
+    protected void OnDisable()
     {
         _attack.Target = null;
     }
     #endregion
 
     #region Stages
-    private void UpdateStage()
+    protected void UpdateStage()
     {
         switch (_currentStage)
         {
@@ -161,7 +161,9 @@ public class MobWithNavMesh : MonoBehaviour, IMob
     #region Properties
     public float BodyRadius => _bodyRadius;
 
-    public Player Player { get => _player; 
+    public Player Player 
+    { 
+        get => _player; 
         set 
         { 
             _player = value;
@@ -194,7 +196,7 @@ public class MobWithNavMesh : MonoBehaviour, IMob
     #endregion
 
     #region Move
-    public void SetDestination(Vector3 target)
+    protected void SetDestination(Vector3 target)
     {
         navMeshAgent.SetDestination(target);
     }
@@ -207,7 +209,7 @@ public class MobWithNavMesh : MonoBehaviour, IMob
             transform.forward = direction;
         }
     }
-        #endregion
+    #endregion
 
     #region Need complete
     public void Deselect()
