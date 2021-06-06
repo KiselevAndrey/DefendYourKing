@@ -3,11 +3,11 @@ using UnityEngine.AI;
 
 public class MobWithNavMesh : MonoBehaviour, IMob
 {
-    public enum States { FollowThePath, FollowToAttack, Attack, Stay }
+    public enum Stages { FollowThePath, FollowToAttack, Attack, Stay }
 
     [Header("Parameters")]
     [SerializeField] private int maxHealth;
-    public States startState;
+    public Stages startState;
 
     [Header("References")]
     [SerializeField] private NavMeshAgent navMeshAgent;
@@ -15,7 +15,7 @@ public class MobWithNavMesh : MonoBehaviour, IMob
     [SerializeField] private UnitAnimatorsManager animatorsManager;
 
     private IAttack _attack;
-    private States _currentStage;
+    private Stages _currentStage;
     private Player _player;
     private PathPoint _nextPathPoint;
     private int _currentHealth;
@@ -53,7 +53,7 @@ public class MobWithNavMesh : MonoBehaviour, IMob
     {
         switch (_currentStage)
         {
-            case States.FollowThePath:
+            case Stages.FollowThePath:
                 if (PathPoint)
                 {
                     SetDestination(PathPoint.GetPosition());
@@ -64,12 +64,12 @@ public class MobWithNavMesh : MonoBehaviour, IMob
                 }
 
                 if (_attack.TryFindTarget())
-                    ChangeStage(States.FollowToAttack);
+                    ChangeStage(Stages.FollowToAttack);
                 
                 break;
 
-            case States.FollowToAttack:
-                if (_attack.Target.Health > 0)
+            case Stages.FollowToAttack:
+                if (_attack.CheckTheTarget)
                 {
                     if (Vector3.Distance(Position, _attack.Target.Position) > navMeshAgent.stoppingDistance)
                     {
@@ -77,31 +77,36 @@ public class MobWithNavMesh : MonoBehaviour, IMob
                     }
                     else
                     {
-                        ChangeStage(States.Attack);
+                        ChangeStage(Stages.Attack);
                     }
                 }
                 else
                 {
                     if (_attack.FindTarget())
-                        ChangeStage(States.FollowToAttack);
+                        ChangeStage(Stages.FollowToAttack);
                     else
                         ChangeStage(startState);
                 }
                 break;
 
-            case States.Attack:
-                RotateTowards(_attack.Target.Position);
+            case Stages.Attack:
                 if (_attack.TryAttack())
                     animatorsManager.StartMeleeAttackAnimation();
-                else
+
+                if (!_attack.CheckTheTarget)
+                {
                     ResetStage();
+                    break;
+                }
+
+                RotateTowards(_attack.Target.Position);
                 break;
 
-            case States.Stay:
+            case Stages.Stay:
                 if (_attack.TryFindTarget())
                 {
                     if (_attack.CanAttack && Vector3.Distance(Position, _attack.Target.Position) > navMeshAgent.stoppingDistance)
-                        ChangeStage(States.Attack);
+                        ChangeStage(Stages.Attack);
                     else
                         RotateTowards(_attack.Target.Position);
                 }
@@ -109,27 +114,27 @@ public class MobWithNavMesh : MonoBehaviour, IMob
         }
     }
 
-    public void ChangeStage(States newStage)
+    public void ChangeStage(Stages newStage)
     {
         _currentStage = newStage;
 
         switch (newStage)
         {
-            case States.FollowThePath:
+            case Stages.FollowThePath:
                 animatorsManager.IsStartMoveAnimation(true);
                 navMeshAgent.stoppingDistance = BodyRadius;
                 break;
 
-            case States.FollowToAttack:
+            case Stages.FollowToAttack:
                 animatorsManager.IsStartMoveAnimation(true);
                 navMeshAgent.stoppingDistance = Mathf.Max(BodyRadius + _attack.Target.BodyRadius, _attack.Range);
                 break;
 
-            case States.Attack:
+            case Stages.Attack:
                 animatorsManager.IsStartMoveAnimation(false);
                 break;
 
-            case States.Stay:
+            case Stages.Stay:
                 animatorsManager.IsStartMoveAnimation(false);
                 break;
 

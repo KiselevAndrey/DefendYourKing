@@ -36,6 +36,8 @@ public interface IAttack
     float Range { get; }
 
     int Damage { get; set; }
+
+    bool CheckTheTarget { get; }
 }
 
 public interface IBuilding : IUnit
@@ -48,6 +50,4 @@ public interface IBuilding : IUnit
 public interface IMob: IUnit
 {
     PathPoint PathPoint { get; set; }
-
-    void ResetStage();
 }

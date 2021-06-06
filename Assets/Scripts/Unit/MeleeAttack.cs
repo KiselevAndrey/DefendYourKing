@@ -16,12 +16,18 @@ public class MeleeAttack : MonoBehaviour, IAttack
 
     private IUnit _target;
     private int _countOfCallsFindTargetFunction;
-    private bool _canAttack = true;
+    private bool _canAttack;
 
-    #region Awake
+    #region Awake OnEnable
     private void Awake()
     {
         mob = GetComponent<IMob>();
+    }
+
+    private void OnEnable()
+    {
+        _canAttack = true;
+        _countOfCallsFindTargetFunction = 0;
     }
     #endregion
 
@@ -32,7 +38,9 @@ public class MeleeAttack : MonoBehaviour, IAttack
 
     public int Damage { get => damage; set => damage = value; }
 
-    public bool CanAttack => _canAttack;
+    public bool CanAttack => _canAttack && CheckTheTarget;
+
+    public bool CheckTheTarget => Target != null && Target.Health > 0;
     #endregion
 
     #region Find Target
@@ -98,22 +106,17 @@ public class MeleeAttack : MonoBehaviour, IAttack
 
     public void Attack()
     {
-        Target.TakeDamage((int)Random.Range(Damage * .7f, Damage * 1.3f));
+        Target?.TakeDamage((int)Random.Range(Damage * .7f, Damage * 1.3f));
 
         CheckTarget();
     }
 
     private void CheckTarget()
     {
-        if (Target.Health <= 0)
+        if (Target != null && Target.Health <= 0)
         {
             Target.Death();
             Target = null;
-        }
-
-        if (Target == null)
-        {
-            mob.ResetStage();
         }
     }
 
