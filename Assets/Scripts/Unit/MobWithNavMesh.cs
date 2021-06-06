@@ -36,6 +36,7 @@ public class MobWithNavMesh : MonoBehaviour, IMob
 
     private void OnEnable()
     {
+        startStage = Stages.FollowThePath;
         ChangeStage(startStage);
         Health = maxHealth;
         _isLife = true;
@@ -110,9 +111,13 @@ public class MobWithNavMesh : MonoBehaviour, IMob
 
             case Stages.Stay:
                 if (_attack.TryFindTarget())
-                {                    
+                {
                     if (_attack.CanAttack)
+                    {
                         ChangeStage(Stages.Attack);
+                    }
+                    else if (!_attack.CheckTheTarget)
+                        _attack.Target = null;
                     else
                         RotateTowards(_attack.Target.Position);
                 }
@@ -205,12 +210,13 @@ public class MobWithNavMesh : MonoBehaviour, IMob
         #endregion
 
     #region Need complete
-        public void Deselect()
+    public void Deselect()
     {
     }
 
     public void Select()
     {
+        print("Select Mob");
     }
     #endregion
 }

@@ -63,6 +63,8 @@ public class MeleeAttack : MonoBehaviour, IAttack
 
     public bool FindNearestTarget()
     {
+        Target = null;
+
         // find all colliders
         Collider[] findColliders = Physics.OverlapSphere(transform.position, findRadius);
         System.Collections.Generic.List<IUnit> enemyUnits = new System.Collections.Generic.List<IUnit>();

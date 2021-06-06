@@ -586,7 +586,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 500
-  startState: 3
+  startStage: 3
   navMeshAgent: {fileID: 1203990012499275796}
   changedPlayerMaterial: {fileID: 3925119549765946846}
   animatorsManager: {fileID: 1484599749461158438}

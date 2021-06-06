@@ -7,7 +7,7 @@ public class King : MonoBehaviour, IMob
 
     [Header("Parameters")]
     [SerializeField] private int maxHealth;
-    public Stages startStage;
+    public Stages startStage = Stages.Stay;
 
     [Header("References")]
     [SerializeField] private NavMeshAgent navMeshAgent;
@@ -113,11 +113,13 @@ public class King : MonoBehaviour, IMob
                 if (_attack.TryFindTarget())
                 {
                     print("Attack: " + _attack.Target + " " + _attack.Target.Player);
-                    if (_attack.CanAttack && Vector3.Distance(Position, _attack.Target.Position) < Mathf.Max(BodyRadius + _attack.Target.BodyRadius, _attack.Range))
+                    if (_attack.CanAttack)
                     {
                         print("Attack: " + _attack.Target + " " + _attack.Target.Player);
                         ChangeStage(Stages.Attack);
                     }
+                    else if (!_attack.CheckTheTarget)
+                        _attack.Target = null;
                     else
                         RotateTowards(_attack.Target.Position);
                 }
