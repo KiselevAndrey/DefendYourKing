@@ -1,5 +1,6 @@
 using UnityEngine;
 
+#region IUnit
 public interface IUnit
 {
     int Health { get; set; }
@@ -53,3 +54,13 @@ public interface IMob: IUnit
 {
     PathPoint PathPoint { get; set; }
 }
+#endregion
+
+#region IPurchases
+public interface IPurchases
+{
+    int MaxCountPurchases { get; }
+
+    void Buy();
+}
+#endregion
