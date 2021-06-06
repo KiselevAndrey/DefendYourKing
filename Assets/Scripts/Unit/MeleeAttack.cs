@@ -38,7 +38,9 @@ public class MeleeAttack : MonoBehaviour, IAttack
 
     public int Damage { get => damage; set => damage = value; }
 
-    public bool CanAttack => _canAttack && CheckTheTarget;
+    public bool CanAttack => _canAttack && CheckDistanceToTarget;
+
+    public bool CheckDistanceToTarget => CheckTheTarget && Vector3.Distance(mob.Position, Target.Position) < Mathf.Max((mob.BodyRadius + Target.BodyRadius) * 1.1f, Range);
 
     public bool CheckTheTarget => Target != null && Target.Health > 0;
     #endregion
@@ -56,32 +58,32 @@ public class MeleeAttack : MonoBehaviour, IAttack
 
         _countOfCallsFindTargetFunction = 0;
 
-        return FindTarget();
+        return FindNearestTarget();
     }
 
-    public bool FindTarget()
+    public bool FindNearestTarget()
     {
         // find all colliders
         Collider[] findColliders = Physics.OverlapSphere(transform.position, findRadius);
-        System.Collections.Generic.List<IUnit> units = new System.Collections.Generic.List<IUnit>();
+        System.Collections.Generic.List<IUnit> enemyUnits = new System.Collections.Generic.List<IUnit>();
 
         // if collider have IUnit, add to list
         for (int i = 0; i < findColliders.Length; i++)
         {
             if (findColliders[i].TryGetComponent(out IUnit unit) && unit.Player != mob.Player)
             {
-                units.Add(unit);
+                enemyUnits.Add(unit);
             }
         }
 
         // find nearest target
         float minDistance = findRadius;
-        for (int i = 0; i < units.Count; i++)
+        for (int i = 0; i < enemyUnits.Count; i++)
         {
-            float targetDistance = Vector3.Distance(mob.Position, units[i].Position);
+            float targetDistance = Vector3.Distance(mob.Position, enemyUnits[i].Position);
             if (targetDistance < minDistance)
             {
-                Target = units[i];
+                Target = enemyUnits[i];
                 minDistance = targetDistance;
             }
         }

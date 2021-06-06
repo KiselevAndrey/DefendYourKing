@@ -21,7 +21,7 @@ public interface IUnit
 
 public interface IAttack
 {
-    bool FindTarget();
+    bool FindNearestTarget();
 
     bool TryFindTarget();
 
@@ -38,6 +38,8 @@ public interface IAttack
     int Damage { get; set; }
 
     bool CheckTheTarget { get; }
+
+    bool CheckDistanceToTarget { get; }
 }
 
 public interface IBuilding : IUnit

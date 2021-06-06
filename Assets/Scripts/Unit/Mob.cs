@@ -57,7 +57,7 @@ public class Mob : MonoBehaviour, IMob
                         _nextPathPoint = _nextPathPoint.GetNextPlayerPathPoint(Player);
                 }
 
-                attack.FindTarget();
+                attack.FindNearestTarget();
                 break;
 
             case States.FollowToAttack:
@@ -81,7 +81,7 @@ public class Mob : MonoBehaviour, IMob
                 break;
 
             case States.Stay:
-                attack.FindTarget();
+                attack.FindNearestTarget();
                 break;
         }
     }

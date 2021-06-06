@@ -7,7 +7,7 @@ public class King : MonoBehaviour, IMob
 
     [Header("Parameters")]
     [SerializeField] private int maxHealth;
-    public Stages startState;
+    public Stages startStage;
 
     [Header("References")]
     [SerializeField] private NavMeshAgent navMeshAgent;
@@ -36,7 +36,7 @@ public class King : MonoBehaviour, IMob
 
     private void OnEnable()
     {
-        ChangeStage(startState);
+        ChangeStage(startStage);
         Health = maxHealth;
         _isLife = true;
     }
@@ -63,8 +63,10 @@ public class King : MonoBehaviour, IMob
                 }
 
                 if (_attack.TryFindTarget())
+                {
                     ChangeStage(Stages.FollowToAttack);
-
+                    print("Target: " + _attack.Target + " " + _attack.Target.Player);
+                }
                 break;
 
             case Stages.FollowToAttack:
@@ -81,21 +83,14 @@ public class King : MonoBehaviour, IMob
                 }
                 else
                 {
-                    if (_attack.FindTarget())
+                    if (_attack.FindNearestTarget())
                         ChangeStage(Stages.FollowToAttack);
                     else
-                        ChangeStage(startState);
+                        ChangeStage(startStage);
                 }
                 break;
 
             case Stages.Attack:
-                if (_attack.TryAttack())
-                    animatorsManager.StartMeleeAttackAnimation();
-                else if (startState == Stages.Stay)
-                {
-                    ChangeStage(Stages.Stay);
-                    break;
-                }
                 if (!_attack.CheckTheTarget)
                 {
                     ResetStage();
@@ -103,13 +98,26 @@ public class King : MonoBehaviour, IMob
                 }
 
                 RotateTowards(_attack.Target.Position);
+
+                if (_attack.TryAttack())
+                    animatorsManager.StartMeleeAttackAnimation();
+                else if (startStage == Stages.Stay || !_attack.CheckDistanceToTarget)
+                {
+                    ChangeStage(startStage);
+                    break;
+                }
+
                 break;
 
             case Stages.Stay:
                 if (_attack.TryFindTarget())
                 {
-                    if (_attack.CanAttack && Vector3.Distance(Position, _attack.Target.Position) > navMeshAgent.stoppingDistance)
+                    print("Attack: " + _attack.Target + " " + _attack.Target.Player);
+                    if (_attack.CanAttack && Vector3.Distance(Position, _attack.Target.Position) < Mathf.Max(BodyRadius + _attack.Target.BodyRadius, _attack.Range))
+                    {
+                        print("Attack: " + _attack.Target + " " + _attack.Target.Player);
                         ChangeStage(Stages.Attack);
+                    }
                     else
                         RotateTowards(_attack.Target.Position);
                 }
@@ -140,16 +148,13 @@ public class King : MonoBehaviour, IMob
             case Stages.Stay:
                 animatorsManager.IsStartMoveAnimation(false);
                 break;
-
-            default:
-                break;
         }
     }
 
     public void ResetStage()
     {
-        ChangeStage(startState);
-        _attack.FindTarget();
+        ChangeStage(startStage);
+        _attack.FindNearestTarget();
     }
     #endregion
 
@@ -203,8 +208,6 @@ public class King : MonoBehaviour, IMob
         {
             transform.forward = direction;
         }
-        //Quaternion lookRotation = Quaternion.LookRotation(direction);
-        //transform.rotation = Quaternion.Slerp(transform.rotation, lookRotation, Time.deltaTime * navMeshAgent.angularSpeed);
     }
     #endregion
 
