@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.AI;
 
-public class MobWithNavMesh : MonoBehaviour, IMob
+public class King : MonoBehaviour, IMob
 {
     public enum Stages { FollowThePath, FollowToAttack, Attack, Stay }
 
@@ -39,7 +39,6 @@ public class MobWithNavMesh : MonoBehaviour, IMob
         ChangeStage(startState);
         Health = maxHealth;
         _isLife = true;
-        navMeshAgent.avoidancePriority = Random.Range(50, 100);
     }
 
     private void OnDisable()
@@ -57,7 +56,7 @@ public class MobWithNavMesh : MonoBehaviour, IMob
                 if (PathPoint)
                 {
                     SetDestination(PathPoint.GetPosition());
-                    if(Vector3.Distance(Position, PathPoint.GetPosition()) < BodyRadius * 5 && PathPoint.GetNextPlayerPathPoint(Player))
+                    if (Vector3.Distance(Position, PathPoint.GetPosition()) < BodyRadius * 5 && PathPoint.GetNextPlayerPathPoint(Player))
                     {
                         PathPoint = PathPoint.GetNextPlayerPathPoint(Player);
                     }
@@ -65,7 +64,7 @@ public class MobWithNavMesh : MonoBehaviour, IMob
 
                 if (_attack.TryFindTarget())
                     ChangeStage(Stages.FollowToAttack);
-                
+
                 break;
 
             case Stages.FollowToAttack:
@@ -157,12 +156,14 @@ public class MobWithNavMesh : MonoBehaviour, IMob
     #region Properties
     public float BodyRadius => _bodyRadius;
 
-    public Player Player { get => _player; 
-        set 
-        { 
+    public Player Player
+    {
+        get => _player;
+        set
+        {
             _player = value;
             changedPlayerMaterial.material = value.material;
-        } 
+        }
     }
 
     public PathPoint PathPoint { get => _nextPathPoint; set => _nextPathPoint = value; }
@@ -205,10 +206,10 @@ public class MobWithNavMesh : MonoBehaviour, IMob
         //Quaternion lookRotation = Quaternion.LookRotation(direction);
         //transform.rotation = Quaternion.Slerp(transform.rotation, lookRotation, Time.deltaTime * navMeshAgent.angularSpeed);
     }
-        #endregion
+    #endregion
 
     #region Need complete
-        public void Deselect()
+    public void Deselect()
     {
     }
 
