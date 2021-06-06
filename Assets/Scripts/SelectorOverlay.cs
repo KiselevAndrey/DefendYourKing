@@ -5,6 +5,10 @@ public class SelectorOverlay : MonoBehaviour
 {
     public static SelectorOverlay Instance { get; private set; }
 
+    [Header("Parameters")]
+    [SerializeField] private int maxActions = 5;
+
+    [Header("References")]
     [SerializeField] private Transform cameraPlant;
     [SerializeField] private List<SpriteRenderer> actions;
 
@@ -33,6 +37,25 @@ public class SelectorOverlay : MonoBehaviour
     public void Hide()
     {
         gameObject.SetActive(false);
+    }
+
+    public void Show(IBuyer buyer)
+    {
+        RotationToCamera();
+        transform.position = buyer.Position;
+
+        for (int i = 0; i < buyer.Purshases.Length; i++)
+        {
+            actions[i].gameObject.SetActive(true);
+            actions[i].sprite = buyer.Purshases[i].icon;
+        }
+
+        for (int i = buyer.Purshases.Length; i < maxActions; i++)
+        {
+            actions[i].gameObject.SetActive(false);
+        }
+
+        gameObject.SetActive(true);
     }
     #endregion
 
