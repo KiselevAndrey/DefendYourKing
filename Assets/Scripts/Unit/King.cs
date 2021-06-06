@@ -1,5 +1,10 @@
+using UnityEngine;
+
 public class King : MobWithNavMesh, IMob
 {
+    [Header("King Reference")]
+    [SerializeField] private Buyer buyer;
+
     #region Update OnEnable
     protected new void Update()
     {
@@ -18,14 +23,15 @@ public class King : MobWithNavMesh, IMob
     }
     #endregion
 
-    #region Need complete
-    public new void Deselect()
-    {
-    }
-
+    #region Select Deselect
     public new void Select()
     {
-        print("Select King");
+        SelectorOverlay.Instance.Show(buyer);
+    }
+
+    public new void Deselect()
+    {
+        SelectorOverlay.Instance.Hide();
     }
     #endregion
 }

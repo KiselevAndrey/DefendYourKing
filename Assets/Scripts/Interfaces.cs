@@ -57,10 +57,14 @@ public interface IMob: IUnit
 #endregion
 
 #region IPurchases
-public interface IPurchases
+public interface IBuyer
 {
     int MaxCountPurchases { get; }
 
     void Buy();
+
+    Vector3 Position { get; }
+
+    Purshase[] Purshases { get; }
 }
 #endregion
