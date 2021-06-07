@@ -9,7 +9,7 @@ public class Buyer : MonoBehaviour, IBuyer
     [Header("Purchases")]
     [SerializeField] private Sprite[] purchasesIcons;
     [SerializeField] private int[] purchasesMaximum;
-    [SerializeField] private string[] purchasesInterpretation;
+    [SerializeField] private Sprite[] purchasesInterpretation;
 
     private Purshase[] _purshases;
     private int _currentCountPurchases;
@@ -21,7 +21,7 @@ public class Buyer : MonoBehaviour, IBuyer
         _purshases = new Purshase[maxDifferentPurchases];
         for (int i = 0; i < _purshases.Length; i++)
         {
-            _purshases[i] = new Purshase(purchasesIcons[i], purchasesMaximum[i]);
+            _purshases[i] = new Purshase(purchasesIcons[i], purchasesMaximum[i], purchasesInterpretation[i]);
         }
     }
 
