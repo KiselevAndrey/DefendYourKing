@@ -21,7 +21,7 @@ public class Buyer : MonoBehaviour, IBuyer
         _purshases = new Purshase[maxDifferentPurchases];
         for (int i = 0; i < _purshases.Length; i++)
         {
-            _purshases[i] = new Purshase(purchasesIcons[i], purchasesMaximum[i], purchasesInterpretation[i]);
+            _purshases[i] = new Purshase(purchasesIcons[i], purchasesMaximum[i], purchasesInterpretation[i], i);
         }
     }
 
@@ -33,8 +33,9 @@ public class Buyer : MonoBehaviour, IBuyer
     public Purshase[] Purshases => _purshases;
     #endregion
 
-    public void Buy()
+    public void TryBuy(Purshase purshase)
     {
-        
+        print(name);
+        print("buy " + purshase);
     }
 }

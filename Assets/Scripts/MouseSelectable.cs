@@ -22,7 +22,8 @@ public class MouseSelectable : MonoBehaviour
                         unit.Select();
                     }
                 }
-                else TryDeselect();
+                else if (!hit.collider.CompareTag("Action"))
+                    TryDeselect();
             }
             else TryDeselect();
         }

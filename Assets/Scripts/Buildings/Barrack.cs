@@ -2,14 +2,12 @@ using UnityEngine;
 using System.Collections.Generic;
 using System.Collections;
 
-public class Barrack : MonoBehaviour, IBuilding
+public class Barrack : Building, IBuilding
 {
-    [Header("Parameters")]
+    [Header("Barrack Parameters")]
     [SerializeField] float spawnCooldownTime;
     [SerializeField] List<GameObject> spawnPrefabs;
     [SerializeField] List<int> spawnCount;
-
-    private Player _player;
 
     #region Start
     private void Start()
@@ -18,23 +16,6 @@ public class Barrack : MonoBehaviour, IBuilding
             spawnCount.Add(0);
 
         Spawn();
-    }
-    #endregion
-
-    #region Property
-    public Player Player { get => _player; set => _player = value; }
-    public Vector3 Position => transform.position;
-    #endregion
-
-    #region Select
-    public void Select()
-    {
-        SelectorOverlay.Instance.Show(this);
-    }
-
-    public void Deselect()
-    {
-        SelectorOverlay.Instance.Hide();
     }
     #endregion
 
@@ -60,35 +41,6 @@ public class Barrack : MonoBehaviour, IBuilding
                 yield return new WaitForSeconds(0.1f);
             }
         }
-    }
-    #endregion
-
-    #region Need Complete
-    public int Health { get; set; }
-
-    public float BodyRadius => throw new System.NotImplementedException();
-
-
-    public void Build()
-    {
-        throw new System.NotImplementedException();
-    }
-
-    public void Death()
-    {
-        throw new System.NotImplementedException();
-    }
-
-
-    public void TakeDamage(int damage)
-    {
-        throw new System.NotImplementedException();
-    }
-
-
-    public void Upgrade()
-    {
-        throw new System.NotImplementedException();
     }
     #endregion
 }

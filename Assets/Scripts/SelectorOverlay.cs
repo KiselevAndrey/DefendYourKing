@@ -25,20 +25,8 @@ public class SelectorOverlay : MonoBehaviour
 
     private void Update()
     {
-        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-
-        if (Physics.Raycast(ray, out RaycastHit hit))
-        {
-            if (hit.collider.CompareTag("Action"))
-            {
-                int numberAction = int.Parse(hit.collider.gameObject.name[0].ToString());
-                Select(_buyer.Purshases[numberAction]);
-            }
-            else
-                Deselect();
-        }
-        else
-            Deselect();
+        MouseUpperAction();
+        CheckClickToAction();
     }
     #endregion
 
@@ -75,7 +63,34 @@ public class SelectorOverlay : MonoBehaviour
     }
     #endregion
 
-    #region Select Deselect
+    #region Select Deselect Action
+    private void MouseUpperAction()
+    {
+        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+
+        if (Physics.Raycast(ray, out RaycastHit hit))
+        {
+            if (hit.collider.CompareTag("Action"))
+            {
+                int numberAction = int.Parse(hit.collider.gameObject.name[0].ToString());
+                Select(_buyer.Purshases[numberAction]);
+            }
+            else
+                Deselect();
+        }
+        else
+            Deselect();
+
+    }
+
+    private void CheckClickToAction()
+    {
+        if(Input.GetMouseButtonUp(0) && _selectedAction != null)
+        {
+            _buyer.TryBuy(_selectedAction);
+        }
+    }
+
     private void Select(Purshase selected)
     {
         Deselect();

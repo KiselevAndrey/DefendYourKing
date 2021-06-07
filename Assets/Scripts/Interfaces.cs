@@ -61,10 +61,10 @@ public interface IBuyer
 {
     int MaxCountPurchases { get; }
 
-    void Buy();
-
     Vector3 Position { get; }
 
     Purshase[] Purshases { get; }
+
+    void TryBuy(Purshase purshase);
 }
 #endregion
