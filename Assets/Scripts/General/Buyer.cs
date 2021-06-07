@@ -9,6 +9,7 @@ public class Buyer : MonoBehaviour, IBuyer
     [Header("Purchases")]
     [SerializeField] private Sprite[] purchasesIcons;
     [SerializeField] private int[] purchasesMaximum;
+    [SerializeField] private string[] purchasesInterpretation;
 
     private Purshase[] _purshases;
     private int _currentCountPurchases;

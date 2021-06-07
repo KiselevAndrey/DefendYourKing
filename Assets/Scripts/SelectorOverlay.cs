@@ -9,8 +9,9 @@ public class SelectorOverlay : MonoBehaviour
     [SerializeField] private int maxActions = 5;
 
     [Header("References")]
-    [SerializeField] private Transform cameraPlant;
     [SerializeField] private List<SpriteRenderer> actions;
+
+    private GameObject _selectedAction;
 
     #region Awake Update
     private void Awake()
@@ -19,16 +20,23 @@ public class SelectorOverlay : MonoBehaviour
         Hide();
     }
 
-    private void LateUpdate()
+    private void Update()
     {
-        RotationToCamera();
+        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+
+        if (Physics.Raycast(ray, out RaycastHit hit))
+        {
+            if (hit.collider.CompareTag("Action"))
+            {
+                
+            }
+        }
     }
     #endregion
 
     #region Show/Hide
     public void Show(IBuilding building)
     {
-        RotationToCamera();
         transform.position = building.Position;
 
         gameObject.SetActive(true);
@@ -41,7 +49,6 @@ public class SelectorOverlay : MonoBehaviour
 
     public void Show(IBuyer buyer)
     {
-        RotationToCamera();
         transform.position = buyer.Position;
 
         for (int i = 0; i < buyer.Purshases.Length; i++)
@@ -56,13 +63,6 @@ public class SelectorOverlay : MonoBehaviour
         }
 
         gameObject.SetActive(true);
-    }
-    #endregion
-
-    #region RotationToCamera
-    private void RotationToCamera()
-    {
-        transform.rotation = cameraPlant.rotation;
     }
     #endregion
 }
