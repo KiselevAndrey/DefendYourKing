@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class King : MobWithNavMesh, IMob
+public class King : MobWithNavMesh, IMob, ISelectable
 {
     [Header("King Reference")]
     [SerializeField] private Buyer buyer;
@@ -24,9 +24,10 @@ public class King : MobWithNavMesh, IMob
     #endregion
 
     #region Select Deselect
-    public new void Select()
+    public new bool SelectAndDeselectPrevious()
     {
         SelectorOverlay.Instance.Show(buyer);
+        return true;
     }
 
     public new void Deselect()

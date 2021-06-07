@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class MouseSelectable : MonoBehaviour
 {
-    private IUnit _selectable;
+    private ISelectable _selectable;
 
     private void Update()
     {
@@ -12,18 +12,15 @@ public class MouseSelectable : MonoBehaviour
 
             if (Physics.Raycast(ray, out RaycastHit hit))
             {
-                if (hit.collider.TryGetComponent(out IUnit unit))
+                if (hit.collider.TryGetComponent(out ISelectable selectable))
                 {
-                    if (_selectable != null && _selectable != unit) Deselect();
-
-                    if (_selectable != unit)
+                    if (selectable.SelectAndDeselectPrevious())
                     {
-                        _selectable = unit;
-                        unit.Select();
+                        TryDeselect();
+                        _selectable = selectable;
                     }
                 }
-                else if (!hit.collider.CompareTag("Action"))
-                    TryDeselect();
+                else TryDeselect();
             }
             else TryDeselect();
         }
@@ -32,13 +29,11 @@ public class MouseSelectable : MonoBehaviour
     #region Deselect
     private void TryDeselect()
     {
-        if (_selectable != null) Deselect();
-    }
-
-    private void Deselect()
-    {
-        _selectable.Deselect();
-        _selectable = null;
+        if (_selectable != null)
+        {
+            _selectable.Deselect();
+            _selectable = null;
+        }
     }
     #endregion
 }

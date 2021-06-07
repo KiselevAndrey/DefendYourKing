@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.AI;
 
-public class MobWithNavMesh : MonoBehaviour, IMob
+public class MobWithNavMesh : MonoBehaviour, IMob, ISelectable
 {
     public enum Stages { FollowThePath, FollowToAttack, Attack, Stay }
 
@@ -238,9 +238,10 @@ public class MobWithNavMesh : MonoBehaviour, IMob
     {
     }
 
-    public void Select()
+    public bool SelectAndDeselectPrevious()
     {
         print("Select Mob");
+        return true;
     }
     #endregion
 }

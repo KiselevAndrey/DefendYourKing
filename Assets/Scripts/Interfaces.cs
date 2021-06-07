@@ -13,10 +13,6 @@ public interface IUnit
 
     void Death();
 
-    void Select();
-
-    void Deselect();
-
     Vector3 Position { get; }
 }
 
@@ -68,3 +64,15 @@ public interface IBuyer
     void TryBuy(Purshase purshase);
 }
 #endregion
+
+public interface ISelectable
+{
+    /// <summary>
+    /// Made a selection and returns whether to hide the previous selection.
+    /// Выполнить выбор и вернуть надо ли прятать предыдущий выбор
+    /// </summary>
+    /// <returns></returns>
+    bool SelectAndDeselectPrevious();
+
+    void Deselect();
+}

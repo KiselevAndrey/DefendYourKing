@@ -1,8 +1,6 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class Building : MonoBehaviour, IBuilding
+public class Building : MonoBehaviour, IBuilding, ISelectable
 {
     [Header("Reference")]
     [SerializeField] protected Buyer buyer;
@@ -15,9 +13,10 @@ public class Building : MonoBehaviour, IBuilding
     #endregion
 
     #region Select
-    public void Select()
+    public bool SelectAndDeselectPrevious()
     {
         SelectorOverlay.Instance.Show(buyer);
+        return true;
     }
 
     public void Deselect()
