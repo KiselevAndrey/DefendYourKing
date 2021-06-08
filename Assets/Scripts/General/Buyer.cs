@@ -4,7 +4,7 @@ public class Buyer : MonoBehaviour, IBuyer
 {
     [Header("Parameters")]
     [SerializeField] private int maxDifferentPurchases = 5;
-    [SerializeField] private int maxAllPurchases;
+    [SerializeField] protected int maxAllPurchases;
 
     [Header("Purchases")]
     [SerializeField] private Sprite[] purchasesIcons;
@@ -13,7 +13,7 @@ public class Buyer : MonoBehaviour, IBuyer
     [SerializeField] private string[] purshasesInterpretations;
 
     private Purchase[] _purchases;
-    private int _currentCountPurchases;
+    protected int _currentCountPurchases;
 
     private void Start()
     {
@@ -39,9 +39,11 @@ public class Buyer : MonoBehaviour, IBuyer
     public Purchase[] Purshases => _purchases;
     #endregion
 
-    public void TryBuy(Purchase purshase)
+    public bool TryBuy(Purchase purshase)
     {
         print(name);
         print("buy " + purshase.interpretation);
+
+        return true;
     }
 }

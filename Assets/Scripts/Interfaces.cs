@@ -61,7 +61,7 @@ public interface IBuyer
 
     Purchase[] Purshases { get; }
 
-    void TryBuy(Purchase purshase);
+    bool TryBuy(Purchase purshase);
 }
 #endregion
 
