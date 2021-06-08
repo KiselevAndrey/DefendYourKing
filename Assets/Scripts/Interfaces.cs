@@ -59,9 +59,9 @@ public interface IBuyer
 
     Vector3 Position { get; }
 
-    Purshase[] Purshases { get; }
+    Purchase[] Purshases { get; }
 
-    void TryBuy(Purshase purshase);
+    void TryBuy(Purchase purshase);
 }
 #endregion
 

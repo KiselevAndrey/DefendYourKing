@@ -9,19 +9,25 @@ public class Buyer : MonoBehaviour, IBuyer
     [Header("Purchases")]
     [SerializeField] private Sprite[] purchasesIcons;
     [SerializeField] private int[] purchasesMaximum;
-    [SerializeField] private Sprite[] purchasesInterpretation;
+    [SerializeField] private Sprite[] purchasesInterpretationBackground;
+    [SerializeField] private string[] purshasesInterpretations;
 
-    private Purshase[] _purshases;
+    private Purchase[] _purchases;
     private int _currentCountPurchases;
 
     private void Start()
     {
+        CreatePurchases();
+    }
+
+    private void CreatePurchases()
+    {
         maxDifferentPurchases = purchasesIcons.Length;
 
-        _purshases = new Purshase[maxDifferentPurchases];
-        for (int i = 0; i < _purshases.Length; i++)
+        _purchases = new Purchase[maxDifferentPurchases];
+        for (int i = 0; i < _purchases.Length; i++)
         {
-            _purshases[i] = new Purshase(purchasesIcons[i], purchasesMaximum[i], purchasesInterpretation[i], i);
+            _purchases[i] = new Purchase(purchasesIcons[i], purchasesMaximum[i], purchasesInterpretationBackground[i], i, purshasesInterpretations[i]);
         }
     }
 
@@ -30,12 +36,12 @@ public class Buyer : MonoBehaviour, IBuyer
 
     public Vector3 Position => transform.position;
 
-    public Purshase[] Purshases => _purshases;
+    public Purchase[] Purshases => _purchases;
     #endregion
 
-    public void TryBuy(Purshase purshase)
+    public void TryBuy(Purchase purshase)
     {
         print(name);
-        print("buy " + purshase);
+        print("buy " + purshase.interpretation);
     }
 }

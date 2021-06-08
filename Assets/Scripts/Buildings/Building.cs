@@ -2,10 +2,13 @@ using UnityEngine;
 
 public class Building : MonoBehaviour, IBuilding, ISelectable
 {
-    [Header("Reference")]
-    [SerializeField] protected Buyer buyer;
-
     protected Player _player;
+    protected IBuyer _buyer;
+
+    private void Awake()
+    {
+        _buyer = GetComponent<IBuyer>();
+    }
 
     #region Property
     public Player Player { get => _player; set => _player = value; }
@@ -15,7 +18,7 @@ public class Building : MonoBehaviour, IBuilding, ISelectable
     #region Select
     public bool SelectAndDeselectPrevious()
     {
-        SelectorOverlay.Instance.Show(buyer);
+        SelectorOverlay.Instance.Show(_buyer);
         return true;
     }
 

@@ -628,8 +628,10 @@ MonoBehaviour:
   purchasesIcons:
   - {fileID: 21300000, guid: 78143dd302ccbcd44a1340a400392e52, type: 3}
   purchasesMaximum: 03000000
-  purchasesInterpretation:
+  purchasesInterpretationBackground:
   - {fileID: 21300000, guid: 6e9f6c78770460644a0299f32a40b71a, type: 3}
+  purshasesInterpretations:
+  - Add ice attack
 --- !u!136 &8691019052980538077
 CapsuleCollider:
   m_ObjectHideFlags: 0

@@ -11,9 +11,10 @@ public class SelectorOverlay : MonoBehaviour
 
     [Header("References")]
     [SerializeField] private List<SpriteRenderer> actions;
-    [SerializeField] private Image interpretation;
+    [SerializeField] private Image interpretationBackground;
+    [SerializeField] private Text interpretationText;
 
-    private Purshase _selectedAction;
+    private Purchase _selectedAction;
     private IBuyer _buyer;
 
     #region Awake Update
@@ -21,6 +22,7 @@ public class SelectorOverlay : MonoBehaviour
     {
         Instance = this;
         Hide();
+        interpretationBackground.gameObject.SetActive(false);
     }
 
     private void Update()
@@ -31,13 +33,6 @@ public class SelectorOverlay : MonoBehaviour
     #endregion
 
     #region Show/Hide
-    public void Show(IBuilding building)
-    {
-        transform.position = building.Position;
-
-        gameObject.SetActive(true);
-    }
-
     public void Hide()
     {
         gameObject.SetActive(false);
@@ -91,21 +86,22 @@ public class SelectorOverlay : MonoBehaviour
         }
     }
 
-    private void Select(Purshase selected)
+    private void Select(Purchase selected)
     {
         Deselect();
 
         _selectedAction = selected;
 
-        interpretation.enabled = true;
-        interpretation.sprite = selected.interpretation;
+        interpretationBackground.gameObject.SetActive(true);
+        interpretationBackground.sprite = selected.interpretationBackground;
+        interpretationText.text = selected.interpretation;
     }
 
     private void Deselect()
     {
         if(_selectedAction != null)
         {
-            interpretation.enabled = false;
+            interpretationBackground.gameObject.SetActive(false);
             _selectedAction = null;
         }
     }

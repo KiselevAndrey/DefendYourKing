@@ -5,9 +5,9 @@ using System.Collections;
 public class Barrack : Building, IBuilding
 {
     [Header("Barrack Parameters")]
-    [SerializeField] float spawnCooldownTime;
-    [SerializeField] List<GameObject> spawnPrefabs;
-    [SerializeField] List<int> spawnCount;
+    [SerializeField] private float spawnCooldownTime;
+    [SerializeField] private List<GameObject> spawnPrefabs;
+    [SerializeField] private List<int> spawnCount;
 
     #region Start
     private void Start()
@@ -40,6 +40,25 @@ public class Barrack : Building, IBuilding
                 mob.PathPoint = Player.GetStartPathPoint();
                 yield return new WaitForSeconds(0.1f);
             }
+        }
+    }
+
+    private void AddSpawnCooldownTime(int addedCount, int addedPercent = 10)
+    {
+        for (int i = 0; i < addedCount; i++)
+        {
+            spawnCooldownTime += spawnCooldownTime * addedPercent / 100;
+        }
+    }
+    #endregion
+
+    #region Buyer
+    public void BuyUnits(int unitIndex, int unitCount = 1)
+    {
+        if (unitIndex < spawnPrefabs.Count && unitIndex > -1)
+        {
+            spawnCount[unitIndex] += unitCount;
+            AddSpawnCooldownTime(unitCount);
         }
     }
     #endregion
