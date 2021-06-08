@@ -56881,7 +56881,7 @@ MonoBehaviour:
   spawnCooldownTime: 5
   spawnPrefabs:
   - {fileID: 8925257278360867271, guid: b1073f586a173474383b5bd16c4ef226, type: 3}
-  spawnCount: 01000000
+  spawnCount: 32000000
 --- !u!114 &-3858398876323272466
 MonoBehaviour:
   m_ObjectHideFlags: 0
