@@ -7,6 +7,7 @@ public class Player : MonoBehaviour
 
     [Header("References")]
     [SerializeField] private PathPoint startPathPoint;
+    public MenuOfSelectedObject selectableMenu;
 
     #region Awake
     private void Awake()

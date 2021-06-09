@@ -2,7 +2,7 @@ using UnityEngine;
 using System.Collections.Generic;
 using System.Collections;
 
-public class Barrack : Building, IBuilding
+public class Barrack : Building, IBuilding, ISelectable
 {
     [Header("Barrack Parameters")]
     [SerializeField] private float spawnCooldownTime;
