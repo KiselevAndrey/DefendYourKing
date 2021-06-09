@@ -7,6 +7,7 @@ public class Buyer : MonoBehaviour, IBuyer
     [SerializeField] protected int maxAllPurchases;
 
     [Header("Purchases")]
+    [SerializeField] private PurchaseSO[] purchaseSOs;
     [SerializeField] private Sprite[] purchasesIcons;
     [SerializeField] private int[] purchasesMaximum;
     [SerializeField] private Sprite[] purchasesInterpretationBackground;

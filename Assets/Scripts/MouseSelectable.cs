@@ -3,7 +3,6 @@ using UnityEngine;
 public class MouseSelectable : MonoBehaviour
 {
     private ISelectable _selectable;
-
     private void Update()
     {
         if (Input.GetMouseButtonUp(0))
@@ -18,6 +17,7 @@ public class MouseSelectable : MonoBehaviour
                     {
                         TryDeselect();
                         _selectable = selectable;
+                        print(_selectable);
                     }
                 }
                 else TryDeselect();
