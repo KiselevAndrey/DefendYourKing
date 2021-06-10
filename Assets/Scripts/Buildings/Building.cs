@@ -2,6 +2,9 @@ using UnityEngine;
 
 public class Building : Unit, IBuilding, ISelectableUnit
 {
+    [Header("Building parameters")]
+    [SerializeField] private float bodyRadius;
+
     protected IBuyer _buyer;
 
     private ISeller _seller;
@@ -20,6 +23,8 @@ public class Building : Unit, IBuilding, ISelectableUnit
     #endregion
 
     #region Property
+    public new float BodyRadius => bodyRadius;
+
     public new Player Player 
     { 
         get => _player;
