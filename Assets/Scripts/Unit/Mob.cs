@@ -51,24 +51,24 @@ public class Mob : MonoBehaviour, IMob
             case States.FollowThePath:
                 if (_nextPathPoint)
                 {
-                    if (Vector3.Distance(Position, _nextPathPoint.GetPosition()) > BodyRadius)
+                    if (Vector3.Distance(GetPosition(), _nextPathPoint.GetPosition()) > BodyRadius)
                         move.MoveToTarget(_nextPathPoint.GetPosition());
                     else
                         _nextPathPoint = _nextPathPoint.GetNextPlayerPathPoint(Player);
                 }
 
-                attack.FindNearestTarget();
+                attack.FindTarget();
                 break;
 
             case States.FollowToAttack:
                 if (attack.Target.Health > 0)
                 {
                     float maxDistance = Mathf.Max(BodyRadius, attack.Target.BodyRadius, attack.Range);
-                    if (Vector3.Distance(Position, attack.Target.Position) > maxDistance && startState != States.Stay)
-                        move.MoveToTarget(attack.Target.Position);
+                    if (Vector3.Distance(GetPosition(), attack.Target.GetPosition()) > maxDistance && startState != States.Stay)
+                        move.MoveToTarget(attack.Target.GetPosition());
                     else
                     {
-                        move.RotateToTarget(attack.Target.Position);
+                        move.RotateToTarget(attack.Target.GetPosition());
                         ChangeStage(States.Attack);
                     }
                 }
@@ -81,7 +81,7 @@ public class Mob : MonoBehaviour, IMob
                 break;
 
             case States.Stay:
-                attack.FindNearestTarget();
+                attack.FindTarget();
                 break;
         }
     }
@@ -104,9 +104,11 @@ public class Mob : MonoBehaviour, IMob
 
     public PathPoint PathPoint { get => _nextPathPoint; set => _nextPathPoint = value; }
 
-    public Vector3 Position => transform.position;
-
     public int Health { get => _currentHealth; set => _currentHealth = Mathf.Min(maxHealth, value); }
+    #endregion
+
+    #region Get
+    public Vector3 GetPosition() => transform.position;
     #endregion
 
     #region Health
@@ -142,10 +144,12 @@ public class Mob : MonoBehaviour, IMob
 
     public void Deselect()
     {
+        throw new System.NotImplementedException();
     }
 
     public void Select()
     {
+        throw new System.NotImplementedException();
     }
 
 

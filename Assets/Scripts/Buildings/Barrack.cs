@@ -2,12 +2,14 @@ using UnityEngine;
 using System.Collections.Generic;
 using System.Collections;
 
-public class Barrack : Building, IBuilding, ISelectableUnit
+public class Barrack : MonoBehaviour, IBuilding
 {
-    [Header("Barrack Parameters")]
-    [SerializeField] private float spawnCooldownTime;
-    [SerializeField] private List<GameObject> spawnPrefabs;
-    [SerializeField] private List<int> spawnCount;
+    [Header("Parameters")]
+    [SerializeField] float spawnCooldownTime;
+    [SerializeField] List<GameObject> spawnPrefabs;
+    [SerializeField] List<int> spawnCount;
+
+    private Player _player;
 
     #region Start
     private void Start()
@@ -16,6 +18,29 @@ public class Barrack : Building, IBuilding, ISelectableUnit
             spawnCount.Add(0);
 
         Spawn();
+    }
+    #endregion
+
+    #region Property
+    public Player Player { get => _player; set => _player = value; }
+    #endregion
+
+    #region Select
+    public void Select()
+    {
+        SelectorOverlay.Instance.Show(this);
+    }
+
+    public void Deselect()
+    {
+        SelectorOverlay.Instance.Hide();
+    }
+    #endregion
+
+    #region Get
+    public Vector3 GetPosition()
+    {
+        return transform.position;
     }
     #endregion
 
@@ -42,24 +67,34 @@ public class Barrack : Building, IBuilding, ISelectableUnit
             }
         }
     }
-
-    private void AddSpawnCooldownTime(int addedCount, int addedPercent = 10)
-    {
-        for (int i = 0; i < addedCount; i++)
-        {
-            spawnCooldownTime += spawnCooldownTime * addedPercent / 100;
-        }
-    }
     #endregion
 
-    #region Buyer
-    public void BuyUnits(int unitIndex, int unitCount = 1)
+    #region Need Complete
+    public int Health { get; set; }
+
+    public float BodyRadius => throw new System.NotImplementedException();
+
+
+    public void Build()
     {
-        if (unitIndex < spawnPrefabs.Count && unitIndex > -1)
-        {
-            spawnCount[unitIndex] += unitCount;
-            AddSpawnCooldownTime(unitCount);
-        }
+        throw new System.NotImplementedException();
+    }
+
+    public void Death()
+    {
+        throw new System.NotImplementedException();
+    }
+
+
+    public void TakeDamage(int damage)
+    {
+        throw new System.NotImplementedException();
+    }
+
+
+    public void Upgrade()
+    {
+        throw new System.NotImplementedException();
     }
     #endregion
 }
