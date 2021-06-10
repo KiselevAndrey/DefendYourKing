@@ -1,32 +1,31 @@
 using UnityEngine;
 
-public class King : MobWithNavMesh, IMob, ISelectableUnit
+public class King : MobWithNavMesh, ISelectableUnit
 {
     [Header("King Reference")]
     [SerializeField] private Buyer buyer;
 
-    #region Update OnEnable
-    protected new void Update()
-    {
-        UpdateStage();
-    }
-
+    #region OnEnable
     protected new void OnEnable()
     {
+        base.OnEnable();
+
+        navMeshAgent.avoidancePriority = 0;
         startStage = Stages.Stay;
         ChangeStage(startStage);
+    }
 
-        healthBar.SetMaxHealt(maxHealth);
-        Health = maxHealth;
-
-        _isLife = true;
+    private void Start()
+    {
+        PathPoint = _player.GetStartPathPoint();
+        print(PathPoint);
     }
     #endregion
 
     #region Select Deselect
     public new void Select()
     {
-        _player.SelectUnit(this);
+        base.Select();
     }
     #endregion
 }

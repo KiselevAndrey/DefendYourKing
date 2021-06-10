@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 
 #region IUnit
@@ -75,6 +74,7 @@ public interface ISeller
 }
 #endregion
 
+#region Selectable
 public interface ISelectable
 {
     void Select();
@@ -88,3 +88,4 @@ public interface ISelectableUnit: ISelectable
 {
     Transform Transform { get; }
 }
+#endregion

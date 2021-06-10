@@ -1,28 +1,20 @@
-using System;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class MobWithNavMesh : MonoBehaviour, IMob, ISelectableUnit
+public class MobWithNavMesh : Unit, IMob, ISelectableUnit
 {
     public enum Stages { FollowThePath, FollowToAttack, Attack, Stay }
 
-    [Header("Parameters")]
-    [SerializeField] protected int maxHealth;
+    [Header("Mob Parameters")]
     [SerializeField] protected Stages startStage;
 
-    [Header("References")]
+    [Header("Mob References")]
     [SerializeField] protected NavMeshAgent navMeshAgent;
-    [SerializeField] protected MeshRenderer changedPlayerMaterial;
     [SerializeField] protected UnitAnimatorsManager animatorsManager;
-    [SerializeField] protected HealthBar healthBar;
 
     protected IAttack _attack;
     protected Stages _currentStage;
-    protected Player _player;
     protected PathPoint _nextPathPoint;
-    protected int _currentHealth;
-    protected bool _isLife;
-    protected float _bodyRadius;
 
     private bool _selected;
 
@@ -38,19 +30,17 @@ public class MobWithNavMesh : MonoBehaviour, IMob, ISelectableUnit
         UpdateStage();
     }
 
-    protected void OnEnable()
+    protected new void OnEnable()
     {
+        base.OnEnable();
+
         startStage = Stages.FollowThePath;
         ChangeStage(startStage);
 
-        healthBar.SetMaxHealt(maxHealth);
-        Health = maxHealth;
-
-        _isLife = true;
-        navMeshAgent.avoidancePriority = UnityEngine.Random.Range(50, 100);
+        navMeshAgent.avoidancePriority = Random.Range(50, 100);
     }
 
-    protected void OnDisable()
+    protected new void OnDisable()
     {
         _attack.Target = null;
     }
@@ -176,58 +166,22 @@ public class MobWithNavMesh : MonoBehaviour, IMob, ISelectableUnit
     #endregion
 
     #region Properties
-    public float BodyRadius => _bodyRadius;
-
-    public Player Player 
-    { 
-        get => _player; 
-        set 
-        { 
-            _player = value;
-            changedPlayerMaterial.material = value.material;
-        } 
-    }
-
     public PathPoint PathPoint { get => _nextPathPoint; set => _nextPathPoint = value; }
 
-    public Vector3 Position => transform.position;
-
-    public int Health 
-    { 
-        get => _currentHealth;
-        set
-        {
-            _currentHealth = Mathf.Min(maxHealth, value);
-            healthBar.SetHealth(_currentHealth);
-        }
-    }
-
     public bool NeedHidePrevios => true;
-
-    public Transform Transform => transform;
     #endregion
 
     #region Health
-    public void TakeDamage(int damage)
+    public new void Death()
     {
-        Health -= damage;
-
-        if (Health < 0) Death();
-    }
-
-    public void Death()
-    {
-        if (!_isLife) return;
+        base.Death();
 
         Deselect();
-        
-        _isLife = false;
-        Lean.Pool.LeanPool.Despawn(gameObject);
     }
     #endregion
 
     #region Move
-    protected void SetDestination(Vector3 target)
+    private void SetDestination(Vector3 target)
     {
         navMeshAgent.SetDestination(target);
     }
@@ -242,7 +196,7 @@ public class MobWithNavMesh : MonoBehaviour, IMob, ISelectableUnit
     }
     #endregion
 
-    #region Need complete
+    #region Select Deselect
     public void Deselect()
     {
         if (_selected)
