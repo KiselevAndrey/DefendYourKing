@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class SelectorOverlay : MonoBehaviour
+public class SelectorOverlay : MonoBehaviour, ISeller
 {
     public static SelectorOverlay Instance { get; private set; }
 

@@ -63,6 +63,13 @@ public interface IBuyer
 
     bool TryBuy(Purchase purshase);
 }
+
+public interface ISeller
+{
+    void Show(IBuyer buyer);
+
+    void Hide();
+}
 #endregion
 
 public interface ISelectable

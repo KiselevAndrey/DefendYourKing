@@ -7,15 +7,21 @@ public class Player : MonoBehaviour
 
     [Header("References")]
     [SerializeField] private PathPoint startPathPoint;
-    public MenuOfSelectedObject selectableMenu;
+    [SerializeField] private GameObject selectableMenuObject;
+    
+    public ISeller seller;
 
     #region Awake
     private void Awake()
     {
+        if (selectableMenuObject)
+            seller = selectableMenuObject.GetComponent<ISeller>();
+
         foreach (IUnit child in transform.GetComponentsInChildren<IUnit>())
         {
             child.Player = this;
         }
+
     }
     #endregion
 

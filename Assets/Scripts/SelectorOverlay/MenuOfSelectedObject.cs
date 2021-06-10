@@ -1,9 +1,10 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class MenuOfSelectedObject : MonoBehaviour
+public class MenuOfSelectedObject : MonoBehaviour, ISeller
 {
+    [Header("References")]
+    [SerializeField] private System.Collections.Generic.List<SelectedCell> cells;
+    [SerializeField] private UnityEngine.UI.Text interpretationText;
 
     private IBuyer _buyer;
 
@@ -14,21 +15,66 @@ public class MenuOfSelectedObject : MonoBehaviour
 
     public void Show(IBuyer buyer)
     {
-        //_buyer = buyer;
-        //transform.position = buyer.Position;
+        if (_buyer == buyer) return;
 
-        //for (int i = 0; i < buyer.Purshases.Length; i++)
-        //{
-        //    actions[i].gameObject.SetActive(true);
-        //    actions[i].sprite = buyer.Purshases[i].icon;
-        //}
+        _buyer = buyer;
 
-        //for (int i = buyer.Purshases.Length; i < maxActions; i++)  
-        //{
-        //    actions[i].gameObject.SetActive(false);
-        //}
+        for (int i = 0; i < buyer.Purshases.Length; i++)
+        {
+            cells[i].gameObject.SetActive(true);
+            cells[i].SetIcon(buyer.Purshases[i].icon);
+        }
 
-        //gameObject.SetActive(true);
+        for (int i = buyer.Purshases.Length; i < cells.Count; i++)
+        {
+            cells[i].gameObject.SetActive(false);
+        }
+
+        gameObject.SetActive(true);
     }
+    #endregion
+
+
+    #region Select Deselect
+    #region Purchases
+    private void Select(Purchase purchase)
+    {
+
+    }
+
+    private void Deselect()
+    {
+
+    }
+    #endregion
+
+    #region Cell
+    private void MouseUpperCell()
+    {
+        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+
+        if (Physics.Raycast(ray, out RaycastHit hit))
+        {
+            if (hit.collider.TryGetComponent(out SelectedCell cell))
+            {
+                Select(_buyer.Purshases[cell.numberOfCell]);
+            }
+            else
+                Deselect();
+        }
+        else
+            Deselect();
+    }
+
+    public void ClickToCell(int numCell)
+    {
+        print(numCell);
+    }
+
+    public void ClickToCell(SelectedCell cell)
+    {
+        print(cell);
+    }
+    #endregion
     #endregion
 }

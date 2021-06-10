@@ -5,26 +5,45 @@ public class Building : MonoBehaviour, IBuilding, ISelectable
     protected Player _player;
     protected IBuyer _buyer;
 
+    private ISeller _seller;
+
+    #region Awake Start
     private void Awake()
     {
         _buyer = GetComponent<IBuyer>();
     }
 
+    private void Start()
+    {
+        //_seller = SelectorOverlay.Instance;
+    }
+    #endregion
+
     #region Property
-    public Player Player { get => _player; set => _player = value; }
+    public Player Player 
+    { 
+        get => _player;
+        set
+        {
+            _player = value;
+            _seller = value.seller;
+        }
+    }
     public Vector3 Position => transform.position;
     #endregion
 
     #region Select
     public bool SelectAndDeselectPrevious()
     {
-        SelectorOverlay.Instance.Show(_buyer);
+        print(_seller);
+        print(_buyer);
+        _seller.Show(_buyer);
         return true;
     }
 
     public void Deselect()
     {
-        SelectorOverlay.Instance.Hide();
+        _seller.Hide();
     }
     #endregion
 
