@@ -13,8 +13,6 @@ public class SelectedCell : MonoBehaviour, ISelectable
 
     #region Property
     public bool NeedHidePrevios => false;
-
-    public Transform Transform => null;
     #endregion
 
     #region Deselect Select
