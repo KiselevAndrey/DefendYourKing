@@ -33,6 +33,8 @@ public class Building : MonoBehaviour, IBuilding, ISelectable
     public Vector3 Position => transform.position;
 
     public bool NeedHidePrevios => true;
+
+    public Transform Transform => transform;
     #endregion
 
     #region Select
@@ -51,7 +53,6 @@ public class Building : MonoBehaviour, IBuilding, ISelectable
     public int Health { get; set; }
 
     public float BodyRadius => throw new System.NotImplementedException();
-
 
     public void Build()
     {

@@ -1,7 +1,8 @@
+using System;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class MobWithNavMesh : MonoBehaviour, IMob, ISelectable
+public class MobWithNavMesh : MonoBehaviour, IMob, ISelectableUnit
 {
     public enum Stages { FollowThePath, FollowToAttack, Attack, Stay }
 
@@ -22,6 +23,8 @@ public class MobWithNavMesh : MonoBehaviour, IMob, ISelectable
     protected int _currentHealth;
     protected bool _isLife;
     protected float _bodyRadius;
+
+    private bool _selected;
 
     #region Awake Update OnEnable OnDisable
     protected void Awake()
@@ -44,7 +47,7 @@ public class MobWithNavMesh : MonoBehaviour, IMob, ISelectable
         Health = maxHealth;
 
         _isLife = true;
-        navMeshAgent.avoidancePriority = Random.Range(50, 100);
+        navMeshAgent.avoidancePriority = UnityEngine.Random.Range(50, 100);
     }
 
     protected void OnDisable()
@@ -200,6 +203,8 @@ public class MobWithNavMesh : MonoBehaviour, IMob, ISelectable
     }
 
     public bool NeedHidePrevios => true;
+
+    public Transform Transform => transform;
     #endregion
 
     #region Health
@@ -214,6 +219,8 @@ public class MobWithNavMesh : MonoBehaviour, IMob, ISelectable
     {
         if (!_isLife) return;
 
+        Deselect();
+        
         _isLife = false;
         Lean.Pool.LeanPool.Despawn(gameObject);
     }
@@ -238,11 +245,17 @@ public class MobWithNavMesh : MonoBehaviour, IMob, ISelectable
     #region Need complete
     public void Deselect()
     {
+        if (_selected)
+        {
+            _player.DeselectUnit(this);
+            _selected = false;
+        }
     }
 
     public void Select()
     {
-        print("Select Mob");
+        _player.SelectUnit(this);
+        _selected = true;
     }
     #endregion
 }

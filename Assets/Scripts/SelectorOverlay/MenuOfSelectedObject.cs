@@ -60,7 +60,6 @@ public class MenuOfSelectedObject : MonoBehaviour, ISeller
     }
     #endregion
 
-
     #region Select Deselect
     #region Purchases
     private void Select(Purchase purchase)

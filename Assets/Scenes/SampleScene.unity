@@ -1034,6 +1034,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 359671956}
+  - component: {fileID: 359671957}
   m_Layer: 0
   m_Name: Selecter Camera Plant
   m_TagString: Untagged
@@ -1049,13 +1050,25 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 359671955}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 13.7}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 707032116}
   m_Father: {fileID: 661311305}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &359671957
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 359671955}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1742d534f5e57df479a1784bd673e466, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!43 &420903093
 Mesh:
   m_ObjectHideFlags: 0
@@ -4784,7 +4797,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1271326432
 Transform:
   m_ObjectHideFlags: 0
@@ -5358,6 +5371,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6328168973522956654, guid: 4c7e56e0fa2e2a145a6a8a0992ddd799, type: 3}
+      propertyPath: moveCameraToSelected
+      value: 
+      objectReference: {fileID: 359671957}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4c7e56e0fa2e2a145a6a8a0992ddd799, type: 3}
 --- !u!224 &1598419017 stripped
@@ -5365,6 +5382,17 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 2463379069812277227, guid: 4c7e56e0fa2e2a145a6a8a0992ddd799, type: 3}
   m_PrefabInstance: {fileID: 1598419016}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1598419018 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6328168973522956654, guid: 4c7e56e0fa2e2a145a6a8a0992ddd799, type: 3}
+  m_PrefabInstance: {fileID: 1598419016}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f572faf072b72414b82b5165fb0369c9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!43 &1625461156
 Mesh:
   m_ObjectHideFlags: 0
@@ -7207,6 +7235,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1143855081}
     - target: {fileID: 4122655345548363154, guid: 21a7f400ab9b80d4d8b92e402937dacd, type: 3}
+      propertyPath: statsMenu
+      value: 
+      objectReference: {fileID: 1598419018}
+    - target: {fileID: 4122655345548363154, guid: 21a7f400ab9b80d4d8b92e402937dacd, type: 3}
       propertyPath: selectableMenu
       value: 
       objectReference: {fileID: 2039058655}
@@ -7214,6 +7246,10 @@ PrefabInstance:
       propertyPath: startPathPoint
       value: 
       objectReference: {fileID: 2029984020}
+    - target: {fileID: 4122655345548363154, guid: 21a7f400ab9b80d4d8b92e402937dacd, type: 3}
+      propertyPath: moveCameraToSelected
+      value: 
+      objectReference: {fileID: 359671957}
     - target: {fileID: 4122655345548363154, guid: 21a7f400ab9b80d4d8b92e402937dacd, type: 3}
       propertyPath: selectableMenuObject
       value: 

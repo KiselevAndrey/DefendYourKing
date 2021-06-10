@@ -3,6 +3,7 @@ using UnityEngine;
 public class MouseSelectable : MonoBehaviour
 {
     private ISelectable _selectable;
+
     private void Update()
     {
         if (Input.GetMouseButtonUp(0))

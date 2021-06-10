@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 #region IUnit
@@ -81,4 +82,9 @@ public interface ISelectable
     void Deselect();
 
     bool NeedHidePrevios { get; }
+}
+
+public interface ISelectableUnit: ISelectable
+{
+    Transform Transform { get; }
 }
