@@ -9,7 +9,7 @@ public class MenuOfSelectedObject : MonoBehaviour, ISeller
     [SerializeField] private System.Collections.Generic.List<SelectedCell> cells;
     [SerializeField] private UnityEngine.UI.Text interpretationText;
     [SerializeField] private UnityEngine.UI.Text costText;
-    [SerializeField] private UnityEngine.UI.Button buttonForBuy;
+    [SerializeField] private SelectedCell buttonForBuy;
     [SerializeField] private Animator animator;
 
     private IBuyer _buyer;
@@ -20,7 +20,7 @@ public class MenuOfSelectedObject : MonoBehaviour, ISeller
     #region Start Update
     private void Start()
     {
-        _buyWhenClick = !buttonForBuy.IsActive();
+        _buyWhenClick = !buttonForBuy.gameObject.activeSelf;
 
         Hide();
     }
