@@ -3,29 +3,29 @@ using UnityEngine.AI;
 
 public class MobWithNavMesh : Unit, IMob, ISelectableUnit
 {
-    public enum Stages { FollowThePath, FollowToAttack, Attack, Stay }
+    protected enum Stages { FollowThePath, FollowToAttack, Attack, Stay }
 
     [Header("Mob Parameters")]
     [SerializeField] protected Stages startStage;
 
     [Header("Mob References")]
     [SerializeField] protected NavMeshAgent navMeshAgent;
-    [SerializeField] protected UnitAnimatorsManager animatorsManager;
+    [SerializeField] private UnitAnimatorsManager animatorsManager;
 
-    protected IAttack _attack;
+    private IAttack _attack;
     protected Stages _currentStage;
     protected PathPoint _nextPathPoint;
 
     private bool _selected;
 
     #region Awake Update OnEnable OnDisable
-    protected void Awake()
+    private void Awake()
     {
         _attack = GetComponent<IAttack>();
         _bodyRadius = navMeshAgent.radius;
     }
 
-    protected void Update()
+    private void Update()
     {
         UpdateStage();
     }
@@ -40,14 +40,14 @@ public class MobWithNavMesh : Unit, IMob, ISelectableUnit
         navMeshAgent.avoidancePriority = Random.Range(50, 100);
     }
 
-    protected new void OnDisable()
+    private void OnDisable()
     {
         _attack.Target = null;
     }
     #endregion
 
     #region Stages
-    protected void UpdateStage()
+    private void UpdateStage()
     {
         switch (_currentStage)
         {
@@ -169,6 +169,8 @@ public class MobWithNavMesh : Unit, IMob, ISelectableUnit
     public PathPoint PathPoint { get => _nextPathPoint; set => _nextPathPoint = value; }
 
     public bool NeedHidePrevios => true;
+
+    public Transform Transform => transform;
     #endregion
 
     #region Health

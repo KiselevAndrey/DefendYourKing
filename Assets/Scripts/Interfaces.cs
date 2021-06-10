@@ -9,11 +9,11 @@ public interface IUnit
 
     Player Player { get; set; }
 
+    Vector3 Position { get; }
+
     void TakeDamage(int damage);
 
     void Death();
-
-    Vector3 Position { get; }
 }
 
 public interface IAttack

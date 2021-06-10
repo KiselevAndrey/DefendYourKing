@@ -6,13 +6,13 @@ public class Unit : MonoBehaviour, IUnit
     [SerializeField] protected int maxHealth;
 
     [Header("Unit References")]
-    [SerializeField] protected MeshRenderer changedPlayerMaterial;
-    [SerializeField] protected HealthBar healthBar;
+    [SerializeField] private MeshRenderer changedPlayerMaterial;
+    [SerializeField] private HealthBar healthBar;
 
     protected Player _player;
     protected float _bodyRadius;
-    protected int _currentHealth;
-    protected bool _isLife;
+    private int _currentHealth;
+    private bool _isLife;
 
     #region OnEnable OnDisable
     protected void OnEnable()
@@ -22,11 +22,19 @@ public class Unit : MonoBehaviour, IUnit
 
         _isLife = true;
     }
-
-    protected void OnDisable() { }
     #endregion
 
     #region Properties
+    public int Health
+    {
+        get => _currentHealth;
+        set
+        {
+            _currentHealth = Mathf.Min(maxHealth, value);
+            healthBar.SetHealth(_currentHealth);
+        }
+    }
+
     public float BodyRadius => _bodyRadius;
 
     public Player Player
@@ -40,18 +48,6 @@ public class Unit : MonoBehaviour, IUnit
     }
 
     public Vector3 Position => transform.position;
-
-    public int Health
-    {
-        get => _currentHealth;
-        set
-        {
-            _currentHealth = Mathf.Min(maxHealth, value);
-            healthBar.SetHealth(_currentHealth);
-        }
-    }
-
-    public Transform Transform => transform;
     #endregion
 
     #region Health

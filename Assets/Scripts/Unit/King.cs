@@ -18,7 +18,6 @@ public class King : MobWithNavMesh, ISelectableUnit
     private void Start()
     {
         PathPoint = _player.GetStartPathPoint();
-        print(PathPoint);
     }
     #endregion
 
