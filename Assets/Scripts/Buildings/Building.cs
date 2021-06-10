@@ -1,11 +1,11 @@
 using UnityEngine;
 
-public class Building : MonoBehaviour, IBuilding, ISelectable
+public class Building : Unit, IBuilding, ISelectableUnit
 {
-    protected Player _player;
     protected IBuyer _buyer;
 
     private ISeller _seller;
+    private bool _selected;
 
     #region Awake Start
     private void Awake()
@@ -20,17 +20,16 @@ public class Building : MonoBehaviour, IBuilding, ISelectable
     #endregion
 
     #region Property
-    public Player Player 
+    public new Player Player 
     { 
         get => _player;
         set
         {
             _player = value;
+            changedPlayerMaterial.material = value.material;
             _seller = value.seller;
         }
     }
-
-    public Vector3 Position => transform.position;
 
     public bool NeedHidePrevios => true;
 
@@ -40,31 +39,33 @@ public class Building : MonoBehaviour, IBuilding, ISelectable
     #region Select
     public void Select()
     {
+        _selected = true;
+        _player.SelectUnit(this);
         _seller.Show(_buyer);
     }
 
     public void Deselect()
     {
-        _seller.Hide();
+        if (_selected)
+        {
+            _player.DeselectUnit(this);
+            _selected = false;
+            _seller.Hide();
+        }
+    }
+    #endregion
+
+    #region Health
+    public new void Death()
+    {
+        base.Death();
+
+        Deselect();
     }
     #endregion
 
     #region Need Complete
-    public int Health { get; set; }
-
-    public float BodyRadius => throw new System.NotImplementedException();
-
     public void Build()
-    {
-        throw new System.NotImplementedException();
-    }
-
-    public void Death()
-    {
-        throw new System.NotImplementedException();
-    }
-
-    public void TakeDamage(int damage)
     {
         throw new System.NotImplementedException();
     }

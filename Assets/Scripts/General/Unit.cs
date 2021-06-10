@@ -6,7 +6,7 @@ public class Unit : MonoBehaviour, IUnit
     [SerializeField] protected int maxHealth;
 
     [Header("Unit References")]
-    [SerializeField] private MeshRenderer changedPlayerMaterial;
+    [SerializeField] protected MeshRenderer changedPlayerMaterial;
     [SerializeField] private HealthBar healthBar;
 
     protected Player _player;
