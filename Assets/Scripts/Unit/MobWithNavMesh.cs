@@ -1,27 +1,32 @@
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class MobWithNavMesh : Unit, IMob, ISelectableUnit
+public class MobWithNavMesh : MonoBehaviour, IMob
 {
-    protected enum Stages { FollowThePath, FollowToAttack, Attack, Stay }
+    public enum States { FollowThePath, FollowToAttack, Attack, Stay }
 
-    [Header("Mob Parameters")]
-    [SerializeField] protected Stages startStage;
+    [Header("Parameters")]
+    [SerializeField] private int maxHealth;
+    public States startState;
 
-    [Header("Mob References")]
-    [SerializeField] protected NavMeshAgent navMeshAgent;
-    [SerializeField] private UnitAnimatorsManager animatorsManager;
+    [Header("References")]
+    [SerializeField] private NavMeshAgent navMeshAgent;
+    [SerializeField] private MeshRenderer changedPlayerMaterial;
+    private IAttack attack;
 
-    private IAttack _attack;
-    protected Stages _currentStage;
-    protected PathPoint _nextPathPoint;
-
-    private bool _selected;
+    private States _currentStage;
+    private Player _player;
+    private PathPoint _nextPathPoint;
+    private int _currentHealth;
+    private bool _isLife;
+    private float _bodyRadius;
 
     #region Awake Update OnEnable OnDisable
     private void Awake()
     {
-        _attack = GetComponent<IAttack>();
+        attack = GetComponent<IAttack>();
         _bodyRadius = navMeshAgent.radius;
     }
 
@@ -30,19 +35,17 @@ public class MobWithNavMesh : Unit, IMob, ISelectableUnit
         UpdateStage();
     }
 
-    protected new void OnEnable()
+    private void OnEnable()
     {
-        base.OnEnable();
-
-        startStage = Stages.FollowThePath;
-        ChangeStage(startStage);
-
-        navMeshAgent.avoidancePriority = Random.Range(50, 100);
+        ChangeStage(startState);
+        Health = maxHealth;
+        _isLife = true;
+        navMeshAgent.avoidancePriority = Random.Range(1, 100);
     }
 
     private void OnDisable()
     {
-        _attack.Target = null;
+        attack.Target = null;
     }
     #endregion
 
@@ -51,167 +54,128 @@ public class MobWithNavMesh : Unit, IMob, ISelectableUnit
     {
         switch (_currentStage)
         {
-            case Stages.FollowThePath:
+            case States.FollowThePath:
                 if (PathPoint)
                 {
-                    SetDestination(PathPoint.GetPosition());
-                    if(Vector3.Distance(Position, PathPoint.GetPosition()) < BodyRadius * 5 && PathPoint.GetNextPlayerPathPoint(Player))
+                    if (Vector3.Distance(GetPosition(), PathPoint.GetPosition()) < BodyRadius * 5 && PathPoint.GetNextPlayerPathPoint(Player))
                     {
                         PathPoint = PathPoint.GetNextPlayerPathPoint(Player);
+                        SetDestination(PathPoint.GetPosition());
                     }
+                    SetDestination(PathPoint.GetPosition());
                 }
 
-                if (_attack.TryFindTarget())
-                    ChangeStage(Stages.FollowToAttack);
-                
+                attack.FindTarget();
                 break;
 
-            case Stages.FollowToAttack:
-                if (_attack.CheckTheTarget)
+            case States.FollowToAttack:
+                if (attack.Target.Health > 0)
                 {
-                    if (Vector3.Distance(Position, _attack.Target.Position) > navMeshAgent.stoppingDistance)
-                    {
-                        SetDestination(_attack.Target.Position);
-                    }
+                    navMeshAgent.stoppingDistance = Mathf.Max(BodyRadius, attack.Target.BodyRadius, attack.Range);
+                    if (Vector3.Distance(GetPosition(), attack.Target.GetPosition()) > navMeshAgent.stoppingDistance && startState != States.Stay)
+                        SetDestination(attack.Target.GetPosition());
                     else
                     {
-                        ChangeStage(Stages.Attack);
+                        //move.RotateToTarget(attack.Target.GetPosition());
+                        //transform.rotation = Quaternion.LookRotation(navMeshAgent.velocity.normalized);
+                        //if (!navMeshAgent.updateRotation) SetDestination(attack.Target.GetPosition());
+                        RotateTowards(attack.Target.GetPosition());
+                        ChangeStage(States.Attack);
                     }
                 }
                 else
-                {
-                    if (_attack.FindNearestTarget())
-                        ChangeStage(Stages.FollowToAttack);
-                    else
-                        ChangeStage(startStage);
-                }
+                    ChangeStage(startState);
                 break;
 
-            case Stages.Attack:
-                if (!_attack.CheckDistanceToTarget)
-                {
-                    ResetStage();
-                    break;
-                }
-
-                RotateTowards(_attack.Target.Position);
-
-                if (_attack.TryAttack())
-                    animatorsManager.StartMeleeAttackAnimation();
-
+            case States.Attack:
+                attack.TryAttack();
                 break;
 
-            case Stages.Stay:
-                if (_attack.TryFindTarget())
-                {
-                    if (_attack.CanAttack)
-                    {
-                        ChangeStage(Stages.Attack);
-                    }
-                    else if (!_attack.CheckTheTarget)
-                        _attack.Target = null;
-                    else
-                        RotateTowards(_attack.Target.Position);
-                }
+            case States.Stay:
+                attack.FindTarget();
                 break;
         }
     }
 
-    protected void ChangeStage(Stages newStage)
+    public void ChangeStage(States newStage)
     {
         _currentStage = newStage;
-
-        switch (newStage)
-        {
-            case Stages.FollowThePath:
-                animatorsManager.IsStartMoveAnimation(true);
-                navMeshAgent.stoppingDistance = BodyRadius;
-                break;
-
-            case Stages.FollowToAttack:
-                animatorsManager.IsStartMoveAnimation(true);
-                navMeshAgent.stoppingDistance = Mathf.Max((BodyRadius + _attack.Target.BodyRadius) * 1.1f, _attack.Range);
-                break;
-
-            case Stages.Attack:
-                animatorsManager.IsStartMoveAnimation(false);
-                break;
-
-            case Stages.Stay:
-                animatorsManager.IsStartMoveAnimation(false);
-                break;
-        }
     }
 
-    private void ResetStage()
+    public void ResetStage()
     {
-        if (_attack.FindNearestTarget())
-        {
-            switch (startStage)
-            {                 
-                case Stages.Stay:
-                    ChangeStage(Stages.Stay);
-                    break;
-
-                case Stages.FollowThePath:
-                default:
-                    ChangeStage(Stages.FollowToAttack);
-                    break;
-            }
-        }
-        else
-            ChangeStage(startStage);
-
+        ChangeStage(startState);
     }
     #endregion
 
     #region Properties
+    public float BodyRadius => _bodyRadius;
+
+    public Player Player { get => _player; 
+        set 
+        { 
+            _player = value;
+            changedPlayerMaterial.material = value.material;
+        } 
+    }
+
     public PathPoint PathPoint { get => _nextPathPoint; set => _nextPathPoint = value; }
 
-    public bool NeedHidePrevios => true;
+    public int Health { get => _currentHealth; set => _currentHealth = Mathf.Min(maxHealth, value); }
+    #endregion
 
-    public Transform Transform => transform;
+    #region Get
+    public Vector3 GetPosition() => transform.position;
     #endregion
 
     #region Health
-    public new void Death()
+    public void TakeDamage(int damage)
     {
-        base.Death();
+        Health -= damage;
 
-        Deselect();
+        if (Health < 0) Death();
+    }
+
+    public void Death()
+    {
+        if (!_isLife) return;
+
+        _isLife = false;
+        Lean.Pool.LeanPool.Despawn(gameObject);
     }
     #endregion
 
     #region Move
-    private void SetDestination(Vector3 target)
+    public void SetDestination(Vector3 target)
     {
         navMeshAgent.SetDestination(target);
     }
 
+    public void MoveToAttack()
+    {
+        ChangeStage(States.FollowToAttack);
+    }
+
+    public bool CanMove()
+    {
+        return startState != States.Stay;
+    }
+
     private void RotateTowards(Vector3 target)
     {
-        Vector3 direction = target - Position;
-        if (direction != Vector3.zero)
-        {
-            transform.forward = direction;
-        }
+        Vector3 direction = (target - transform.position).normalized;
+        Quaternion lookRotation = Quaternion.LookRotation(direction);
+        transform.rotation = Quaternion.Slerp(transform.rotation, lookRotation, Time.deltaTime * navMeshAgent.angularSpeed);
     }
-    #endregion
+        #endregion
 
-    #region Select Deselect
-    public void Deselect()
+        #region Need complete
+        public void Deselect()
     {
-        if (_selected)
-        {
-            _player.DeselectUnit(this);
-            _selected = false;
-        }
     }
 
     public void Select()
     {
-        _player.SelectUnit(this);
-        _selected = true;
     }
     #endregion
 }

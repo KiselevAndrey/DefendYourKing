@@ -5,7 +5,7 @@ public class Miner : MonoBehaviour
     [Header("Events")]
     [SerializeField] private UnityEngine.Events.UnityEvent OnMineHit;
 
-    public void MineHit()
+    private void MineHit()
     {
         OnMineHit.Invoke();
     }
