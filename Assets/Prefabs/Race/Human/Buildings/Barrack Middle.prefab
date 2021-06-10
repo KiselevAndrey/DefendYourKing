@@ -56840,7 +56840,6 @@ GameObject:
   m_Component:
   - component: {fileID: 2260266331839777725}
   - component: {fileID: 5387500338670490242}
-  - component: {fileID: -3858398876323272466}
   - component: {fileID: 6761361626881945296}
   m_Layer: 6
   m_Name: Barrack Middle
@@ -56881,25 +56880,7 @@ MonoBehaviour:
   spawnCooldownTime: 5
   spawnPrefabs:
   - {fileID: 8925257278360867271, guid: b1073f586a173474383b5bd16c4ef226, type: 3}
-  spawnCount: 32000000
---- !u!114 &-3858398876323272466
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2260266331839777726}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2d0751b7ff0b4c44e85cc991f3e0532f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  maxDifferentPurchases: 5
-  maxAllPurchases: 0
-  purchaseSOs:
-  - {fileID: 11400000, guid: 8dad2c6a538bdbb47ba3a68670ffaecb, type: 2}
-  - {fileID: 11400000, guid: 7e7956370937773429fdc475e9837343, type: 2}
-  barrack: {fileID: 5387500338670490242}
+  spawnCount: 01000000
 --- !u!65 &6761361626881945296
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -56911,8 +56892,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 2.5, y: 1.3, z: 2.5}
-  m_Center: {x: 0, y: 0.65, z: 0}
+  m_Size: {x: 2.5, y: 2, z: 2.5}
+  m_Center: {x: 0, y: 1, z: 0}
 --- !u!1 &2260266331928960801
 GameObject:
   m_ObjectHideFlags: 0

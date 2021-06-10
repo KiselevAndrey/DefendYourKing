@@ -1,6 +1,5 @@
 using UnityEngine;
 
-#region IUnit
 public interface IUnit
 {
     int Health { get; set; }
@@ -9,34 +8,28 @@ public interface IUnit
 
     Player Player { get; set; }
 
-    Vector3 Position { get; }
-
     void TakeDamage(int damage);
 
     void Death();
+
+    void Select();
+
+    void Deselect();
+
+    Vector3 GetPosition();
 }
 
 public interface IAttack
 {
-    bool FindNearestTarget();
+    void FindTarget();
 
-    bool TryFindTarget();
-
-    bool TryAttack();
-
-    void Attack();
-
-    bool CanAttack { get; }
+    void TryAttack();
 
     IUnit Target { get; set; }
 
     float Range { get; }
 
     int Damage { get; set; }
-
-    bool CheckTheTarget { get; }
-
-    bool CheckDistanceToTarget { get; }
 }
 
 public interface IBuilding : IUnit
@@ -49,43 +42,10 @@ public interface IBuilding : IUnit
 public interface IMob: IUnit
 {
     PathPoint PathPoint { get; set; }
+
+    void ResetStage();
+
+    void MoveToAttack();
+
+    bool CanMove();
 }
-#endregion
-
-#region IPurchases
-public interface IBuyer
-{
-    int MaxCountPurchases { get; }
-
-    Vector3 Position { get; }
-
-    Purchase[] Purshases { get; }
-
-    bool TryBuy(Purchase purshase, ref string negativeResult);
-}
-
-public interface ISeller
-{
-    void Show(IBuyer buyer);
-
-    void Hide();
-
-    void TryBuy();
-}
-#endregion
-
-#region Selectable
-public interface ISelectable
-{
-    void Select();
-
-    void Deselect();
-
-    bool NeedHidePrevios { get; }
-}
-
-public interface ISelectableUnit: ISelectable
-{
-    Transform Transform { get; }
-}
-#endregion
