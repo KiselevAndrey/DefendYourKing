@@ -198,6 +198,8 @@ public class MobWithNavMesh : MonoBehaviour, IMob, ISelectable
             healthBar.SetHealth(_currentHealth);
         }
     }
+
+    public bool NeedHidePrevios => true;
     #endregion
 
     #region Health
@@ -238,10 +240,9 @@ public class MobWithNavMesh : MonoBehaviour, IMob, ISelectable
     {
     }
 
-    public bool SelectAndDeselectPrevious()
+    public void Select()
     {
         print("Select Mob");
-        return true;
     }
     #endregion
 }

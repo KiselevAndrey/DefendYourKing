@@ -13,12 +13,12 @@ public class MouseSelectable : MonoBehaviour
             {
                 if (hit.collider.TryGetComponent(out ISelectable selectable))
                 {
-                    if (selectable.SelectAndDeselectPrevious())
+                    if (selectable.NeedHidePrevios)
                     {
                         TryDeselect();
                         _selectable = selectable;
-                        print(_selectable);
                     }
+                    selectable.Select();
                 }
                 else TryDeselect();
             }

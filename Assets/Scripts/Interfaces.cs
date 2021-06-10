@@ -61,7 +61,7 @@ public interface IBuyer
 
     Purchase[] Purshases { get; }
 
-    bool TryBuy(Purchase purshase);
+    bool TryBuy(Purchase purshase, ref string negativeResult);
 }
 
 public interface ISeller
@@ -69,17 +69,16 @@ public interface ISeller
     void Show(IBuyer buyer);
 
     void Hide();
+
+    void TryBuy();
 }
 #endregion
 
 public interface ISelectable
 {
-    /// <summary>
-    /// Made a selection and returns whether to hide the previous selection.
-    /// Выполнить выбор и вернуть надо ли прятать предыдущий выбор
-    /// </summary>
-    /// <returns></returns>
-    bool SelectAndDeselectPrevious();
+    void Select();
 
     void Deselect();
+
+    bool NeedHidePrevios { get; }
 }

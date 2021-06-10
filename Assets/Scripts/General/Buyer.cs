@@ -41,7 +41,7 @@ public class Buyer : MonoBehaviour, IBuyer
     public Purchase[] Purshases => _purchases;
     #endregion
 
-    public bool TryBuy(Purchase purshase)
+    public bool TryBuy(Purchase purshase, ref string negativeResut)
     {
         print(name);
         print("buy " + purshase.interpretation);

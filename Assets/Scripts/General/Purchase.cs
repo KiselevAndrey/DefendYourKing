@@ -39,4 +39,9 @@ public class Purchase
     {
         _currentNumberOfPurchases++;
     }
+
+    public int CalculateCost()
+    {
+        return basicCost * (_currentNumberOfPurchases + 1);
+    }
 }

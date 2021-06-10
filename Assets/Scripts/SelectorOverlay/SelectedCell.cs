@@ -11,15 +11,18 @@ public class SelectedCell : MonoBehaviour, ISelectable
     [Header("Events")]
     [SerializeField] private UnityEngine.Events.UnityEvent OnClick;
 
+    #region Property
+    public bool NeedHidePrevios => false;
+    #endregion
+
     #region Deselect Select
     public void Deselect()
     {        
     }
 
-    public bool SelectAndDeselectPrevious()
+    public void Select()
     {
         OnClick.Invoke();
-        return false;
     }
     #endregion
 

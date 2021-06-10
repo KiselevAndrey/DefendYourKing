@@ -29,16 +29,16 @@ public class Building : MonoBehaviour, IBuilding, ISelectable
             _seller = value.seller;
         }
     }
+
     public Vector3 Position => transform.position;
+
+    public bool NeedHidePrevios => true;
     #endregion
 
     #region Select
-    public bool SelectAndDeselectPrevious()
+    public void Select()
     {
-        print(_seller);
-        print(_buyer);
         _seller.Show(_buyer);
-        return true;
     }
 
     public void Deselect()
@@ -52,6 +52,7 @@ public class Building : MonoBehaviour, IBuilding, ISelectable
 
     public float BodyRadius => throw new System.NotImplementedException();
 
+
     public void Build()
     {
         throw new System.NotImplementedException();
@@ -62,19 +63,12 @@ public class Building : MonoBehaviour, IBuilding, ISelectable
         throw new System.NotImplementedException();
     }
 
-
     public void TakeDamage(int damage)
     {
         throw new System.NotImplementedException();
     }
 
-
     public void Upgrade()
-    {
-        throw new System.NotImplementedException();
-    }
-
-    public Player GetPlayer()
     {
         throw new System.NotImplementedException();
     }
