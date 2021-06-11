@@ -14,7 +14,6 @@ public class MenuOfSelectedObject : MonoBehaviour, ISeller
 
     private IBuyer _buyer;
     private Purchase _selectedPurchase;
-    private string _negativeResult;
     private bool _buyWhenClick;
 
     #region Start Update
@@ -45,13 +44,13 @@ public class MenuOfSelectedObject : MonoBehaviour, ISeller
 
         _buyer = buyer;
 
-        for (int i = 0; i < buyer.Purchases.Length; i++)
+        for (int i = 0; i < buyer.Purchases.Count; i++)
         {
             cells[i].gameObject.SetActive(true);
             cells[i].SetIcon(buyer.Purchases[i].icon);
         }
 
-        for (int i = buyer.Purchases.Length; i < cells.Count; i++)
+        for (int i = buyer.Purchases.Count; i < cells.Count; i++)
         {
             cells[i].gameObject.SetActive(false);
         }
@@ -114,6 +113,6 @@ public class MenuOfSelectedObject : MonoBehaviour, ISeller
 
     public void TryBuy()
     {
-        _buyer.TryBuy(_selectedPurchase, ref _negativeResult);
+        _buyer.TryBuy(_selectedPurchase, out string _negativeResult);
     }
 }

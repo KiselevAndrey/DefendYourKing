@@ -16,7 +16,6 @@ public class SelectorOverlay : MonoBehaviour, ISeller
 
     private Purchase _selectedAction;
     private IBuyer _buyer;
-    private string _negativeResult;
 
     #region Awake Update
     private void Awake()
@@ -44,13 +43,13 @@ public class SelectorOverlay : MonoBehaviour, ISeller
         _buyer = buyer;
         transform.position = buyer.Position;
 
-        for (int i = 0; i < buyer.Purchases.Length; i++)
+        for (int i = 0; i < buyer.Purchases.Count; i++)
         {
             actions[i].gameObject.SetActive(true);
             actions[i].sprite = buyer.Purchases[i].icon;
         }
 
-        for (int i = buyer.Purchases.Length; i < maxActions; i++)
+        for (int i = buyer.Purchases.Count; i < maxActions; i++)
         {
             actions[i].gameObject.SetActive(false);
         }
@@ -82,9 +81,8 @@ public class SelectorOverlay : MonoBehaviour, ISeller
     private void CheckClickToAction()
     {
         if(Input.GetMouseButtonUp(0) && _selectedAction != null)
-        {
-            
-            _buyer.TryBuy(_selectedAction, ref _negativeResult);
+        {            
+            _buyer.TryBuy(_selectedAction, out string _negativeResult);
         }
     }
 

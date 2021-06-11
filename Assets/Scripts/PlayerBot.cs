@@ -19,7 +19,7 @@ public class PlayerBot : MonoBehaviour, IPlayer
 
     private ISelectableUnit _selectedUnit;
     private int _ruby;
-    private List<IBuyer> _buyers;
+    private List<IBuyer> _buyers = new List<IBuyer>();
 
     #region Awake Start OnEnable OnDisable
     private void Awake()

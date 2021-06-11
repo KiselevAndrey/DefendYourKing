@@ -29,10 +29,10 @@ public class RubyMine : Building, IBuilding, ISelectableUnit
 
     public void TryExtract()
     {
-        if (_currentCountHitToExtract > 0) _currentCountHitToExtract--;
+        if (_currentCountHitToExtract < countMinerHitToExtract) _currentCountHitToExtract++;
         else
         {
-            _currentCountHitToExtract = countMinerHitToExtract;
+            _currentCountHitToExtract = 0;
             Player.AddRuby(income);
         }
     }
