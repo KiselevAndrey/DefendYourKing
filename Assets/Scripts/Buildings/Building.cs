@@ -24,14 +24,14 @@ public class Building : Unit, IBuilding, ISelectableUnit
     #region Property
     public new float BodyRadius => bodyRadius;
 
-    public new Player Player
+    public new IPlayer Player
     {
         get => _player;
         set
         {
             _player = value;
-            changedPlayerMaterial.material = value.material;
-            _seller = value.seller;
+            changedPlayerMaterial.material = value.Material;
+            _seller = value.Seller;
         }
     }
     #endregion
@@ -67,12 +67,14 @@ public class Building : Unit, IBuilding, ISelectableUnit
     #region Need Complete
     public void Build()
     {
-        throw new System.NotImplementedException();
     }
 
     public void Upgrade()
     {
-        throw new System.NotImplementedException();
+    }
+
+    public void AfterBuilding()
+    {
     }
     #endregion
 }

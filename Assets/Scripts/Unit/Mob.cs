@@ -14,7 +14,7 @@ public class Mob : MonoBehaviour, IMob
     private IAttack attack;
 
     private States _currentStage;
-    private Player _player;
+    private IPlayer _player;
     private PathPoint _nextPathPoint;
     private int _currentHealth;
     private bool _isLife;
@@ -100,7 +100,7 @@ public class Mob : MonoBehaviour, IMob
     #region Properties
     public float BodyRadius => bodyRadius;
 
-    public Player Player { get => _player; set => _player = value; }
+    public IPlayer Player { get => _player; set => _player = value; }
 
     public PathPoint PathPoint { get => _nextPathPoint; set => _nextPathPoint = value; }
 

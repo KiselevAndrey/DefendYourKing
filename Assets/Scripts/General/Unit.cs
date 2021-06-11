@@ -9,7 +9,7 @@ public class Unit : MonoBehaviour, IUnit, ISelectableUnit
     [SerializeField] protected MeshRenderer changedPlayerMaterial;
     [SerializeField] private HealthBar healthBar;
 
-    protected Player _player;
+    protected IPlayer _player;
     protected float _bodyRadius;
     private int _currentHealth;
     private bool _isLife;
@@ -38,13 +38,13 @@ public class Unit : MonoBehaviour, IUnit, ISelectableUnit
 
     public float BodyRadius => _bodyRadius;
 
-    public Player Player
+    public IPlayer Player
     {
         get => _player;
         set
         {
             _player = value;
-            changedPlayerMaterial.material = value.material;
+            changedPlayerMaterial.material = value.Material;
         }
     }
 

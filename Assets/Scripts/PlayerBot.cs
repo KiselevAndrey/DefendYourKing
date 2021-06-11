@@ -1,18 +1,15 @@
 using System;
 using UnityEngine;
 
-public class Player : MonoBehaviour, IPlayer
+public class PlayerBot : MonoBehaviour, IPlayer
 {
     [Header("Parameters")]
     [SerializeField] private Material material;
     [SerializeField, Min(0)] private int startedRubyCount;
+    [SerializeField, Min(0)] private float rubyModultiplier;
 
     [Header("References")]
     [SerializeField] private PathPoint startPathPoint;
-    [SerializeField] private GameObject selectableMenuObject;
-    [SerializeField] private StatsMenu statsMenu;
-    [SerializeField] private King myKing;
-    [SerializeField] private UnityEngine.UI.Text rubyText;
 
     public ISeller seller;
 
@@ -24,9 +21,6 @@ public class Player : MonoBehaviour, IPlayer
     #region Awake Start OnEnable OnDisable
     private void Awake()
     {
-        if (selectableMenuObject)
-            seller = selectableMenuObject.GetComponent<ISeller>();
-
         foreach (IUnit child in transform.GetComponentsInChildren<IUnit>())
         {
             child.Player = this;
@@ -35,9 +29,6 @@ public class Player : MonoBehaviour, IPlayer
 
     private void Start()
     {
-        if(statsMenu)
-            myKing.Select();
-
         Ruby = startedRubyCount;
     }
 
@@ -57,16 +48,10 @@ public class Player : MonoBehaviour, IPlayer
     #endregion
 
     #region Select Units
-    public void SelectKing()
-    {
-        myKing.Select();
-    }
-
     public void SelectUnit(ISelectableUnit selectableUnit)
     {
         if (_selectedUnit == selectableUnit) return;
 
-        statsMenu.SelectUnit(selectableUnit);
         _selectedUnit = selectableUnit;
     }
 
@@ -78,7 +63,7 @@ public class Player : MonoBehaviour, IPlayer
             return;
         }
 
-        myKing.Select();
+        _selectedUnit = null;
     }
 
     public void TryDeselectUnit(ISelectableUnit deselectedUnit)
@@ -94,13 +79,12 @@ public class Player : MonoBehaviour, IPlayer
         private set
         {
             _ruby = value;
-            rubyText.text = value.ToString();
         }
     }
 
     public void AddIncome(int income)
     {
-        Ruby += income;
+        Ruby += (int)(income * rubyModultiplier);
     }
     #endregion
 

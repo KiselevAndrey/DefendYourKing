@@ -7,7 +7,7 @@ public interface IUnit
 
     float BodyRadius { get; }
 
-    Player Player { get; set; }
+    IPlayer Player { get; set; }
 
     Vector3 Position { get; }
 
@@ -44,6 +44,8 @@ public interface IBuilding : IUnit
     void Upgrade();
 
     void Build();
+
+    void AfterBuilding();
 }
 
 public interface IMob: IUnit
@@ -87,5 +89,26 @@ public interface ISelectable
 public interface ISelectableUnit: ISelectable
 {
     Transform Transform { get; }
+}
+#endregion
+
+#region IPlayer
+public interface IPlayer
+{
+    Material Material { get; }
+
+    ISeller Seller { get; }
+
+    int Ruby { get; }
+
+    void AddIncome(int income);
+
+    void TryDeselectUnit(ISelectableUnit deselectedUnit);
+
+    void DeselectUnit(ISelectableUnit deselectedUnit);
+
+    void SelectUnit(ISelectableUnit selectableUnit);
+
+    PathPoint GetStartPathPoint();
 }
 #endregion

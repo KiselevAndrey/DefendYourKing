@@ -841,6 +841,8 @@ MonoBehaviour:
   changedPlayerMaterial: {fileID: 4697986118916888516}
   healthBar: {fileID: 8256937308369422717}
   bodyRadius: 0.7
+  countMinerHitToExtract: 0
+  income: 10
   miners:
   - {fileID: 4860973939688638053}
   - {fileID: 746960402892077069}
@@ -1095,7 +1097,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   OnMineHit:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 982206086357751664}
+        m_TargetAssemblyTypeName: RubyMine, Assembly-CSharp
+        m_MethodName: TryExtract
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &1328412171258016734
 GameObject:
   m_ObjectHideFlags: 0
@@ -1162,7 +1176,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   OnMineHit:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 982206086357751664}
+        m_TargetAssemblyTypeName: RubyMine, Assembly-CSharp
+        m_MethodName: TryExtract
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &1466839205139480993
 GameObject:
   m_ObjectHideFlags: 0
@@ -4316,7 +4342,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   OnMineHit:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 982206086357751664}
+        m_TargetAssemblyTypeName: RubyMine, Assembly-CSharp
+        m_MethodName: TryExtract
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &2979857257407393243
 GameObject:
   m_ObjectHideFlags: 0
@@ -12379,7 +12417,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   OnMineHit:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 982206086357751664}
+        m_TargetAssemblyTypeName: RubyMine, Assembly-CSharp
+        m_MethodName: TryExtract
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &5194731267700709114
 GameObject:
   m_ObjectHideFlags: 0
@@ -12446,7 +12496,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   OnMineHit:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 982206086357751664}
+        m_TargetAssemblyTypeName: RubyMine, Assembly-CSharp
+        m_MethodName: TryExtract
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &5297059760210931407
 GameObject:
   m_ObjectHideFlags: 0
@@ -13045,7 +13107,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   OnMineHit:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 982206086357751664}
+        m_TargetAssemblyTypeName: RubyMine, Assembly-CSharp
+        m_MethodName: TryExtract
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &5627133264975711327
 GameObject:
   m_ObjectHideFlags: 0
@@ -14636,7 +14710,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   OnMineHit:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 982206086357751664}
+        m_TargetAssemblyTypeName: RubyMine, Assembly-CSharp
+        m_MethodName: TryExtract
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &6817158411332811271
 GameObject:
   m_ObjectHideFlags: 0
@@ -16166,7 +16252,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   OnMineHit:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 982206086357751664}
+        m_TargetAssemblyTypeName: RubyMine, Assembly-CSharp
+        m_MethodName: TryExtract
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &7782827819910349588
 GameObject:
   m_ObjectHideFlags: 0
@@ -17324,7 +17422,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   OnMineHit:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 982206086357751664}
+        m_TargetAssemblyTypeName: RubyMine, Assembly-CSharp
+        m_MethodName: TryExtract
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &9173739569036391827
 GameObject:
   m_ObjectHideFlags: 0
@@ -17391,7 +17501,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   OnMineHit:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 982206086357751664}
+        m_TargetAssemblyTypeName: RubyMine, Assembly-CSharp
+        m_MethodName: TryExtract
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &9211258360871409956
 GameObject:
   m_ObjectHideFlags: 0

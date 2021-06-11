@@ -7,9 +7,9 @@ public class PathPoint : MonoBehaviour
     [SerializeField] private PathPoint prevPathPoint;
     [SerializeField] private Player playerToNextPoint;
 
-    public PathPoint GetNextPlayerPathPoint(Player unitPlayer)
+    public PathPoint GetNextPlayerPathPoint(IPlayer unitPlayer)
     {
-        if (unitPlayer == playerToNextPoint)
+        if (unitPlayer == playerToNextPoint.GetComponent<IPlayer>())
             return nextPathPoint;
         else return prevPathPoint;
     }

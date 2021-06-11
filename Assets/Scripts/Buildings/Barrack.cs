@@ -15,9 +15,14 @@ public class Barrack : Building, IBuilding, ISelectableUnit
         while (spawnCount.Count < spawnPrefabs.Count)
             spawnCount.Add(0);
 
-        Spawn();
+        AfterBuilding();
     }
     #endregion
+
+    public new void AfterBuilding()
+    {
+        Spawn();
+    }
 
     #region Spawn
     private void Spawn()
