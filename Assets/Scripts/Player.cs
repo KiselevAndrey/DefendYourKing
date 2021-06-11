@@ -98,7 +98,7 @@ public class Player : MonoBehaviour, IPlayer
         }
     }
 
-    public void AddIncome(int income)
+    public void AddRuby(int income)
     {
         Ruby += income;
     }

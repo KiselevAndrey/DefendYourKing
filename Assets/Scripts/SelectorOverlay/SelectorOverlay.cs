@@ -44,13 +44,13 @@ public class SelectorOverlay : MonoBehaviour, ISeller
         _buyer = buyer;
         transform.position = buyer.Position;
 
-        for (int i = 0; i < buyer.Purshases.Length; i++)
+        for (int i = 0; i < buyer.Purchases.Length; i++)
         {
             actions[i].gameObject.SetActive(true);
-            actions[i].sprite = buyer.Purshases[i].icon;
+            actions[i].sprite = buyer.Purchases[i].icon;
         }
 
-        for (int i = buyer.Purshases.Length; i < maxActions; i++)
+        for (int i = buyer.Purchases.Length; i < maxActions; i++)
         {
             actions[i].gameObject.SetActive(false);
         }
@@ -69,7 +69,7 @@ public class SelectorOverlay : MonoBehaviour, ISeller
             if (hit.collider.CompareTag("Action"))
             {
                 int numberAction = int.Parse(hit.collider.gameObject.name[0].ToString());
-                Select(_buyer.Purshases[numberAction]);
+                Select(_buyer.Purchases[numberAction]);
             }
             else
                 Deselect();

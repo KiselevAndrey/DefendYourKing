@@ -45,13 +45,13 @@ public class MenuOfSelectedObject : MonoBehaviour, ISeller
 
         _buyer = buyer;
 
-        for (int i = 0; i < buyer.Purshases.Length; i++)
+        for (int i = 0; i < buyer.Purchases.Length; i++)
         {
             cells[i].gameObject.SetActive(true);
-            cells[i].SetIcon(buyer.Purshases[i].icon);
+            cells[i].SetIcon(buyer.Purchases[i].icon);
         }
 
-        for (int i = buyer.Purshases.Length; i < cells.Count; i++)
+        for (int i = buyer.Purchases.Length; i < cells.Count; i++)
         {
             cells[i].gameObject.SetActive(false);
         }
@@ -89,7 +89,7 @@ public class MenuOfSelectedObject : MonoBehaviour, ISeller
         {
             if (hit.collider.TryGetComponent(out SelectedCell cell))
             {
-                Select(_buyer.Purshases[cell.numberOfCell]);
+                Select(_buyer.Purchases[cell.numberOfCell]);
             }
             else
                 Deselect();
@@ -106,7 +106,7 @@ public class MenuOfSelectedObject : MonoBehaviour, ISeller
         }
         else
         {
-            Select(_buyer.Purshases[cell.numberOfCell]);
+            Select(_buyer.Purchases[cell.numberOfCell]);
         }
     }
     #endregion

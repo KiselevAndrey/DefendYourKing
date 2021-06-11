@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 public class Buyer : MonoBehaviour, IBuyer
@@ -8,12 +9,8 @@ public class Buyer : MonoBehaviour, IBuyer
 
     [Header("Purchases")]
     [SerializeField] private PurchaseSO[] purchaseSOs;
-    //[SerializeField] private Sprite[] purchasesIcons;
-    //[SerializeField] private int[] purchasesMaximum;
-    //[SerializeField] private Sprite[] purchasesInterpretationBackground;
-    //[SerializeField] private string[] purshasesInterpretations;
 
-    private Purchase[] _purchases;
+    private List<Purchase> _purchases;
     protected int _currentCountPurchases;
 
     private void Start()
@@ -25,11 +22,10 @@ public class Buyer : MonoBehaviour, IBuyer
     {
         maxDifferentPurchases = purchaseSOs.Length;
 
-        _purchases = new Purchase[maxDifferentPurchases];
-        for (int i = 0; i < _purchases.Length; i++)
+        _purchases = new List<Purchase>();
+        for (int i = 0; i < maxDifferentPurchases; i++)
         {
-            //_purchases[i] = new Purchase(purchasesIcons[i], purchasesMaximum[i], purchasesInterpretationBackground[i], i, purshasesInterpretations[i]);
-            _purchases[i] = new Purchase(purchaseSOs[i], i);
+            _purchases.Add(new Purchase(purchaseSOs[i], i));
         }
     }
 
@@ -38,11 +34,12 @@ public class Buyer : MonoBehaviour, IBuyer
 
     public Vector3 Position => transform.position;
 
-    public Purchase[] Purshases => _purchases;
+    public List<Purchase> Purchases => _purchases;
     #endregion
 
-    public bool TryBuy(Purchase purshase, ref string negativeResut)
+    public bool TryBuy(Purchase purshase, out string negativeResut)
     {
+        negativeResut = "";
         print(name);
         print("buy " + purshase.interpretation);
 

@@ -61,9 +61,9 @@ public interface IBuyer
 
     Vector3 Position { get; }
 
-    Purchase[] Purshases { get; }
+    System.Collections.Generic.List<Purchase> Purchases { get; }
 
-    bool TryBuy(Purchase purshase, ref string negativeResult);
+    bool TryBuy(Purchase purshase, out string negativeResult);
 }
 
 public interface ISeller
@@ -101,7 +101,7 @@ public interface IPlayer
 
     int Ruby { get; }
 
-    void AddIncome(int income);
+    void AddRuby(int income);
 
     void TryDeselectUnit(ISelectableUnit deselectedUnit);
 

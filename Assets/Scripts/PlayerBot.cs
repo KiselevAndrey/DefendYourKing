@@ -1,5 +1,7 @@
 using System;
+using System.Collections.Generic;
 using UnityEngine;
+using KAP;
 
 public class PlayerBot : MonoBehaviour, IPlayer
 {
@@ -17,13 +19,15 @@ public class PlayerBot : MonoBehaviour, IPlayer
 
     private ISelectableUnit _selectedUnit;
     private int _ruby;
+    private List<IBuyer> _buyers;
 
     #region Awake Start OnEnable OnDisable
     private void Awake()
     {
-        foreach (IUnit child in transform.GetComponentsInChildren<IUnit>())
+        foreach(Transform child in transform.GetComponentInChildren<Transform>())
         {
-            child.Player = this;
+            if (child.TryGetComponent(out IUnit unit)) unit.Player = this;
+            if (child.TryGetComponent(out IBuyer buyer)) _buyers.Add(buyer);
         }
     }
 
@@ -82,9 +86,19 @@ public class PlayerBot : MonoBehaviour, IPlayer
         }
     }
 
-    public void AddIncome(int income)
+    public void AddRuby(int value)
     {
-        Ruby += (int)(income * rubyModultiplier);
+        Ruby += (int)(value * rubyModultiplier);
+
+        TryBuyRandomPurchase();
+    }
+
+    private void TryBuyRandomPurchase()
+    {
+        IBuyer buyer = _buyers.Random();
+        Purchase purchase = buyer.Purchases.Random();
+
+        buyer.TryBuy(purchase, out string negativeResult);
     }
     #endregion
 

@@ -33,7 +33,7 @@ public class RubyMine : Building, IBuilding, ISelectableUnit
         else
         {
             _currentCountHitToExtract = countMinerHitToExtract;
-            Player.AddIncome(income);
+            Player.AddRuby(income);
         }
     }
 }
