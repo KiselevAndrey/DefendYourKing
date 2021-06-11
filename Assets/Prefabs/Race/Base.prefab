@@ -55,6 +55,7 @@ MonoBehaviour:
   material: {fileID: 2100000, guid: d53cd72568fcb604c9beab516615f63b, type: 2}
   startPathPoint: {fileID: 0}
   selectableMenuObject: {fileID: 0}
+  statsMenu: {fileID: 0}
   myKing: {fileID: 4067258010574308137}
 --- !u!1 &4122655345594936632
 GameObject:
@@ -3608,11 +3609,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 982206086357751665, guid: b8c41bb2e7ef4fd4ea31301f2eb60f52, type: 3}
       propertyPath: m_Name
-      value: Gold/Lumber
+      value: Ruby Mine
       objectReference: {fileID: 0}
     - target: {fileID: 982206086357751665, guid: b8c41bb2e7ef4fd4ea31301f2eb60f52, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 982206086357751666, guid: b8c41bb2e7ef4fd4ea31301f2eb60f52, type: 3}
       propertyPath: m_RootOrder
@@ -4701,7 +4702,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2260266331839777726, guid: d36f18a5182a879439ca0331ba0f508c, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5387500338670490242, guid: d36f18a5182a879439ca0331ba0f508c, type: 3}
       propertyPath: spawnCount.Array.data[0]
