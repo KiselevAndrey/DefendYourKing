@@ -8,7 +8,6 @@ public class Building : Unit, IBuilding, ISelectableUnit
     protected IBuyer _buyer;
 
     private ISeller _seller;
-    private bool _selected;
 
     #region Awake Start
     private void Awake()
@@ -25,8 +24,8 @@ public class Building : Unit, IBuilding, ISelectableUnit
     #region Property
     public new float BodyRadius => bodyRadius;
 
-    public new Player Player 
-    { 
+    public new Player Player
+    {
         get => _player;
         set
         {
@@ -35,26 +34,22 @@ public class Building : Unit, IBuilding, ISelectableUnit
             _seller = value.seller;
         }
     }
-
-    public bool NeedHidePrevios => true;
-
-    public Transform Transform => transform;
     #endregion
 
     #region Select
-    public void Select()
+    public new void Select()
     {
-        _selected = true;
-        _player.SelectUnit(this);
+        base.Select();
+
         _seller.Show(_buyer);
     }
 
-    public void Deselect()
+    public new void Deselect()
     {
+        base.Deselect();
+
         if (_selected)
         {
-            _player.DeselectUnit(this);
-            _selected = false;
             _seller.Hide();
         }
     }

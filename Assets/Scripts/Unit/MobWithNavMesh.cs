@@ -16,8 +16,6 @@ public class MobWithNavMesh : Unit, IMob, ISelectableUnit
     protected Stages _currentStage;
     protected PathPoint _nextPathPoint;
 
-    private bool _selected;
-
     #region Awake Update OnEnable OnDisable
     private void Awake()
     {
@@ -167,10 +165,6 @@ public class MobWithNavMesh : Unit, IMob, ISelectableUnit
 
     #region Properties
     public PathPoint PathPoint { get => _nextPathPoint; set => _nextPathPoint = value; }
-
-    public bool NeedHidePrevios => true;
-
-    public Transform Transform => transform;
     #endregion
 
     #region Health
@@ -195,23 +189,6 @@ public class MobWithNavMesh : Unit, IMob, ISelectableUnit
         {
             transform.forward = direction;
         }
-    }
-    #endregion
-
-    #region Select Deselect
-    public void Deselect()
-    {
-        if (_selected)
-        {
-            _player.DeselectUnit(this);
-            _selected = false;
-        }
-    }
-
-    public void Select()
-    {
-        _player.SelectUnit(this);
-        _selected = true;
     }
     #endregion
 }

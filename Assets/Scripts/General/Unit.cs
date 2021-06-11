@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class Unit : MonoBehaviour, IUnit
+public class Unit : MonoBehaviour, IUnit, ISelectableUnit
 {
     [Header("Unit Parameters")]
     [SerializeField] protected int maxHealth;
@@ -13,6 +13,7 @@ public class Unit : MonoBehaviour, IUnit
     protected float _bodyRadius;
     private int _currentHealth;
     private bool _isLife;
+    protected bool _selected;
 
     #region OnEnable OnDisable
     protected void OnEnable()
@@ -48,6 +49,10 @@ public class Unit : MonoBehaviour, IUnit
     }
 
     public Vector3 Position => transform.position;
+
+    public bool NeedHidePrevios => true;
+
+    public Transform Transform => transform;
     #endregion
 
     #region Health
@@ -64,6 +69,24 @@ public class Unit : MonoBehaviour, IUnit
 
         _isLife = false;
         Lean.Pool.LeanPool.Despawn(gameObject);
+    }
+    #endregion
+
+
+    #region Select
+    public void Select()
+    {
+        _selected = true;
+        _player.SelectUnit(this);
+    }
+
+    public void Deselect()
+    {
+        if (_selected)
+        {
+            _player.DeselectUnit(this);
+            _selected = false;
+        }
     }
     #endregion
 }
