@@ -10,7 +10,6 @@ public class Building : Unit, IBuilding, ISelectableUnit
 
     [Header("Buildings references")]
     [SerializeField] private Transform afterBuilding;
-    [SerializeField] private Animator animator;
 
     protected IBuyer _buyer;
     protected BuildBuyer _buildBuyer;
@@ -90,11 +89,8 @@ public class Building : Unit, IBuilding, ISelectableUnit
     #endregion
 
     #region Health
-    public new void Death()
+    public new void Destroy()
     {
-        if (!_isLife) return;
-        base.Death();
-
         healthBar.gameObject.SetActive(false);
         Sequence dieSequence = DOTween.Sequence();
         dieSequence.Append(afterBuilding.DOMove(_afterBuildingStartPosition, 1f))

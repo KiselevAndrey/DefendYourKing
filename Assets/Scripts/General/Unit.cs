@@ -9,6 +9,7 @@ public class Unit : MonoBehaviour, IUnit, ISelectableUnit
     [Header("Unit References")]
     [SerializeField] protected MeshRenderer changedPlayerMaterial;
     [SerializeField] protected HealthBar healthBar;
+    [SerializeField] protected Animator animator;
 
     protected IPlayer _player;
     protected float _bodyRadius;
@@ -68,6 +69,7 @@ public class Unit : MonoBehaviour, IUnit, ISelectableUnit
             if (_isLife)
                 attackedUnit.Player.AddRuby(RewardForDeath);
 
+            animator.SetTrigger("Death");
             Death();
         }
     }
@@ -79,6 +81,11 @@ public class Unit : MonoBehaviour, IUnit, ISelectableUnit
         _isLife = false;
 
         Deselect();
+    }
+
+    public void Destroy()
+    {
+
     }
     #endregion
 

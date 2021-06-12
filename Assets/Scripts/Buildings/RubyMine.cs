@@ -70,10 +70,9 @@ public class RubyMine : Building, IBuilding, ISelectableUnit
     #endregion
 
     #region Health
-    public new void Death()
+    public new void Destroy()
     {
-        if (!_isLife) return;
-        base.Death();
+        base.Destroy();
         print("ruby die");
         DisableAllMiners();
     }

@@ -9159,10 +9159,6 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 2039616188}
-    - target: {fileID: 3792351003322461978, guid: 21a7f400ab9b80d4d8b92e402937dacd, type: 3}
-      propertyPath: spawnCount.Array.data[0]
-      value: 50
-      objectReference: {fileID: 0}
     - target: {fileID: 3971677512574642412, guid: 21a7f400ab9b80d4d8b92e402937dacd, type: 3}
       propertyPath: m_Mesh
       value: 

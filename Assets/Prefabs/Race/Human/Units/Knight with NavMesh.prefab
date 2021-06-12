@@ -24,7 +24,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 866894837963553190}
   m_LocalRotation: {x: 0.51017016, y: 0.469583, z: 0.5244478, w: 0.49413836}
-  m_LocalPosition: {x: 0.18000005, y: -0.41999993, z: 0}
+  m_LocalPosition: {x: 0.18000005, y: -0.4199999, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 7162105188725183580}
@@ -679,6 +679,21 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  OnDeath:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: -2869804998858392909}
+        m_TargetAssemblyTypeName: MobWithNavMesh, Assembly-CSharp
+        m_MethodName: Destroy
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!95 &5316395113660869607
 Animator:
   serializedVersion: 3
@@ -750,6 +765,7 @@ MonoBehaviour:
   rewardForDeath: {x: 1, y: 5}
   changedPlayerMaterial: {fileID: 974323392182088426}
   healthBar: {fileID: 51382174006181761}
+  animator: {fileID: 5316395113660869607}
   startStage: 0
   navMeshAgent: {fileID: 7423775924308423127}
   animatorsManager: {fileID: 398025463480765996}

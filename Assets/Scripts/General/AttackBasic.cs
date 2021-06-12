@@ -81,7 +81,7 @@ public class AttackBasic : MonoBehaviour, IAttack
         for (int i = 0; i < enemyUnits.Count; i++)
         {
             float targetDistance = Vector3.Distance(unit.Position, enemyUnits[i].Position);
-            if (targetDistance < minDistance)
+            if (targetDistance < minDistance && enemyUnits[i].Health > 0)
             {
                 Target = enemyUnits[i];
                 minDistance = targetDistance;

@@ -27,4 +27,11 @@ public class King : MobWithNavMesh, ISelectableUnit
         base.Select();
     }
     #endregion
+
+    #region Health
+    public new  void Destroy()
+    {
+        print("King is Dead");
+    }
+    #endregion
 }

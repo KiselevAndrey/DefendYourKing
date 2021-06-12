@@ -16,6 +16,8 @@ public interface IUnit
     void TakeDamage(int damage, IUnit attackedUnit);
 
     void Death();
+
+    void Destroy();
 }
 
 public interface IAttack

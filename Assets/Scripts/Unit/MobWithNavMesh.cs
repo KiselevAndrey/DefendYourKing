@@ -7,6 +7,7 @@ public class MobWithNavMesh : Unit, IMob, ISelectableUnit
 
     [Header("Mob Parameters")]
     [SerializeField] protected Stages startStage;
+    [SerializeField] private bool printNow;
 
     [Header("Mob References")]
     [SerializeField] protected NavMeshAgent navMeshAgent;
@@ -25,6 +26,8 @@ public class MobWithNavMesh : Unit, IMob, ISelectableUnit
 
     private void Update()
     {
+        if (!_isLife) return;
+
         UpdateStage();
     }
 
@@ -67,6 +70,7 @@ public class MobWithNavMesh : Unit, IMob, ISelectableUnit
             case Stages.FollowToAttack:
                 if (_attack.CheckTheTarget)
                 {
+                    if (printNow) print("Find Target");
                     if (Vector3.Distance(Position, _attack.Target.Position) > navMeshAgent.stoppingDistance)
                     {
                         SetDestination(_attack.Target.Position);
@@ -78,10 +82,17 @@ public class MobWithNavMesh : Unit, IMob, ISelectableUnit
                 }
                 else
                 {
+                    if (printNow) print("Dont Find Target");
                     if (_attack.FindNearestTarget())
+                    {
+                        if (printNow) print("Find Nearest Target");
                         ChangeStage(Stages.FollowToAttack);
+                    }
                     else
+                    {
+                        if (printNow) print("Walk to the path");
                         ChangeStage(startStage);
+                    }
                 }
                 break;
 
@@ -188,13 +199,10 @@ public class MobWithNavMesh : Unit, IMob, ISelectableUnit
     #endregion
 
     #region Health
-    public new void Death()
+    public new void Destroy()
     {
-        if (_isLife)
-        {
-            base.Death();
-            Lean.Pool.LeanPool.Despawn(gameObject);
-        }
+        if (printNow) print(name + " Destroy");
+        Lean.Pool.LeanPool.Despawn(gameObject);
     }
     #endregion
 }

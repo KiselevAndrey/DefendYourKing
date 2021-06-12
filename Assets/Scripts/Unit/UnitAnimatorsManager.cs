@@ -8,6 +8,12 @@ public class UnitAnimatorsManager : MonoBehaviour
 
     [Header("Event")]
     [SerializeField] private UnityEvent OnMeleeAttack;
+    [SerializeField] private UnityEvent OnDeath;
+
+    private void OnEnable()
+    {
+        animator.SetTrigger("Spawn");
+    }
 
     #region Start Animations
     public void IsStartMoveAnimation(bool isMoving) => animator.SetBool("Walk", isMoving);
@@ -16,6 +22,8 @@ public class UnitAnimatorsManager : MonoBehaviour
     #endregion
 
     #region Actions
-    public void MeleeAttackAction() => OnMeleeAttack.Invoke();
+    private void MeleeAttackAction() => OnMeleeAttack.Invoke();
+
+    private void Death() => OnDeath.Invoke();
     #endregion
 }
