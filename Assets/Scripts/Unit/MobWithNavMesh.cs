@@ -95,7 +95,7 @@ public class MobWithNavMesh : Unit, IMob, ISelectableUnit
                 RotateTowards(_attack.Target.Position);
 
                 if (_attack.TryAttack())
-                    animatorsManager.StartMeleeAttackAnimation();
+                    StartAttackAnimation();
 
                 break;
 
@@ -190,5 +190,9 @@ public class MobWithNavMesh : Unit, IMob, ISelectableUnit
             transform.forward = direction;
         }
     }
+    #endregion
+
+    #region Animator
+    protected void StartAttackAnimation() => animatorsManager.StartMeleeAttackAnimation();
     #endregion
 }

@@ -9162,7 +9162,7 @@ MonoBehaviour:
   rewardForDeath: {x: 100, y: 500}
   changedPlayerMaterial: {fileID: 7865225362320435277}
   healthBar: {fileID: 6810275020443940596}
-  bodyRadius: 0.7
+  bodyRadius: 1
   countMinerHitToExtract: 10
   income: 10
   miners:

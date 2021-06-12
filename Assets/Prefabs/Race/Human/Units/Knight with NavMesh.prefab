@@ -766,10 +766,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   findRadius: 5
-  countOfSkipCallsFindTargetFunction: 30
+  countOfSkipCallsFindTargetFunction: 10
   attackRadius: 0.6
   cooldown: 1.5
-  damage: 5
+  damage: 3
 --- !u!136 &-6513196517763709245
 CapsuleCollider:
   m_ObjectHideFlags: 0

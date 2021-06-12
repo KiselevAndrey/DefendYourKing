@@ -608,9 +608,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   findRadius: 5
-  countOfSkipCallsFindTargetFunction: 30
-  attackRadius: 1.5
-  cooldown: 2
+  countOfSkipCallsFindTargetFunction: 10
+  attackRadius: 2
+  cooldown: 1
   damage: 30
 --- !u!114 &2101289572050559844
 MonoBehaviour:
