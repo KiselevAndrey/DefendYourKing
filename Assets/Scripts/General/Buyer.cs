@@ -70,6 +70,7 @@ public class Buyer : MonoBehaviour, IBuyer
         }
 
         unit.Player.SpendRuby(purchaseCost);
+        _currentCountPurchases++;
         purchase.AddPurchases();
 
         return true;

@@ -9119,6 +9119,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2428850370862508283}
   - component: {fileID: 2428850370862508281}
+  - component: {fileID: 8994646951209101822}
   - component: {fileID: 7151215210538290582}
   m_Layer: 6
   m_Name: Ruby Mine
@@ -9165,6 +9166,7 @@ MonoBehaviour:
   bodyRadius: 1
   countMinerHitToExtract: 10
   income: 10
+  multiplierIncome: 1.5
   miners:
   - {fileID: 8025937608495593964}
   - {fileID: 2758948688807806852}
@@ -9176,6 +9178,24 @@ MonoBehaviour:
   - {fileID: 3827730614982034874}
   - {fileID: 1838633827953362423}
   - {fileID: 8443769575947896202}
+--- !u!114 &8994646951209101822
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2428850370862508280}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 54644206fcf6ddd4a932e0def57fca75, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxAllPurchases: 5
+  purchaseSOs:
+  - {fileID: 11400000, guid: 9fa5f2c96162b944db2ffb15d90ef966, type: 2}
+  - {fileID: 11400000, guid: fa5fe26542b751a46947daa56a1861e6, type: 2}
+  - {fileID: 11400000, guid: 6432a8cc4c468954ab7da66a8b3e1975, type: 2}
+  mine: {fileID: 2428850370862508281}
 --- !u!65 &7151215210538290582
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -9184,7 +9204,7 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2428850370862508280}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 2.5, y: 0.2, z: 2.5}

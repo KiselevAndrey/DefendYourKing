@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a4f46cee87d8c074297a519b48011b75, type: 3}
-  m_Name: Add Swordman
+  m_Name: Add Miner
   m_EditorClassIdentifier: 
-  icon: {fileID: 21300000, guid: d31aa8412a4d374458c912d11686642a, type: 3}
-  interpretation: Add 1 swordman
-  maxNumberOfPurchases: 10
+  icon: {fileID: 21300000, guid: 9a32185a4d4b2d1459c58a811ed95887, type: 3}
+  interpretation: Add 1 miner
+  maxNumberOfPurchases: 9
   basicCost: 50

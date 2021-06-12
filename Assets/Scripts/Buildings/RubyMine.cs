@@ -4,13 +4,15 @@ using UnityEngine;
 public class RubyMine : Building, IBuilding, ISelectableUnit
 {
     [Header("Mine Parameters")]
-    public int countMinerHitToExtract;
-    public int income;
+    [SerializeField] private int countMinerHitToExtract;
+    [SerializeField] private int income;
+    [SerializeField, Min(1)] private float multiplierIncome;
 
     [Header("Mine Referencses")]
     [SerializeField] private List<Miner> miners;
 
     private int _currentCountHitToExtract;
+    private int _activeMiners;
 
     private void Start()
     {
@@ -24,7 +26,7 @@ public class RubyMine : Building, IBuilding, ISelectableUnit
 
     public new void AfterBuilding()
     {
-        miners[0].gameObject.SetActive(true);
+        AddMiner();
     }
 
     public void TryExtract()
@@ -36,4 +38,25 @@ public class RubyMine : Building, IBuilding, ISelectableUnit
             Player.AddRuby(income);
         }
     }
+
+    #region Buyer
+    public void AddMiner()
+    {
+        if (_activeMiners < miners.Count)
+        {
+            miners[_activeMiners].gameObject.SetActive(true);
+            _activeMiners++;
+        }
+    }
+
+    public void AddIncome()
+    {
+        income = (int)(income * multiplierIncome);
+    }
+
+    public void LessHitToIncome()
+    {
+        countMinerHitToExtract--;
+    }
+    #endregion
 }
