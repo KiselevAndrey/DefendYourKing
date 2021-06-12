@@ -88,7 +88,7 @@ public class Building : Unit, IBuilding, ISelectableUnit
     }
     #endregion
 
-    #region Health
+    #region Die from animation
     public new void Destroy()
     {
         healthBar.gameObject.SetActive(false);

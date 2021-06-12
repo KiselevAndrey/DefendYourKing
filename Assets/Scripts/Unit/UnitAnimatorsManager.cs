@@ -9,6 +9,7 @@ public class UnitAnimatorsManager : MonoBehaviour
     [Header("Event")]
     [SerializeField] private UnityEvent OnMeleeAttack;
     [SerializeField] private UnityEvent OnDeath;
+    [SerializeField] private UnityEvent OnDestroy;
 
     private void OnEnable()
     {
@@ -25,5 +26,7 @@ public class UnitAnimatorsManager : MonoBehaviour
     private void MeleeAttackAction() => OnMeleeAttack.Invoke();
 
     private void Death() => OnDeath.Invoke();
+
+    private void Destroy() => OnDestroy.Invoke();
     #endregion
 }

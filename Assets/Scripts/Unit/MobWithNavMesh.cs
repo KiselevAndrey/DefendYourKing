@@ -38,6 +38,7 @@ public class MobWithNavMesh : Unit, IMob, ISelectableUnit
         startStage = Stages.FollowThePath;
         ChangeStage(startStage);
 
+        navMeshAgent.enabled = true;
         navMeshAgent.avoidancePriority = Random.Range(50, 100);
     }
 
@@ -198,7 +199,15 @@ public class MobWithNavMesh : Unit, IMob, ISelectableUnit
     protected void StartAttackAnimation() => animatorsManager.StartMeleeAttackAnimation();
     #endregion
 
-    #region Health
+    #region Die
+    public new void Death()
+    {
+        if (!_isLife) return;
+        base.Death();
+
+        navMeshAgent.enabled = false;
+    }
+
     public new void Destroy()
     {
         if (printNow) print(name + " Destroy");

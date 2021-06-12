@@ -69,7 +69,7 @@ public class RubyMine : Building, IBuilding, ISelectableUnit
     }
     #endregion
 
-    #region Health
+    #region Die from animation
     public new void Destroy()
     {
         base.Destroy();

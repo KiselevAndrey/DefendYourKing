@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 public class Unit : MonoBehaviour, IUnit, ISelectableUnit
@@ -13,9 +14,10 @@ public class Unit : MonoBehaviour, IUnit, ISelectableUnit
 
     protected IPlayer _player;
     protected float _bodyRadius;
-    private int _currentHealth;
     protected bool _isLife;
     protected bool _selected;
+
+    private int _currentHealth;
 
     #region OnEnable OnDisable
     protected void OnEnable()
@@ -64,13 +66,12 @@ public class Unit : MonoBehaviour, IUnit, ISelectableUnit
     {
         Health -= damage;
 
-        if (Health < 0)
+        if (Health <= 0)
         {
             if (_isLife)
                 attackedUnit.Player.AddRuby(RewardForDeath);
 
             animator.SetTrigger("Death");
-            Death();
         }
     }
 

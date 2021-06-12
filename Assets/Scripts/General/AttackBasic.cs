@@ -117,7 +117,6 @@ public class AttackBasic : MonoBehaviour, IAttack
     {
         if (Target != null && Target.Health <= 0)
         {
-            Target.Death();
             Target = null;
         }
     }

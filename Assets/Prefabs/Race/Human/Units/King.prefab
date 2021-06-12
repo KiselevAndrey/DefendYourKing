@@ -592,7 +592,9 @@ MonoBehaviour:
   changedPlayerMaterial: {fileID: 3925119549765946846}
   healthBar: {fileID: 4289596094201022340}
   animator: {fileID: 7288767643438027000}
+  rememberedToOnEnableList: []
   startStage: 3
+  printNow: 0
   navMeshAgent: {fileID: 1203990012499275796}
   animatorsManager: {fileID: 1484599749461158438}
   buyer: {fileID: 2101289572050559844}
@@ -2300,6 +2302,21 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 2003431344379207798}
         m_TargetAssemblyTypeName: MobWithNavMesh, Assembly-CSharp
+        m_MethodName: Death
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  OnDestroy:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2003431344379207798}
+        m_TargetAssemblyTypeName: King, Assembly-CSharp
         m_MethodName: Destroy
         m_Mode: 1
         m_Arguments:
