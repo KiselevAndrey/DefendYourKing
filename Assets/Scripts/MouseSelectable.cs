@@ -6,6 +6,12 @@ public class MouseSelectable : MonoBehaviour
 
     private void Update()
     {
+        TrySelect();
+    }
+
+    #region Select
+    private void TrySelect()
+    {
         if (Input.GetMouseButtonUp(0))
         {
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
@@ -26,6 +32,7 @@ public class MouseSelectable : MonoBehaviour
             else TryDeselect();
         }
     }
+    #endregion
 
     #region Deselect
     private void TryDeselect()

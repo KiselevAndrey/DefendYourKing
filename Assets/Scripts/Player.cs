@@ -3,23 +3,23 @@ using UnityEngine;
 
 public class Player : MonoBehaviour, IPlayer
 {
-    [Header("Parameters")]
-    [SerializeField] private Material material;
-    [SerializeField, Min(0)] private int startedRubyCount;
+    [Header("Player Parameters")]
+    [SerializeField] protected Material material;
+    [SerializeField, Min(0)] protected int startedRubyCount;
 
     [Header("References")]
-    [SerializeField] private PathPoint startPathPoint;
+    [SerializeField] protected PathPoint startPathPoint;
     [SerializeField] private GameObject selectableMenuObject;
     [SerializeField] private StatsMenu statsMenu;
     [SerializeField] private King myKing;
     [SerializeField] private UnityEngine.UI.Text rubyText;
 
-    public ISeller seller;
+    private ISeller seller;
 
     public static Action<ISelectableUnit> OnCheckDeselectUnit;
 
-    private ISelectableUnit _selectedUnit;
-    private int _ruby;
+    protected ISelectableUnit _selectedUnit;
+    protected int _ruby;
 
     #region Awake Start OnEnable OnDisable
     private void Awake()
@@ -41,12 +41,12 @@ public class Player : MonoBehaviour, IPlayer
         Ruby = startedRubyCount;
     }
 
-    private void OnEnable()
+    protected void OnEnable()
     {
         OnCheckDeselectUnit += TryDeselectUnit;
     }
 
-    private void OnDisable()
+    protected void OnDisable()
     {
         OnCheckDeselectUnit -= TryDeselectUnit;
     }
@@ -98,9 +98,14 @@ public class Player : MonoBehaviour, IPlayer
         }
     }
 
-    public void AddRuby(int income)
+    public void AddRuby(int value)
     {
-        Ruby += income;
+        Ruby += value;
+    }
+
+    public void SpendRuby (int value)
+    {
+        Ruby -= value;
     }
     #endregion
 

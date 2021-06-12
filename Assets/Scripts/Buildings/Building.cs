@@ -40,15 +40,16 @@ public class Building : Unit, IBuilding, ISelectableUnit
     public new void Select()
     {
         base.Select();
-
-        _seller.Show(_buyer);
+        
+        if (_seller != null)
+            _seller.Show(_buyer);
     }
 
     public new void Deselect()
     {
         base.Deselect();
 
-        if (_selected)
+        if (_selected && _seller != null)
         {
             _seller.Hide();
         }

@@ -72,7 +72,6 @@ public class Unit : MonoBehaviour, IUnit, ISelectableUnit
     }
     #endregion
 
-
     #region Select
     public void Select()
     {

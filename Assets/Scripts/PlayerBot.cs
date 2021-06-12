@@ -1,27 +1,15 @@
-using System;
 using System.Collections.Generic;
 using UnityEngine;
 using KAP;
 
-public class PlayerBot : MonoBehaviour, IPlayer
+public class PlayerBot : Player, IPlayer
 {
-    [Header("Parameters")]
-    [SerializeField] private Material material;
-    [SerializeField, Min(0)] private int startedRubyCount;
+    [Header("Bot Parameters")]
     [SerializeField, Min(0)] private float rubyModultiplier;
 
-    [Header("References")]
-    [SerializeField] private PathPoint startPathPoint;
+    private readonly List<IBuyer> _buyers = new List<IBuyer>();
 
-    public ISeller seller;
-
-    public static Action<ISelectableUnit> OnCheckDeselectUnit;
-
-    private ISelectableUnit _selectedUnit;
-    private int _ruby;
-    private List<IBuyer> _buyers = new List<IBuyer>();
-
-    #region Awake Start OnEnable OnDisable
+    #region Awake Start
     private void Awake()
     {
         foreach(Transform child in transform.GetComponentInChildren<Transform>())
@@ -35,31 +23,17 @@ public class PlayerBot : MonoBehaviour, IPlayer
     {
         Ruby = startedRubyCount;
     }
-
-    private void OnEnable()
-    {
-        OnCheckDeselectUnit += TryDeselectUnit;
-    }
-
-    private void OnDisable()
-    {
-        OnCheckDeselectUnit -= TryDeselectUnit;
-    }
-    #endregion
-
-    #region Get
-    public PathPoint GetStartPathPoint() => startPathPoint;
     #endregion
 
     #region Select Units
-    public void SelectUnit(ISelectableUnit selectableUnit)
+    public new void SelectUnit(ISelectableUnit selectableUnit)
     {
         if (_selectedUnit == selectableUnit) return;
 
         _selectedUnit = selectableUnit;
     }
 
-    public void DeselectUnit(ISelectableUnit deselectedUnit)
+    public new void DeselectUnit(ISelectableUnit deselectedUnit)
     {
         if (deselectedUnit != _selectedUnit)
         {
@@ -69,15 +43,10 @@ public class PlayerBot : MonoBehaviour, IPlayer
 
         _selectedUnit = null;
     }
-
-    public void TryDeselectUnit(ISelectableUnit deselectedUnit)
-    {
-        if (deselectedUnit == _selectedUnit) DeselectUnit(deselectedUnit);
-    }
     #endregion
 
     #region Ruby
-    public int Ruby
+    public new int Ruby
     {
         get => _ruby;
         private set
@@ -86,7 +55,7 @@ public class PlayerBot : MonoBehaviour, IPlayer
         }
     }
 
-    public void AddRuby(int value)
+    public new void AddRuby(int value)
     {
         Ruby += (int)(value * rubyModultiplier);
 
@@ -100,11 +69,5 @@ public class PlayerBot : MonoBehaviour, IPlayer
 
         buyer.TryBuy(purchase, out string negativeResult);
     }
-    #endregion
-
-    #region Property
-    public Material Material => material;
-
-    public ISeller Seller => seller;
     #endregion
 }
