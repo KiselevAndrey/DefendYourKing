@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 3779377058910997799}
   - component: {fileID: 3779377058910997797}
   - component: {fileID: 3779377058910997798}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Border
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -86,7 +86,7 @@ GameObject:
   - component: {fileID: 1041064084086645245}
   - component: {fileID: 1426055836114551913}
   - component: {fileID: 2481338219520242967}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: SelectCell
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -167,7 +167,7 @@ GameObject:
   - component: {fileID: 2505100716941082860}
   - component: {fileID: 4954210714989330878}
   - component: {fileID: 5977994015354629345}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Background
   m_TagString: Untagged
   m_Icon: {fileID: 0}

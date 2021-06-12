@@ -12,7 +12,7 @@ public class MeleeAttack : MonoBehaviour, IAttack
     [SerializeField] private int damage;
 
     [Header("References")]
-    [SerializeField] private IMob mob;
+    [SerializeField] private IUnit unit;
 
     private IUnit _target;
     private int _countOfCallsFindTargetFunction;
@@ -21,7 +21,7 @@ public class MeleeAttack : MonoBehaviour, IAttack
     #region Awake OnEnable
     private void Awake()
     {
-        mob = GetComponent<IMob>();
+        unit = GetComponent<IUnit>();
     }
 
     private void OnEnable()
@@ -40,7 +40,7 @@ public class MeleeAttack : MonoBehaviour, IAttack
 
     public bool CanAttack => _canAttack && CheckDistanceToTarget;
 
-    public bool CheckDistanceToTarget => CheckTheTarget && Vector3.Distance(mob.Position, Target.Position) < Mathf.Max((mob.BodyRadius + Target.BodyRadius) * 1.1f, Range);
+    public bool CheckDistanceToTarget => CheckTheTarget && Vector3.Distance(unit.Position, Target.Position) < Mathf.Max((unit.BodyRadius + Target.BodyRadius) * 1.1f, Range);
 
     public bool CheckTheTarget => Target != null && Target.Health > 0;
     #endregion
@@ -72,9 +72,9 @@ public class MeleeAttack : MonoBehaviour, IAttack
         // if collider have IUnit, add to list
         for (int i = 0; i < findColliders.Length; i++)
         {
-            if (findColliders[i].TryGetComponent(out IUnit unit) && unit.Player != mob.Player)
+            if (findColliders[i].TryGetComponent(out IUnit unitEnemy) && unit.Player != unitEnemy.Player)
             {
-                enemyUnits.Add(unit);
+                enemyUnits.Add(unitEnemy);
             }
         }
 
@@ -82,7 +82,7 @@ public class MeleeAttack : MonoBehaviour, IAttack
         float minDistance = findRadius;
         for (int i = 0; i < enemyUnits.Count; i++)
         {
-            float targetDistance = Vector3.Distance(mob.Position, enemyUnits[i].Position);
+            float targetDistance = Vector3.Distance(unit.Position, enemyUnits[i].Position);
             if (targetDistance < minDistance)
             {
                 Target = enemyUnits[i];
@@ -110,7 +110,7 @@ public class MeleeAttack : MonoBehaviour, IAttack
 
     public void Attack()
     {
-        Target?.TakeDamage((int)Random.Range(Damage * .7f, Damage * 1.3f));
+        Target?.TakeDamage((int)Random.Range(Damage * .7f, Damage * 1.3f), unit);
 
         CheckTarget();
     }

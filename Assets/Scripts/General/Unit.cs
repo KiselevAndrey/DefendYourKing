@@ -4,6 +4,7 @@ public class Unit : MonoBehaviour, IUnit, ISelectableUnit
 {
     [Header("Unit Parameters")]
     [SerializeField] protected int maxHealth;
+    [SerializeField, Tooltip("X - min, Y - max")] private Vector2Int rewardForDeath;
 
     [Header("Unit References")]
     [SerializeField] protected MeshRenderer changedPlayerMaterial;
@@ -53,14 +54,22 @@ public class Unit : MonoBehaviour, IUnit, ISelectableUnit
     public bool NeedHidePrevios => true;
 
     public Transform Transform => transform;
+
+    public int RewardForDeath => Random.Range(rewardForDeath.x, rewardForDeath.y + 1);
     #endregion
 
     #region Health
-    public void TakeDamage(int damage)
+    public void TakeDamage(int damage, IUnit attackedUnit)
     {
         Health -= damage;
 
-        if (Health < 0) Death();
+        if (Health < 0)
+        {
+            if (_isLife)
+                attackedUnit.Player.AddRuby(RewardForDeath);
+
+            Death();
+        }
     }
 
     public void Death()

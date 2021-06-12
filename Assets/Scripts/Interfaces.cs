@@ -10,8 +10,10 @@ public interface IUnit
     IPlayer Player { get; set; }
 
     Vector3 Position { get; }
+    
+    int RewardForDeath { get; }
 
-    void TakeDamage(int damage);
+    void TakeDamage(int damage, IUnit attackedUnit);
 
     void Death();
 }

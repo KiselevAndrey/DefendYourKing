@@ -56880,6 +56880,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 100
+  rewardForDeath: {x: 100, y: 500}
   changedPlayerMaterial: {fileID: 2260266331994304643}
   healthBar: {fileID: 1906513561734003016}
   bodyRadius: 1.5

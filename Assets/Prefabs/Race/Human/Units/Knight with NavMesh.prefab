@@ -747,11 +747,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 10
+  rewardForDeath: {x: 1, y: 5}
+  changedPlayerMaterial: {fileID: 974323392182088426}
+  healthBar: {fileID: 51382174006181761}
   startStage: 0
   navMeshAgent: {fileID: 7423775924308423127}
-  changedPlayerMaterial: {fileID: 974323392182088426}
   animatorsManager: {fileID: 398025463480765996}
-  healthBar: {fileID: 51382174006181761}
 --- !u!114 &8925257278360867273
 MonoBehaviour:
   m_ObjectHideFlags: 0

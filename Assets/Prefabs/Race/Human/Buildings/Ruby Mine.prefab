@@ -9159,6 +9159,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 100
+  rewardForDeath: {x: 100, y: 500}
   changedPlayerMaterial: {fileID: 7865225362320435277}
   healthBar: {fileID: 6810275020443940596}
   bodyRadius: 0.7
@@ -9186,8 +9187,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 2.5, y: 0.5, z: 2.5}
-  m_Center: {x: 0, y: 0.25, z: 0}
+  m_Size: {x: 2.5, y: 0.2, z: 2.5}
+  m_Center: {x: 0, y: 0.1, z: 0}
 --- !u!1 &2483890851556414580
 GameObject:
   m_ObjectHideFlags: 0
