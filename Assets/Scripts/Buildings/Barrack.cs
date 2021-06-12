@@ -21,6 +21,8 @@ public class Barrack : Building, IBuilding, ISelectableUnit
 
     public new void AfterBuilding()
     {
+        base.AfterBuilding();
+
         Spawn();
     }
 

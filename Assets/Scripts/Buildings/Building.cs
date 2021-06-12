@@ -21,6 +21,9 @@ public class Building : Unit, IBuilding, ISelectableUnit
     protected void Start()
     {
         if (isBuild) Build();
+        
+        _buyer.IsActive = isBuild;
+        _buildBuyer.IsActive = !isBuild;
     }
     #endregion
 
@@ -66,6 +69,9 @@ public class Building : Unit, IBuilding, ISelectableUnit
 
     public void AfterBuilding()
     {
+        isBuild = true;
+        _buyer.IsActive = isBuild;
+        _buildBuyer.IsActive = !isBuild;
     }
     #endregion
 }

@@ -63,6 +63,8 @@ public interface IBuyer
 
     System.Collections.Generic.List<Purchase> Purchases { get; }
 
+    bool  IsActive { get; set; }
+
     bool TryBuy(Purchase purshase, out string negativeResult);
 }
 

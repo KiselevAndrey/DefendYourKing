@@ -26,6 +26,8 @@ public class RubyMine : Building, IBuilding, ISelectableUnit
 
     public new void AfterBuilding()
     {
+        base.AfterBuilding();
+
         AddMiner();
     }
 

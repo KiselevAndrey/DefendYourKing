@@ -43,17 +43,18 @@ public class Buyer : MonoBehaviour, IBuyer
     public Vector3 Position => transform.position;
 
     public List<Purchase> Purchases => _purchases;
+
+    public bool IsActive { get; set; }
     #endregion
 
     #region TryBuy
     public bool TryBuy(Purchase purchase, out string negativeResut)
     {
         negativeResut = "";
-        int purchaseCost = purchase.CalculateCost();
 
-        if (purchaseCost > unit.Player.Ruby)
+        if (!IsActive)
         {
-            negativeResut = "Need more rubies";
+            negativeResut = "Buyer is not active";
             return false;
         }
 
@@ -68,6 +69,14 @@ public class Buyer : MonoBehaviour, IBuyer
             negativeResut = "You can't buy it anymore";
             return false;
         }
+
+        int purchaseCost = purchase.CalculateCost();
+        if (purchaseCost > unit.Player.Ruby)
+        {
+            negativeResut = "Need more rubies";
+            return false;
+        }
+
 
         unit.Player.SpendRuby(purchaseCost);
         _currentCountPurchases++;
