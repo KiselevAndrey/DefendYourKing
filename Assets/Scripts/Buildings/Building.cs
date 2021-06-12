@@ -1,15 +1,22 @@
 using UnityEngine;
+using DG.Tweening;
 
 public class Building : Unit, IBuilding, ISelectableUnit
 {
-    [Header("Building parameters")]
+    [Header("Buildings parameters")]
     [SerializeField] private float bodyRadius;
-    [SerializeField] private bool isBuild;
+    [SerializeField] protected bool isBuild;
+    [SerializeField] protected float buildTime;
+
+    [Header("Buildings references")]
+    [SerializeField] private Transform afterBuilding;
+    [SerializeField] private Animator animator;
 
     protected IBuyer _buyer;
     protected BuildBuyer _buildBuyer;
 
     private ISeller _seller;
+    private Vector3 _afterBuildingStartPosition;
 
     #region Awake Start
     private void Awake()
@@ -20,10 +27,14 @@ public class Building : Unit, IBuilding, ISelectableUnit
 
     protected void Start()
     {
+        _afterBuildingStartPosition = afterBuilding.position;
+
         if (isBuild) Build();
-        
-        _buyer.IsActive = isBuild;
-        _buildBuyer.IsActive = !isBuild;
+        else
+        {
+            _buyer.IsActive = isBuild;
+            _buildBuyer.IsActive = !isBuild;
+        }
     }
     #endregion
 
@@ -65,13 +76,30 @@ public class Building : Unit, IBuilding, ISelectableUnit
     #region Build
     public void Build()
     {
+        healthBar.gameObject.SetActive(true);
+        afterBuilding.DOLocalMove(Vector3.zero, buildTime).OnComplete(() => animator.SetTrigger("Build"));        
     }
 
     public void AfterBuilding()
     {
-        isBuild = true;
+        isBuild = _isLife = true;
+
         _buyer.IsActive = isBuild;
         _buildBuyer.IsActive = !isBuild;
+    }
+    #endregion
+
+    #region Health
+    public new void Death()
+    {
+        if (!_isLife) return;
+        base.Death();
+
+        healthBar.gameObject.SetActive(false);
+        Sequence dieSequence = DOTween.Sequence();
+        dieSequence.Append(afterBuilding.DOMove(_afterBuildingStartPosition, 1f))
+            .Join(afterBuilding.DOShakeRotation(1f, strength : 10))
+            .OnComplete(() => animator.SetTrigger("Destroy"));
     }
     #endregion
 }

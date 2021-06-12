@@ -16,12 +16,13 @@ public class PlayerBot : Player, IPlayer
         {
             if (child.TryGetComponent(out IUnit unit)) unit.Player = this;
             if (child.TryGetComponent(out IBuyer buyer)) _buyers.Add(buyer);
+            if (child.TryGetComponent(out BuildBuyer buildBuyer)) _buyers.Add(buildBuyer);
         }
     }
 
     private void Start()
     {
-        Ruby = startedRubyCount;
+        Ruby = startedRubyCount;    
     }
     #endregion
 

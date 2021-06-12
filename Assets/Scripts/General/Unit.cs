@@ -8,12 +8,12 @@ public class Unit : MonoBehaviour, IUnit, ISelectableUnit
 
     [Header("Unit References")]
     [SerializeField] protected MeshRenderer changedPlayerMaterial;
-    [SerializeField] private HealthBar healthBar;
+    [SerializeField] protected HealthBar healthBar;
 
     protected IPlayer _player;
     protected float _bodyRadius;
     private int _currentHealth;
-    private bool _isLife;
+    protected bool _isLife;
     protected bool _selected;
 
     #region OnEnable OnDisable
@@ -79,7 +79,6 @@ public class Unit : MonoBehaviour, IUnit, ISelectableUnit
         _isLife = false;
 
         Deselect();
-        Lean.Pool.LeanPool.Despawn(gameObject);
     }
     #endregion
 

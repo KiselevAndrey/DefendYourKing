@@ -30,7 +30,6 @@ public class Buyer : MonoBehaviour, IBuyer
     {
         _maxDifferentPurchases = purchaseSOs.Length;
 
-        _purchases.Clear();
         for (int i = 0; i < _maxDifferentPurchases; i++)
         {
             _purchases.Add(new Purchase(purchaseSOs[i], i));

@@ -3989,6 +3989,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Ruby Mine
       objectReference: {fileID: 0}
+    - target: {fileID: 2428850370862508280, guid: b8c41bb2e7ef4fd4ea31301f2eb60f52, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2428850370862508283, guid: b8c41bb2e7ef4fd4ea31301f2eb60f52, type: 3}
       propertyPath: m_RootOrder
       value: 6
@@ -4119,11 +4123,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6810275020376520064, guid: b8c41bb2e7ef4fd4ea31301f2eb60f52, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6810275020376520064, guid: b8c41bb2e7ef4fd4ea31301f2eb60f52, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6890495904316665412, guid: b8c41bb2e7ef4fd4ea31301f2eb60f52, type: 3}
       propertyPath: m_Mesh
@@ -4561,10 +4565,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 9107716774890970038}
     m_Modifications:
-    - target: {fileID: -3858398876323272466, guid: d36f18a5182a879439ca0331ba0f508c, type: 3}
-      propertyPath: maxAllPurchases
-      value: 5
-      objectReference: {fileID: 0}
     - target: {fileID: 1906513561800833596, guid: d36f18a5182a879439ca0331ba0f508c, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -4635,6 +4635,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5387500338670490242, guid: d36f18a5182a879439ca0331ba0f508c, type: 3}
       propertyPath: isBuild
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5387500338670490242, guid: d36f18a5182a879439ca0331ba0f508c, type: 3}
+      propertyPath: buildTime
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5387500338670490242, guid: d36f18a5182a879439ca0331ba0f508c, type: 3}

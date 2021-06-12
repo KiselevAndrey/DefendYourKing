@@ -1,6 +1,7 @@
 using UnityEngine;
 using System.Collections.Generic;
 using System.Collections;
+using DG.Tweening;
 
 public class Barrack : Building, IBuilding, ISelectableUnit
 {
@@ -8,6 +9,8 @@ public class Barrack : Building, IBuilding, ISelectableUnit
     [SerializeField] private float spawnCooldownTime;
     [SerializeField] private List<GameObject> spawnPrefabs;
     [SerializeField] private List<int> spawnCount;
+
+    private int _buildsCount;
 
     #region Start
     private new void Start()
@@ -19,33 +22,28 @@ public class Barrack : Building, IBuilding, ISelectableUnit
     }
     #endregion
 
-    public new void AfterBuilding()
-    {
-        base.AfterBuilding();
-
-        Spawn();
-    }
-
     #region Spawn
     private void Spawn()
     {
-        StartCoroutine(Spawnind());
+        StartCoroutine(Spawnind(_buildsCount));
     }
 
-    private IEnumerator Spawnind()
+    private IEnumerator Spawnind(int buildsCount)
     {
         yield return new WaitForSeconds(spawnCooldownTime);
-
-        StartCoroutine(Spawnind());
-
-        for (int i = 0; i < spawnPrefabs.Count; i++)
+        if (_isLife && _buildsCount == buildsCount)
         {
-            for (int j = 0; j < spawnCount[i]; j++)
+            StartCoroutine(Spawnind(buildsCount));
+
+            for (int i = 0; i < spawnPrefabs.Count; i++)
             {
-                Lean.Pool.LeanPool.Spawn(spawnPrefabs[i], transform.position, transform.rotation).TryGetComponent(out IMob mob);
-                mob.Player = Player;
-                mob.PathPoint = Player.GetStartPathPoint();
-                yield return new WaitForSeconds(0.1f);
+                for (int j = 0; j < spawnCount[i]; j++)
+                {
+                    Lean.Pool.LeanPool.Spawn(spawnPrefabs[i], transform.position, transform.rotation).TryGetComponent(out IMob mob);
+                    mob.Player = Player;
+                    mob.PathPoint = Player.GetStartPathPoint();
+                    yield return new WaitForSeconds(0.1f);
+                }
             }
         }
     }
@@ -67,6 +65,16 @@ public class Barrack : Building, IBuilding, ISelectableUnit
             spawnCount[unitIndex] += unitCount;
             AddSpawnCooldownTime(unitCount);
         }
+    }
+    #endregion
+
+    #region Build
+    public new void AfterBuilding()
+    {
+        base.AfterBuilding();
+
+        _buildsCount++;
+        Spawn();
     }
     #endregion
 }

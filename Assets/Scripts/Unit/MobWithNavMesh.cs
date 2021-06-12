@@ -186,4 +186,15 @@ public class MobWithNavMesh : Unit, IMob, ISelectableUnit
     #region Animator
     protected void StartAttackAnimation() => animatorsManager.StartMeleeAttackAnimation();
     #endregion
+
+    #region Health
+    public new void Death()
+    {
+        if (_isLife)
+        {
+            base.Death();
+            Lean.Pool.LeanPool.Despawn(gameObject);
+        }
+    }
+    #endregion
 }

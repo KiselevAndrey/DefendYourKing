@@ -9164,6 +9164,9 @@ MonoBehaviour:
   changedPlayerMaterial: {fileID: 7865225362320435277}
   healthBar: {fileID: 6810275020443940596}
   bodyRadius: 1
+  isBuild: 0
+  buildTime: 0
+  afterBuild: {fileID: 0}
   countMinerHitToExtract: 10
   income: 10
   multiplierIncome: 1.5
@@ -9190,7 +9193,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 54644206fcf6ddd4a932e0def57fca75, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxAllPurchases: 5
+  maxAllPurchases: 30
   purchaseSOs:
   - {fileID: 11400000, guid: 9fa5f2c96162b944db2ffb15d90ef966, type: 2}
   - {fileID: 11400000, guid: fa5fe26542b751a46947daa56a1861e6, type: 2}
