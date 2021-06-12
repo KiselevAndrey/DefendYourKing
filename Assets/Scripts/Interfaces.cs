@@ -101,7 +101,9 @@ public interface IPlayer
 
     int Ruby { get; }
 
-    void AddRuby(int income);
+    void AddRuby(int value);
+
+    void SpendRuby(int value);
 
     void TryDeselectUnit(ISelectableUnit deselectedUnit);
 

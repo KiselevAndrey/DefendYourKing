@@ -1,5 +1,3 @@
-//using UnityEngine;
-
 public class Purchase
 {
     public readonly UnityEngine.Sprite icon;
@@ -44,4 +42,6 @@ public class Purchase
     {
         return basicCost * (_currentNumberOfPurchases + 1);
     }
+
+    public bool CanBuyMore => _currentNumberOfPurchases < maxNumberOfPurchases;
 }

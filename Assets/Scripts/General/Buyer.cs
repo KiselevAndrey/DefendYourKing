@@ -11,12 +11,20 @@ public class Buyer : MonoBehaviour, IBuyer
     [SerializeField] private PurchaseSO[] purchaseSOs;
 
     private List<Purchase> _purchases;
+    private IUnit unit;
     protected int _currentCountPurchases;
+
+    #region Awake Start
+    private void Awake()
+    {
+        unit = GetComponent<IUnit>();
+    }
 
     private void Start()
     {
         CreatePurchases();
     }
+    #endregion
 
     private void CreatePurchases()
     {
@@ -37,12 +45,36 @@ public class Buyer : MonoBehaviour, IBuyer
     public List<Purchase> Purchases => _purchases;
     #endregion
 
-    public bool TryBuy(Purchase purshase, out string negativeResut)
+    #region TryBuy
+    public bool TryBuy(Purchase purchase, out string negativeResut)
     {
+        print(name + " try buy " + purchase.interpretation);
+
         negativeResut = "";
-        print(name);
-        print("buy " + purshase.interpretation);
+        int purchaseCost = purchase.CalculateCost();
+
+        if (purchaseCost > unit.Player.Ruby)
+        {
+            negativeResut = "Need more rubies";
+            return false;
+        }
+
+        if (_currentCountPurchases >= maxAllPurchases)
+        {
+            negativeResut = "No more buying here";
+            return false;
+        }
+
+        if (!purchase.CanBuyMore)
+        {
+            negativeResut = "You can't buy it anymore";
+            return false;
+        }
+
+        unit.Player.SpendRuby(purchaseCost);
+        purchase.AddPurchases();
 
         return true;
     }
+    #endregion
 }
