@@ -5,9 +5,9 @@ public class Purchase
     public readonly string interpretation;
     public readonly int maxNumberOfPurchases;
     public readonly int numberInArray;
-    public readonly int basicCost;
 
     private int _currentNumberOfPurchases;
+    private int _basicCost;
 
     #region Constructor
     public Purchase(UnityEngine.Sprite icon, int maxNumberOfPurchases, UnityEngine.Sprite interpretationBackground, int numberInArray, string interpretation)
@@ -25,7 +25,7 @@ public class Purchase
         icon = purchase.icon;
         interpretation = purchase.interpretation;
         maxNumberOfPurchases = purchase.maxNumberOfPurchases;
-        basicCost = purchase.basicCost;
+        _basicCost = purchase.basicCost;
 
         this.numberInArray = numberInArray;
 
@@ -40,8 +40,10 @@ public class Purchase
 
     public int CalculateCost()
     {
-        return basicCost * (_currentNumberOfPurchases + 1);
+        return _basicCost * (_currentNumberOfPurchases + 1);
     }
 
     public bool CanBuyMore => _currentNumberOfPurchases < maxNumberOfPurchases;
+
+    public void ChangeBasicCost(int value) => _basicCost = value;
 }

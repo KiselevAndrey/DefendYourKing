@@ -167,15 +167,6 @@ public class MobWithNavMesh : Unit, IMob, ISelectableUnit
     public PathPoint PathPoint { get => _nextPathPoint; set => _nextPathPoint = value; }
     #endregion
 
-    #region Health
-    public new void Death()
-    {
-        base.Death();
-
-        Deselect();
-    }
-    #endregion
-
     #region Move
     private void SetDestination(Vector3 target)
     {

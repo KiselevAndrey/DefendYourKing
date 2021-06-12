@@ -10,12 +10,12 @@ public class Barrack : Building, IBuilding, ISelectableUnit
     [SerializeField] private List<int> spawnCount;
 
     #region Start
-    private void Start()
+    private new void Start()
     {
         while (spawnCount.Count < spawnPrefabs.Count)
             spawnCount.Add(0);
 
-        AfterBuilding();
+        base.Start();
     }
     #endregion
 

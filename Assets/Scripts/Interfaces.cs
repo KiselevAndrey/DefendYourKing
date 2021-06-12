@@ -43,8 +43,6 @@ public interface IAttack
 
 public interface IBuilding : IUnit
 {
-    void Upgrade();
-
     void Build();
 
     void AfterBuilding();

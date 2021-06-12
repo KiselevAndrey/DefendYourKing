@@ -77,6 +77,8 @@ public class Unit : MonoBehaviour, IUnit, ISelectableUnit
         if (!_isLife) return;
 
         _isLife = false;
+
+        Deselect();
         Lean.Pool.LeanPool.Despawn(gameObject);
     }
     #endregion

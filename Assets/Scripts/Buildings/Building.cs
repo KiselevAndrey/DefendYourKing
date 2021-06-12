@@ -4,8 +4,10 @@ public class Building : Unit, IBuilding, ISelectableUnit
 {
     [Header("Building parameters")]
     [SerializeField] private float bodyRadius;
+    [SerializeField] private bool isBuild;
 
     protected IBuyer _buyer;
+    protected BuildBuyer _buildBuyer;
 
     private ISeller _seller;
 
@@ -13,11 +15,12 @@ public class Building : Unit, IBuilding, ISelectableUnit
     private void Awake()
     {
         _buyer = GetComponent<IBuyer>();
+        _buildBuyer = GetComponent<BuildBuyer>();
     }
 
-    private void Start()
+    protected void Start()
     {
-        //_seller = SelectorOverlay.Instance;
+        if (isBuild) Build();
     }
     #endregion
 
@@ -40,37 +43,24 @@ public class Building : Unit, IBuilding, ISelectableUnit
     public new void Select()
     {
         base.Select();
-        
-        if (_seller != null)
+
+        if (isBuild && _seller != null)
             _seller.Show(_buyer);
+        else if (!isBuild)
+            _seller.Show(_buildBuyer);
     }
 
     public new void Deselect()
     {
         if (_selected && _seller != null)
-        {
             _seller.Hide();
-        }
 
         base.Deselect();
     }
     #endregion
 
-    #region Health
-    public new void Death()
-    {
-        base.Death();
-
-        Deselect();
-    }
-    #endregion
-
-    #region Need Complete
+    #region Build
     public void Build()
-    {
-    }
-
-    public void Upgrade()
     {
     }
 

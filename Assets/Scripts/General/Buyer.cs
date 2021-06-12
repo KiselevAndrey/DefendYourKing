@@ -15,12 +15,12 @@ public class Buyer : MonoBehaviour, IBuyer
     private int _maxDifferentPurchases;
 
     #region Awake Start
-    private void Awake()
+    protected void Awake()
     {
         unit = GetComponent<IUnit>();
     }
 
-    private void Start()
+    protected void Start()
     {
         CreatePurchases();
     }

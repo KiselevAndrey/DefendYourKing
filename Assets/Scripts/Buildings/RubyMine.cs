@@ -14,14 +14,14 @@ public class RubyMine : Building, IBuilding, ISelectableUnit
     private int _currentCountHitToExtract;
     private int _activeMiners;
 
-    private void Start()
+    private new void Start()
     {
+        base.Start();
+
         for (int i = 0; i < miners.Count; i++)
         {
             miners[i].gameObject.SetActive(false);
         }
-
-        AfterBuilding();
     }
 
     public new void AfterBuilding()
