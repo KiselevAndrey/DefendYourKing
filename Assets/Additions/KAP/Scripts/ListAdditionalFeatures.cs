@@ -54,6 +54,26 @@ namespace KAP
         {
             return list[rng.Next(list.Count)];
         }
+
+        public static bool Random<T>(this IList<T> list, out T result)
+        {
+            if(list.Count == 0)
+            {
+                result = default;
+                return false;
+            }
+            
+            result = list[rng.Next(list.Count)];
+            return true;
+        }
+
+        public static void Print<T>(this IList<T> list)
+        {
+            for (int i = 0; i < list.Count; i++)
+            {
+                UnityEngine.Debug.Log(list[i]);
+            }
+        }
     }
 
 }

@@ -65,9 +65,9 @@ public class PlayerBot : Player, IPlayer
     private void TryBuyRandomPurchase()
     {
         IBuyer buyer = _buyers.Random();
-        Purchase purchase = buyer.Purchases.Random();
 
-        buyer.TryBuy(purchase, out string negativeResult);
+        if(buyer.Purchases.Random(out Purchase purchase))
+            buyer.TryBuy(purchase, out string negativeResult);
     }
     #endregion
 }
