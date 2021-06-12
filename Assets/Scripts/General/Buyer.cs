@@ -48,8 +48,6 @@ public class Buyer : MonoBehaviour, IBuyer
     #region TryBuy
     public bool TryBuy(Purchase purchase, out string negativeResut)
     {
-        print(name + " try buy " + purchase.interpretation);
-
         negativeResut = "";
         int purchaseCost = purchase.CalculateCost();
 

@@ -15,4 +15,4 @@ MonoBehaviour:
   icon: {fileID: 21300000, guid: d31aa8412a4d374458c912d11686642a, type: 3}
   interpretation: Add 1 swordman
   maxNumberOfPurchases: 10
-  basicCost: 100
+  basicCost: 10

@@ -66,8 +66,14 @@ public class PlayerBot : Player, IPlayer
     {
         IBuyer buyer = _buyers.Random();
 
-        if(buyer.Purchases.Random(out Purchase purchase))
-            buyer.TryBuy(purchase, out string negativeResult);
+        if (buyer.Purchases.Random(out Purchase purchase))
+            if (!buyer.TryBuy(purchase, out string negativeResult))
+                print(negativeResult);
+    }
+
+    public new void SpendRuby(int value)
+    {
+        Ruby -= value;
     }
     #endregion
 }

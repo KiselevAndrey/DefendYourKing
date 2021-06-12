@@ -47,12 +47,12 @@ public class Building : Unit, IBuilding, ISelectableUnit
 
     public new void Deselect()
     {
-        base.Deselect();
-
         if (_selected && _seller != null)
         {
             _seller.Hide();
         }
+
+        base.Deselect();
     }
     #endregion
 

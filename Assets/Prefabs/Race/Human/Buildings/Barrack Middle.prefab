@@ -56900,8 +56900,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2d0751b7ff0b4c44e85cc991f3e0532f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxDifferentPurchases: 5
-  maxAllPurchases: 0
+  maxAllPurchases: 5
   purchaseSOs:
   - {fileID: 11400000, guid: 8dad2c6a538bdbb47ba3a68670ffaecb, type: 2}
   - {fileID: 11400000, guid: 7e7956370937773429fdc475e9837343, type: 2}
