@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class MenuOfSelectedObject : MonoBehaviour, ISeller
+public class MenuOfSelectedObject : MonoBehaviour, ISeller, ISelectable
 {
     //[Header("Parameters")]
     //[SerializeField] 
@@ -15,6 +15,8 @@ public class MenuOfSelectedObject : MonoBehaviour, ISeller
     private IBuyer _buyer;
     private Purchase _selectedPurchase;
     private bool _buyWhenClick;
+
+    public bool NeedHidePrevios => false;
 
     #region Start Update
     private void Start()
@@ -33,6 +35,7 @@ public class MenuOfSelectedObject : MonoBehaviour, ISeller
     #region Show/Hide
     public void Hide()
     {
+        DeselectCell();
         animator.SetBool("Show", false);
     }
 
@@ -64,20 +67,19 @@ public class MenuOfSelectedObject : MonoBehaviour, ISeller
     private void Select(Purchase purchase)
     {
         animator.SetBool("Show Interpretation", true);
-        if (_selectedPurchase == purchase) return;
 
         _selectedPurchase = purchase;
+        UpdatePurchase(purchase);
+    }
+
+    private void UpdatePurchase(Purchase purchase)
+    {
         interpretationText.text = purchase.interpretation;
         costText.text = purchase.CalculateCost().ToString();
     }
-
-    private void Deselect()
-    {
-        animator.SetBool("Show Interpretation", false);
-    }
     #endregion
 
-    #region Cell
+    #region GUI Cell
     private void MouseUpperCell()
     {
         if (!_buyWhenClick) return;
@@ -91,10 +93,10 @@ public class MenuOfSelectedObject : MonoBehaviour, ISeller
                 Select(_buyer.Purchases[cell.numberOfCell]);
             }
             else
-                Deselect();
+                DeselectCell();
         }
         else
-            Deselect();
+            DeselectCell();
     }
 
     public void ClickToCell(SelectedCell cell)
@@ -108,11 +110,26 @@ public class MenuOfSelectedObject : MonoBehaviour, ISeller
             Select(_buyer.Purchases[cell.numberOfCell]);
         }
     }
+
+    public void DeselectCell()
+    {
+        animator.SetBool("Show Interpretation", false);
+    }
     #endregion
     #endregion
 
     public void TryBuy()
     {
-        _buyer.TryBuy(_selectedPurchase, out string _negativeResult);
+        if (_buyer.TryBuy(_selectedPurchase, out string _negativeResult))
+            UpdatePurchase(_selectedPurchase);
+    }
+
+    public void Select()
+    {
+        DeselectCell();
+    }
+
+    public void Deselect()
+    {
     }
 }
