@@ -1,7 +1,7 @@
 public class BuildBuyer : Buyer, IBuyer
 {
     [UnityEngine.SerializeField] private IBuilding building;
-    [UnityEngine.SerializeField] private int buildCost;
+    [UnityEngine.SerializeField] private int buildCost = -1;
 
     #region Awake Start
     private new void Awake()
@@ -13,8 +13,9 @@ public class BuildBuyer : Buyer, IBuyer
      private new void Start()
      {
         base.Start();
-
-        Purchases[0].ChangeBasicCost(buildCost);
+        
+        if(buildCost > -1)
+            Purchases[0].ChangeBasicCost(buildCost);
      }
     #endregion
 

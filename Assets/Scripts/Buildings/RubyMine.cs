@@ -18,10 +18,7 @@ public class RubyMine : Building, IBuilding, ISelectableUnit
     {
         base.Start();
 
-        for (int i = 0; i < miners.Count; i++)
-        {
-            miners[i].gameObject.SetActive(false);
-        }
+        DisableAllMiners();
     }
 
     public new void AfterBuilding()
@@ -31,6 +28,7 @@ public class RubyMine : Building, IBuilding, ISelectableUnit
         AddMiner();
     }
 
+    #region Miners
     public void TryExtract()
     {
         if (_currentCountHitToExtract < countMinerHitToExtract) _currentCountHitToExtract++;
@@ -40,6 +38,15 @@ public class RubyMine : Building, IBuilding, ISelectableUnit
             Player.AddRuby(income);
         }
     }
+
+    private void DisableAllMiners()
+    {
+        for (int i = 0; i < miners.Count; i++)
+        {
+            miners[i].gameObject.SetActive(false);
+        }
+    }
+    #endregion
 
     #region Buyer
     public void AddMiner()
@@ -59,6 +66,16 @@ public class RubyMine : Building, IBuilding, ISelectableUnit
     public void LessHitToIncome()
     {
         countMinerHitToExtract--;
+    }
+    #endregion
+
+    #region Health
+    public new void Death()
+    {
+        if (!_isLife) return;
+        base.Death();
+        print("ruby die");
+        DisableAllMiners();
     }
     #endregion
 }
