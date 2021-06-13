@@ -106,9 +106,12 @@ public class AttackBasic : MonoBehaviour, IAttack
 
     public void Attack()
     {
-        Target?.TakeDamage((int)Random.Range(Damage * .7f, Damage * 1.3f), unit);
+        if (CheckDistanceToTarget)
+        {
+            Target?.TakeDamage((int)Random.Range(Damage * .7f, Damage * 1.3f), unit);
 
-        CheckTarget();
+            CheckTarget();
+        }
     }
 
     private void CheckTarget()

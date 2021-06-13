@@ -56917,15 +56917,15 @@ MonoBehaviour:
   rewardForDeath: {x: 100, y: 500}
   changedPlayerMaterial: {fileID: 2260266331994304643}
   healthBar: {fileID: 1906513561734003016}
+  animator: {fileID: 2981715472671535342}
   bodyRadius: 1.5
   isBuild: 0
   buildTime: 10
   afterBuilding: {fileID: 3708980018788194620}
-  animator: {fileID: 2981715472671535342}
   spawnCooldownTime: 5
   spawnPrefabs:
   - {fileID: 8925257278360867271, guid: b1073f586a173474383b5bd16c4ef226, type: 3}
-  spawnCount: 32000000
+  spawnCount: 01000000
 --- !u!114 &-3858398876323272466
 MonoBehaviour:
   m_ObjectHideFlags: 0
