@@ -77,7 +77,8 @@ public class MobWithNavMesh : Unit, IMob, ISelectableUnit
         if (PathPoint)
         {
             SetDestination(PathPoint.GetPosition());
-            if (Vector3.Distance(Position, PathPoint.GetPosition()) < BodyRadius * 5 && PathPoint.GetNextPlayerPathPoint(Player))
+            if (printNow) print(Vector3.Distance(Position, PathPoint.GetPosition()) + " " + BodyRadius * 5f);
+            if (Vector3.Distance(Position, PathPoint.GetPosition()) < BodyRadius * 5f && PathPoint.GetNextPlayerPathPoint(Player))
             {
                 PathPoint = PathPoint.GetNextPlayerPathPoint(Player);
             }

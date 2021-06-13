@@ -7,7 +7,7 @@ public class Buyer : MonoBehaviour, IBuyer
     [SerializeField] protected int maxAllPurchases;
 
     [Header("Purchases")]
-    [SerializeField] private PurchaseSO[] purchaseSOs;
+    [SerializeField] protected PurchaseSO[] purchaseSOs;
 
     private List<Purchase> _purchases = new List<Purchase>();
     private IUnit unit;

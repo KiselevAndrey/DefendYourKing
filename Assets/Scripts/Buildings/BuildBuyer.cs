@@ -10,6 +10,7 @@ public class BuildBuyer : Buyer, IBuyer
 
         building = GetComponent<IBuilding>();
     }
+
      private new void Start()
      {
         base.Start();

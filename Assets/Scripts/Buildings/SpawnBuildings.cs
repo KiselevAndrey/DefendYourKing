@@ -7,11 +7,21 @@ public class SpawnBuildings : MonoBehaviour
     [SerializeField] private List<Transform> buildPositions;
     [SerializeField] private GameObject generalBuildingPrefab;
 
+    private IPlayer _player;
+
+    private void Awake()
+    {
+        _player = GetComponentInParent<IPlayer>();
+    }
+
     private void Start()
     {
         for (int i = 0; i < buildPositions.Count; i++)
         {
-            Lean.Pool.LeanPool.Spawn(generalBuildingPrefab, buildPositions[i]);
+            if(Lean.Pool.LeanPool.Spawn(generalBuildingPrefab, buildPositions[i]).TryGetComponent(out GeneralBuilding building))
+            {
+                building.Player = _player;
+            }
         }
     }
 }
