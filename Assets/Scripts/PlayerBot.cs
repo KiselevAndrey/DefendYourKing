@@ -6,6 +6,7 @@ public class PlayerBot : Player, IPlayer
 {
     [Header("Bot Parameters")]
     [SerializeField, Min(0)] private float rubyModultiplier;
+    [SerializeField] private bool printNow;
 
     private readonly List<IBuyer> _buyers = new List<IBuyer>();
 
@@ -69,7 +70,7 @@ public class PlayerBot : Player, IPlayer
 
         if (buyer.Purchases.Random(out Purchase purchase))
             if (!buyer.TryBuy(purchase, out string negativeResult))
-                print(negativeResult);
+                if(printNow) print(negativeResult);
     }
 
     public new void SpendRuby(int value)
