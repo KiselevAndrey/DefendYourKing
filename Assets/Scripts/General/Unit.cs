@@ -19,7 +19,7 @@ public class Unit : MonoBehaviour, IUnit, ISelectableUnit
 
     private int _currentHealth;
 
-    #region OnEnable OnDisable
+    #region OnEnable
     protected void OnEnable()
     {
         healthBar.gameObject.SetActive(true);
@@ -67,8 +67,10 @@ public class Unit : MonoBehaviour, IUnit, ISelectableUnit
     {
         Health -= damage;
 
-        if (Health <= 0)
+        if (Health < 1)
         {
+            Health = 0;
+
             if (_isLife)
                 attackedUnit.Player.AddRuby(RewardForDeath);
 
