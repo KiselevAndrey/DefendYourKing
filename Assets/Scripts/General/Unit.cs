@@ -22,6 +22,7 @@ public class Unit : MonoBehaviour, IUnit, ISelectableUnit
     #region OnEnable OnDisable
     protected void OnEnable()
     {
+        healthBar.gameObject.SetActive(true);
         healthBar.SetMaxHealt(maxHealth);
         Health = maxHealth;
 
@@ -71,7 +72,7 @@ public class Unit : MonoBehaviour, IUnit, ISelectableUnit
             if (_isLife)
                 attackedUnit.Player.AddRuby(RewardForDeath);
 
-            animator.SetTrigger("Death");
+            animator.SetBool("Death", true);
         }
     }
 
@@ -80,6 +81,7 @@ public class Unit : MonoBehaviour, IUnit, ISelectableUnit
         if (!_isLife) return;
 
         _isLife = false;
+        healthBar.gameObject.SetActive(false);
 
         Deselect();
     }

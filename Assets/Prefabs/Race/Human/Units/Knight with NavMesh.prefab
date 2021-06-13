@@ -396,7 +396,7 @@ Transform:
   m_GameObject: {fileID: 5678992569500877919}
   m_LocalRotation: {x: -0.00000011920929, y: 0, z: -0, w: 1}
   m_LocalPosition: {x: -0, y: 0.70371246, z: -0.00000026490315}
-  m_LocalScale: {x: 0.99999994, y: 1, z: 0.99999994}
+  m_LocalScale: {x: 0.54068303, y: 0.54068303, z: 0.54068303}
   m_Children:
   - {fileID: 1054249807698477359}
   m_Father: {fileID: 4479464276914240908}
@@ -781,12 +781,6 @@ MonoBehaviour:
   changedPlayerMaterial: {fileID: 974323392182088426}
   healthBar: {fileID: 51382174006181761}
   animator: {fileID: 5316395113660869607}
-  rememberedToOnEnableList:
-  - {fileID: 8925257277271626723}
-  - {fileID: 4479464276914240908}
-  - {fileID: 4215895896334830489}
-  - {fileID: 1130174067682585069}
-  - {fileID: 6567521668688864873}
   startStage: 0
   printNow: 0
   navMeshAgent: {fileID: 7423775924308423127}

@@ -13,7 +13,7 @@ public class UnitAnimatorsManager : MonoBehaviour
 
     private void OnEnable()
     {
-        animator.SetTrigger("Spawn");
+        animator.SetBool("Death", false);
     }
 
     #region Start Animations

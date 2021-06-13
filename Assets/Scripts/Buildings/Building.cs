@@ -17,7 +17,7 @@ public class Building : Unit, IBuilding, ISelectableUnit
     private ISeller _seller;
     private Vector3 _afterBuildingStartPosition;
 
-    #region Awake Start
+    #region Awake Start OnEnable
     private void Awake()
     {
         _buyer = GetComponent<IBuyer>();
@@ -26,14 +26,15 @@ public class Building : Unit, IBuilding, ISelectableUnit
 
     protected void Start()
     {
-        _afterBuildingStartPosition = afterBuilding.position;
+        _afterBuildingStartPosition = afterBuilding.position;        
+    }
 
-        if (isBuild) Build();
-        else
-        {
-            _buyer.IsActive = isBuild;
-            _buildBuyer.IsActive = !isBuild;
-        }
+    private new void OnEnable()
+    {
+        base.OnEnable();
+        _isLife = isBuild;
+
+        if (_isLife) Build();
     }
     #endregion
 
@@ -57,9 +58,9 @@ public class Building : Unit, IBuilding, ISelectableUnit
     {
         base.Select();
 
-        if (isBuild && _seller != null)
+        if (_isLife && _seller != null)
             _seller.Show(_buyer);
-        else if (!isBuild)
+        else if (!_isLife)
             _seller.Show(_buildBuyer);
     }
 
@@ -75,16 +76,29 @@ public class Building : Unit, IBuilding, ISelectableUnit
     #region Build
     public void Build()
     {
+        _isLife = true;
+        Health = maxHealth;
+
         healthBar.gameObject.SetActive(true);
         afterBuilding.DOLocalMove(Vector3.zero, buildTime).OnComplete(() => animator.SetTrigger("Build"));        
     }
 
+    protected void BeforeBuilding()
+    {
+        if (_isLife) return;
+
+        animator.SetBool("Death", false);
+        _isLife = false;
+        Health = 0;
+
+        _buyer.IsActive = _isLife;
+        _buildBuyer.IsActive = !_isLife;
+    }
+
     public void AfterBuilding()
     {
-        isBuild = _isLife = true;
-
-        _buyer.IsActive = isBuild;
-        _buildBuyer.IsActive = !isBuild;
+        _buyer.IsActive = _isLife;
+        _buildBuyer.IsActive = !_isLife;
     }
     #endregion
 
