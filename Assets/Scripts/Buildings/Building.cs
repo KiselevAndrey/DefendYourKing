@@ -94,6 +94,7 @@ public class Building : Unit, IBuilding, ISelectableUnit
         Health = 0;
 
         _buyer.IsActive = _isLife;
+        _buyer.Reset();
         _buildBuyer.IsActive = !_isLife;
     }
 
@@ -103,6 +104,7 @@ public class Building : Unit, IBuilding, ISelectableUnit
 
         _buyer.IsActive = _isLife;
         _buildBuyer.IsActive = !_isLife;
+        _buildBuyer.Reset();
     }
     #endregion
 
@@ -110,6 +112,7 @@ public class Building : Unit, IBuilding, ISelectableUnit
     public new void Death()
     {
         base.Death();
+
         buildingSoundsManager.PlayDeathClip();
     }
 

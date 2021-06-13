@@ -46,4 +46,9 @@ public class Purchase
     public bool CanBuyMore => _currentNumberOfPurchases < maxNumberOfPurchases;
 
     public void ChangeBasicCost(int value) => _basicCost = value;
+
+    public void Reset()
+    {
+        _currentNumberOfPurchases = 0;
+    }
 }

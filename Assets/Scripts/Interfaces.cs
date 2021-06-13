@@ -68,6 +68,8 @@ public interface IBuyer
     bool  IsActive { get; set; }
 
     bool TryBuy(Purchase purshase, out string negativeResult);
+
+    void Reset();
 }
 
 public interface ISeller

@@ -84,4 +84,12 @@ public class Buyer : MonoBehaviour, IBuyer
         return true;
     }
     #endregion
+
+    public void Reset()
+    {
+        for (int i = 0; i < _purchases.Count; i++)
+        {
+            _purchases[i].Reset();
+        }
+    }
 }
