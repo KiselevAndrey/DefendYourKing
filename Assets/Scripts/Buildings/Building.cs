@@ -10,6 +10,7 @@ public class Building : Unit, IBuilding, ISelectableUnit
 
     [Header("Buildings references")]
     [SerializeField] private Transform afterBuilding;
+    [SerializeField] private BuildingSoundsManager buildingSoundsManager;
 
     protected IBuyer _buyer;
     protected BuildBuyer _buildBuyer;
@@ -80,7 +81,8 @@ public class Building : Unit, IBuilding, ISelectableUnit
         Health = maxHealth;
 
         healthBar.gameObject.SetActive(true);
-        afterBuilding.DOLocalMove(Vector3.zero, buildTime).OnComplete(() => animator.SetTrigger("Build"));        
+        afterBuilding.DOLocalMove(Vector3.zero, buildTime).OnComplete(() => animator.SetTrigger("Build"));
+        buildingSoundsManager.PlayBuildClip();
     }
 
     protected void BeforeBuilding()
@@ -97,17 +99,25 @@ public class Building : Unit, IBuilding, ISelectableUnit
 
     public void AfterBuilding()
     {
+        buildingSoundsManager.StopPlayClip();
+
         _buyer.IsActive = _isLife;
         _buildBuyer.IsActive = !_isLife;
     }
     #endregion
 
     #region Die from animation
+    public new void Death()
+    {
+        base.Death();
+        buildingSoundsManager.PlayDeathClip();
+    }
+
     public new void Destroy()
     {
         healthBar.gameObject.SetActive(false);
         Sequence dieSequence = DOTween.Sequence();
-        dieSequence.Append(afterBuilding.DOMove(_afterBuildingStartPosition, 1f))
+        dieSequence.Append(afterBuilding.DOMove(_afterBuildingStartPosition, 2f))
             .Join(afterBuilding.DOShakeRotation(1f, strength : 10))
             .OnComplete(() => animator.SetTrigger("Destroy"));
     }

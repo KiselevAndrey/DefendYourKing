@@ -1193,6 +1193,17 @@ Mesh:
     offset: 0
     size: 0
     path: 
+--- !u!114 &255231893 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3111933502504520666, guid: 4c7e56e0fa2e2a145a6a8a0992ddd799, type: 3}
+  m_PrefabInstance: {fileID: 1598419016}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!43 &295868802
 Mesh:
   m_ObjectHideFlags: 0
@@ -1531,6 +1542,17 @@ Mesh:
     offset: 0
     size: 0
     path: 
+--- !u!114 &321461280 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6771232415844618457, guid: 4c7e56e0fa2e2a145a6a8a0992ddd799, type: 3}
+  m_PrefabInstance: {fileID: 1598419016}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!43 &344282611
 Mesh:
   m_ObjectHideFlags: 0
@@ -17431,6 +17453,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2471509472797714528, guid: 4c7e56e0fa2e2a145a6a8a0992ddd799, type: 3}
+      propertyPath: m_Name
+      value: HP Text
+      objectReference: {fileID: 0}
     - target: {fileID: 6328168973522956654, guid: 4c7e56e0fa2e2a145a6a8a0992ddd799, type: 3}
       propertyPath: moveCameraToSelected
       value: 
@@ -21767,6 +21793,14 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 139967464}
+    - target: {fileID: 9160968755178396940, guid: 21a7f400ab9b80d4d8b92e402937dacd, type: 3}
+      propertyPath: healthText
+      value: 
+      objectReference: {fileID: 321461280}
+    - target: {fileID: 9160968755178396940, guid: 21a7f400ab9b80d4d8b92e402937dacd, type: 3}
+      propertyPath: fillingHealthImage
+      value: 
+      objectReference: {fileID: 255231893}
     - target: {fileID: 9204455469024865492, guid: 21a7f400ab9b80d4d8b92e402937dacd, type: 3}
       propertyPath: m_Mesh
       value: 
