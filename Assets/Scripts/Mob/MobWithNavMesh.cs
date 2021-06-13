@@ -209,10 +209,11 @@ public class MobWithNavMesh : Unit, IMob, ISelectableUnit
 
     private void RotateTowards(Vector3 target)
     {
-        Vector3 direction = target - Position;
-        if (direction != Vector3.zero)
+        Vector3 endRotation = target - Position;
+        if (printNow) print(endRotation);
+        if (endRotation != Vector3.zero)
         {
-            transform.forward = direction;
+            transform.forward = Vector3.Lerp(transform.forward, endRotation, Time.deltaTime * 10f);
         }
     }
     #endregion
