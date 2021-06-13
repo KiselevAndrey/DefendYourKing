@@ -46,8 +46,6 @@ public class AttackBasic : MonoBehaviour, IAttack
     #region Find Target
     public bool TryFindTarget()
     {
-        if (Target != null) return true;
-
         if (_countOfCallsFindTargetFunction < countOfSkipCallsFindTargetFunction)
         {
             _countOfCallsFindTargetFunction++;

@@ -49,83 +49,105 @@ public class MobWithNavMesh : Unit, IMob, ISelectableUnit
     #endregion
 
     #region Stages
+    #region UpdateStage
     private void UpdateStage()
     {
         switch (_currentStage)
         {
             case Stages.FollowThePath:
-                if (PathPoint)
-                {
-                    SetDestination(PathPoint.GetPosition());
-                    if(Vector3.Distance(Position, PathPoint.GetPosition()) < BodyRadius * 5 && PathPoint.GetNextPlayerPathPoint(Player))
-                    {
-                        PathPoint = PathPoint.GetNextPlayerPathPoint(Player);
-                    }
-                }
-
-                if (_attack.TryFindTarget())
-                    ChangeStage(Stages.FollowToAttack);
-                
+                UpdateStagesFollowThePath();
                 break;
 
             case Stages.FollowToAttack:
-                if (_attack.CheckTheTarget)
-                {
-                    if (printNow) print("Find Target");
-                    if (Vector3.Distance(Position, _attack.Target.Position) > navMeshAgent.stoppingDistance)
-                    {
-                        SetDestination(_attack.Target.Position);
-                    }
-                    else
-                    {
-                        ChangeStage(Stages.Attack);
-                    }
-                }
-                else
-                {
-                    if (printNow) print("Dont Find Target");
-                    if (_attack.FindNearestTarget())
-                    {
-                        if (printNow) print("Find Nearest Target");
-                        ChangeStage(Stages.FollowToAttack);
-                    }
-                    else
-                    {
-                        if (printNow) print("Walk to the path");
-                        ChangeStage(startStage);
-                    }
-                }
+                UpdateStagesFollowToAttack();
                 break;
 
             case Stages.Attack:
-                if (!_attack.CheckDistanceToTarget)
-                {
-                    ResetStage();
-                    break;
-                }
-
-                RotateTowards(_attack.Target.Position);
-
-                if (_attack.TryAttack())
-                    StartAttackAnimation();
-
+                UpdateStagesAttack();
                 break;
 
             case Stages.Stay:
-                if (_attack.TryFindTarget())
-                {
-                    if (_attack.CanAttack)
-                    {
-                        ChangeStage(Stages.Attack);
-                    }
-                    else if (!_attack.CheckTheTarget)
-                        _attack.Target = null;
-                    else
-                        RotateTowards(_attack.Target.Position);
-                }
+                UpdateStagesStay();
                 break;
         }
     }
+
+    private void UpdateStagesFollowThePath()
+    {
+        if (PathPoint)
+        {
+            SetDestination(PathPoint.GetPosition());
+            if (Vector3.Distance(Position, PathPoint.GetPosition()) < BodyRadius * 5 && PathPoint.GetNextPlayerPathPoint(Player))
+            {
+                PathPoint = PathPoint.GetNextPlayerPathPoint(Player);
+            }
+        }
+
+        if (_attack.TryFindTarget())
+            ChangeStage(Stages.FollowToAttack);
+    }
+
+    private void UpdateStagesFollowToAttack()
+    {
+        // if have life target
+        if (_attack.CheckTheTarget)
+        {
+            if (printNow) print("Find Target");
+
+            if(!_attack.CheckDistanceToTarget)
+                SetDestination(_attack.Target.Position);
+            else
+                ChangeStage(Stages.Attack);
+        }
+        else
+        {
+            if (printNow) print("Dont Find Target");
+            if (_attack.FindNearestTarget())
+            {
+                if (printNow) print("Find Nearest Target");
+                ChangeStage(Stages.FollowToAttack);
+            }
+            else
+            {
+                if (printNow) print("Walk to startStage");
+                ChangeStage(startStage);
+            }
+        }
+    }
+    
+    private void UpdateStagesAttack()
+    {
+        if (!_attack.CheckDistanceToTarget)
+        {
+            if (printNow) print("Reset Stage");
+            ResetStage();
+            return;
+        }
+
+        RotateTowards(_attack.Target.Position);
+
+        if (_attack.TryAttack())
+            StartAttackAnimation();
+    }
+
+    private void UpdateStagesStay()
+    {
+        if (_attack.TryFindTarget())
+        {
+            if (printNow) print("FindTargete");
+            if (_attack.CanAttack)
+            {
+                if (printNow) print("CanAttack");
+                ChangeStage(Stages.Attack);
+            }
+            else if (!_attack.CheckTheTarget)
+            {
+                if (printNow) print("NoTarget");
+                _attack.Target = null;
+            }
+        }
+    }
+    #endregion
 
     protected void ChangeStage(Stages newStage)
     {
