@@ -6,6 +6,7 @@ public class Player : MonoBehaviour, IPlayer
     [Header("Player Parameters")]
     [SerializeField] protected Material material;
     [SerializeField, Min(0)] protected int startedRubyCount;
+    [SerializeField, Min(0)] private float rubyMultiplier;
 
     [Header("References")]
     [SerializeField] protected PathPoint startPathPoint;
@@ -100,8 +101,10 @@ public class Player : MonoBehaviour, IPlayer
 
     public void AddRuby(int value)
     {
-        Ruby += value;
+        Ruby += CalculateAddRuby(value);
     }
+
+    protected int CalculateAddRuby(int value) => (int)(value * rubyMultiplier);
 
     public void SpendRuby (int value)
     {

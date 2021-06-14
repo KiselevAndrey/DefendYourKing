@@ -5,7 +5,6 @@ using KAP;
 public class PlayerBot : Player, IPlayer
 {
     [Header("Bot Parameters")]
-    [SerializeField, Min(0)] private float rubyModultiplier;
     [SerializeField] private bool printNow;
 
     private readonly List<IBuyer> _buyers = new List<IBuyer>();
@@ -59,7 +58,7 @@ public class PlayerBot : Player, IPlayer
 
     public new void AddRuby(int value)
     {
-        Ruby += (int)(value * rubyModultiplier);
+        Ruby += CalculateAddRuby(value);
 
         TryBuyRandomPurchase();
     }
